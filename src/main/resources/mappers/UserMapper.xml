@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.todo.user.UserMapper">
+    <select id="getUserByUserId">
+        SELECT user_index AS userIndex, user_id AS userId, user_pw AS userPw, user_name AS userName, created_at AS createdAt
+        FROM user
+        WHERE user_id = #{user_id}
+    </select>
+
+    <insert id="userSignUp">
+        INSERT INTO user
+        SET user_id = #{userId},
+            user_pw = #{userPw},
+            user_name = #{userName}
+    </insert>
+</mapper>
