@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.todo.board.BoardMapper">
+    <insert id="createBoard" keyProperty="boardId" useGeneratedKeys="true">
+        INSERT INTO board (user_id, title, content, color, state, start_day, d_day, dead_line, position)
+        SELECT #{signedUserId}, #{title}, #{content}, #{color}, #{state}, #{startDay}, #{dDay}, #{deadLine}, COALESCE(MAX(position) + 1, 1)
+        FROM board;
+    </insert>
+
+    <insert id="createBoardFiles">
+        INSERT INTO file (board_id, file_name)
+        VALUES
+        <foreach collection="fileNames" item="fileName" separator=",">
+            (#{boardId}, #{fileName})
+        </foreach>
+    </insert>
+
+    <select id="getBoardListByMonth">
+        SELECT
+            board_id AS boardId,
+            user_id AS userId,
+            title,
+            content,
+            color,
+            state,
+            start_day AS startDay,
+            d_day AS dDay,
+            dead_line AS deadLine,
+            position,
+            created_at AS createdAt,
+            updated_at AS updatedAt
+        FROM board
+        WHERE MONTH(start_day) = #{month} OR MONTH(d_day) = #{month}
+    </select>
+
+    <select id="getBoardFiles">
+        SELECT file_name
+        FROM file
+        WHERE board_id = #{boardId}
+    </select>
+</mapper>

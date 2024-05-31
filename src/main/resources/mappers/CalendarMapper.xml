@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.todo.calendar.CalendarMapper">
+    <insert id="createCalendar" useGeneratedKeys="true" keyProperty="calendarId">
+        INSERT INTO calendar
+        SET title = #{title},
+            color = #{color}
+    </insert>
+
+    <insert id="plusCalendarUserById" parameterType="map">
+        INSERT INTO calendar_user (calendar_id, user_id)
+        VALUES (#{calendarId}, #{signedUserId})
+    </insert>
+
+    <select id="getUserIdByEmail">
+        SELECT user_id
+        FROM user
+        WHERE email = #{userEmail}
+    </select>
+
+    <select id="getCalendarList">
+        SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = #{signedUserId}
+    </select>
+
+    <update id="updateCalendar">
+        UPDATE calendar
+        <set>
+            <if test="title != null">
+                title = #{title}
+            </if>
+            <if test="color != null">
+                , color = #{color}
+            </if>
+        </set>
+        WHERE calendar_id = #{calendarId}
+    </update>
+
+    <delete id="deleteCalendar">
+        DELETE FROM calendar
+        WHERE calendar_id = #{calendarId}
+    </delete>
+</mapper>
