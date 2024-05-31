@@ -7,11 +7,11 @@ import lombok.Data;
 public class CreateBoardReq {
     @JsonIgnore
     private long boardId;
-    private long signedUserId;
+    private Long calendarId;
+    private Long signedUserId;
     private String title;
     private String content;
-    private int color;
-    private int state;
+    private Integer state;
     private String startDay;
     private String dDay;
     private String deadLine;

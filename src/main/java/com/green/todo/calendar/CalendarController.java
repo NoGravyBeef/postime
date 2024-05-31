@@ -1,15 +1,18 @@
 package com.green.todo.calendar;
 
 import com.green.todo.calendar.model.req.CreateCalendarReq;
+import com.green.todo.calendar.model.req.DeleteCalendarReq;
 import com.green.todo.calendar.model.req.PlusCalendarUserReq;
 import com.green.todo.calendar.model.req.UpdateCalendarReq;
 import com.green.todo.calendar.model.res.GetCalendarRes;
 import com.green.todo.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -112,20 +115,23 @@ public class CalendarController {
 
     @DeleteMapping
     @Operation(summary = "캘린더 지우기", description = "<strong>캘린더를 지운다니깐요?</strong>" +
-            "<p>지울 캘린더의 id 넣어주세요~!~!</p>")
+            "<p>지울 캘린더의 id 넣어주세요~!~!</p>" +
+            "<p>누구에게서 캘린더를 지울지 유저id를 넣어주세요~!~!</p>" +
+            "<strong>해당 유저한테서만 캘린더가 삭제됩니다</strong>" +
+            "<p>**캘린더를 가지고 있는 마지막 유저가 삭제하면, 캘린더 또한 영원히 삭제됨!!!!**</p>")
     @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 200 => 정상</p>"+
                     "<p>statusCode = 406 => 불러온개 0개 이거나, 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 캘린더가 지워지면  1  나옵니다!. </p>"
     )
-    public ResultDto<Integer> deleteCalendar(@Schema(example = "1") @RequestParam(name = "calendar_id") Long calendarId) {
+    public ResultDto<Integer> deleteCalendar(@ParameterObject @ModelAttribute DeleteCalendarReq p) {
         HttpStatus code = HttpStatus.OK;
         String msg = "캘린더 삭제 완료~!~!";
         int result = -1;
 
         try {
-            result = service.deleteCalendar(calendarId);
+            result = service.deleteCalendar(p);
         } catch (Exception e) {
             code = HttpStatus.NOT_ACCEPTABLE;
             msg = e.getMessage();

@@ -41,7 +41,14 @@
     </update>
 
     <delete id="deleteCalendar">
+        DELETE FROM calendar_user
+        WHERE user_id = #{signedUserId} AND calendar_id = #{calendarId}
+    </delete>
+
+    <delete id="deleteCalendarPermanent">
         DELETE FROM calendar
-        WHERE calendar_id = #{calendarId}
+        WHERE calendar_id = #{calendarId} AND NOT EXISTS (
+        SELECT 1 FROM calendar_user WHERE calendar_id = #{calendarId}
+        )
     </delete>
 </mapper>

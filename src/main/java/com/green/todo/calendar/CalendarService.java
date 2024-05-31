@@ -1,6 +1,7 @@
 package com.green.todo.calendar;
 
 import com.green.todo.calendar.model.req.CreateCalendarReq;
+import com.green.todo.calendar.model.req.DeleteCalendarReq;
 import com.green.todo.calendar.model.req.PlusCalendarUserReq;
 import com.green.todo.calendar.model.req.UpdateCalendarReq;
 import com.green.todo.calendar.model.res.GetCalendarRes;
@@ -115,20 +116,30 @@ public class CalendarService {
     }
 
     /*-------------------------캘린더 삭제 service-------------------------*/
-    public int deleteCalendar(Long calendarId) throws Exception{
-        if (calendarId == null) {
+    public int deleteCalendar(DeleteCalendarReq p) throws Exception{
+
+        if (p.getSignedUserId() == null){
+            throw new RuntimeException("어떤 유저인지 선택이 안됐습니다~!~!");
+        }
+        if (p.getCalendarId() == null) {
             throw new RuntimeException("삭제할 캘린더가 선택안됨~!~!");
         }
 
         int result = 0;
         try {
-            result = mapper.deleteCalendar(calendarId);
+            result = mapper.deleteCalendar(p);
         } catch (Exception e) {
             throw new RuntimeException("캘린더 삭제 쿼링 이슈~!~!");
         }
-
         if (result == 0) {
             throw new RuntimeException("삭제된 캘린더가 없습니다~!~!");
+        }
+
+
+        try {
+            mapper.deleteCalendarPermanent(p.getCalendarId());
+        } catch (Exception e) {
+            throw new RuntimeException("캘린더 삭제 쿼링 이슈~!~!");
         }
 
         return result;
