@@ -15,7 +15,7 @@
     </insert>
 
     <select id="getUserIdByEmail">
-        SELECT user_id
+        SELECT user_id AS userId, name
         FROM user
         WHERE email = #{userEmail}
     </select>

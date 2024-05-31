@@ -146,17 +146,18 @@ public class CalendarController {
 
     @PostMapping("plus")
     @Operation(summary = "캘린더에 유저 한명씩 추가", description = "<strong>캘린더를 볼 수 있는 유저 한명 추가!</strong>" +
-            "<p>선택한 캘린더 id와, 추가할 유저 id를 입력해 주세요~!~!</p>")
+            "<p>선택한 캘린더 id와, 추가할 유저 Email를 입력해 주세요~!~!</p>")
     @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 200 => 정상</p>"+
                     "<p>statusCode = 406 => 추가 못했거나, 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
-                    "<p>resultData = 1명 추가되면 1나옴!, 0명 또는 오류나면 -1나옴!</p>"
+                    "<p>resultData = 1명 추가되면, 추가된 사람 이름 나옴!</p>" +
+                            "<p>추가된 사람이 없으면, null 나옴!</p>"
     )
-    public ResultDto<Integer> plusCalendarUser(@RequestBody PlusCalendarUserReq p) {
+    public ResultDto<String> plusCalendarUser(@RequestBody PlusCalendarUserReq p) {
         HttpStatus code = HttpStatus.OK;
         String msg = "유저 추가 완료~!~!";
-        int result = -1;
+        String result = null;
 
         try {
             result = service.plusCalendarUser(p);
@@ -165,7 +166,7 @@ public class CalendarController {
             msg = e.getMessage();
         }
 
-        return ResultDto.<Integer>builder()
+        return ResultDto.<String>builder()
                 .statusCode(code)
                 .resultMsg(msg)
                 .resultData(result)

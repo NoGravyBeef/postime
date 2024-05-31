@@ -5,6 +5,7 @@ import com.green.todo.calendar.model.req.DeleteCalendarReq;
 import com.green.todo.calendar.model.req.PlusCalendarUserReq;
 import com.green.todo.calendar.model.req.UpdateCalendarReq;
 import com.green.todo.calendar.model.res.GetCalendarRes;
+import com.green.todo.calendar.model.res.GetUserByEmailRes;
 import com.green.todo.calendar.module.CountLengthUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -146,21 +147,21 @@ public class CalendarService {
     }
 
     /*-------------------------유저 추가 service-------------------------*/
-    public int plusCalendarUser(PlusCalendarUserReq p) throws Exception {
+    public String plusCalendarUser(PlusCalendarUserReq p) throws Exception {
         if (p.getSelectedCalendarId() == null || p.getUserEmail() == null) {
             throw new RuntimeException("유저 추가 양식 부족함~!~!");
         }
 
-        long userId = 0;
+        GetUserByEmailRes res = null;
         try {
-            userId = mapper.getUserIdByEmail(p.getUserEmail());
+            res = mapper.getUserIdByEmail(p.getUserEmail());
         } catch (Exception e) {
             throw new RuntimeException("존재하지 않는 유저 Email 입니다~!~!");
         }
 
         int result = 0;
         try {
-            result = mapper.plusCalendarUserById(p.getSelectedCalendarId(), userId);
+            result = mapper.plusCalendarUserById(p.getSelectedCalendarId(), res.getUserId());
         } catch (Exception e) {
             throw new RuntimeException("유저 추가 쿼링 이슈~!~!");
         }
@@ -170,6 +171,6 @@ public class CalendarService {
         }
 
 
-        return result;
+        return res.getName();
     }
 }
