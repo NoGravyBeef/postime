@@ -159,8 +159,6 @@ public class CalendarController {
             msg = e.getMessage();
         }
 
-
-
         return ResultDto.<Integer>builder()
                 .statusCode(code)
                 .resultMsg(msg)
