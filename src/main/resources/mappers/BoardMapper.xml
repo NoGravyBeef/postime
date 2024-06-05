@@ -27,6 +27,7 @@
     </insert>
 
     <select id="getBoardListByUserIdAndMonth">
+        <![CDATA[
         SELECT
             A.board_id AS boardId,
             A.calendar_id AS calendarId,
@@ -43,8 +44,13 @@
         FROM board A
         JOIN calendar B ON A.calendar_id = B.calendar_id
         JOIN calendar_user C ON B.calendar_id = C.calendar_id
-        WHERE C.user_id = #{userId} AND MONTH(A.d_day) = #{month}
+        WHERE C.user_id = #{userId}
+          AND (
+            (A.start_day <= LAST_DAY(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))
+            AND A.d_day >= STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))
+          )
         ORDER BY A.d_day ASC
+        ]]>
     </select>
 
     <select id="getBoardFiles">

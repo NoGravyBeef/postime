@@ -1,5 +1,6 @@
 package com.green.todo.board.model.res;
 
+import com.green.todo.tag.model.res.TagRes;
 import lombok.Data;
 
 import java.util.List;
@@ -19,4 +20,5 @@ public class GetBoardRes {
     private String createdAt;
     private String updatedAt;
     private List<FileRes> files;
+    private List<TagRes> tags;
 }
