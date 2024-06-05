@@ -1,0 +1,1217 @@
+[2024-06-04 15:38:16 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 15752 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:38:16 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:38:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 15:38:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 15:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:38:17 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:38:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:38:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:38:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1170 ms[0;39m
+[2024-06-04 15:38:18 [33mWARN [0;39m restartedMain] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] [36mException encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardController' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardService' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'[0;39m
+[2024-06-04 15:38:18 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStopping service [Tomcat][0;39m
+[2024-06-04 15:38:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger] [36m
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.[0;39m
+[2024-06-04 15:38:18 [31mERROR[0;39m restartedMain] [org.springframework.boot.SpringApplication] [36mApplication run failed[0;39m
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardController' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardService' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.green.todo.TodoApplication.main(TodoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardService' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1685)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1434)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 38 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	... 52 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 62 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 76 common frames omitted
+Caused by: java.io.IOException: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:700)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:577)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:720)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:189)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 77 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains key com.green.todo.board.BoardMapper.getBoardByBoardId. please check file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml] and file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:127)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:100)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:698)
+	... 85 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains key com.green.todo.board.BoardMapper.getBoardByBoardId. please check file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml] and file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:1071)
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:1024)
+	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:822)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:223)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:143)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:125)
+	... 87 common frames omitted
+[2024-06-04 15:39:30 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 12660 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:39:30 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:39:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 15:39:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 15:39:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:39:31 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:39:31 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:39:31 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:39:31 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:39:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 958 ms[0;39m
+[2024-06-04 15:39:32 [33mWARN [0;39m restartedMain] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] [36mException encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardController' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardService' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'[0;39m
+[2024-06-04 15:39:32 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStopping service [Tomcat][0;39m
+[2024-06-04 15:39:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger] [36m
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.[0;39m
+[2024-06-04 15:39:32 [31mERROR[0;39m restartedMain] [org.springframework.boot.SpringApplication] [36mApplication run failed[0;39m
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardController' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardService' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.green.todo.TodoApplication.main(TodoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'boardService' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'boardMapper' defined in file [D:\youp\backEnd\todo\build\classes\java\main\com\green\todo\board\BoardMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1685)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1434)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 38 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	... 52 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 62 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 76 common frames omitted
+Caused by: java.io.IOException: Failed to parse mapping resource: 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:700)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:577)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:720)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:189)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 77 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]'. Cause: java.lang.IllegalArgumentException: Mapped Statements collection already contains key com.green.todo.board.BoardMapper.getBoardByBoardId. please check file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml] and file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:127)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:100)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:698)
+	... 85 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Mapped Statements collection already contains key com.green.todo.board.BoardMapper.getBoardByBoardId. please check file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml] and file [D:\youp\backEnd\todo\build\resources\main\mappers\BoardMapper.xml]
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:1071)
+	at org.apache.ibatis.session.Configuration$StrictMap.put(Configuration.java:1024)
+	at org.apache.ibatis.session.Configuration.addMappedStatement(Configuration.java:822)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:223)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:143)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:125)
+	... 87 common frames omitted
+[2024-06-04 15:40:18 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 13324 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:40:18 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:40:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 15:40:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 15:40:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:40:19 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:40:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:40:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:40:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:40:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1043 ms[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 2.205 seconds (process running for 2.56)[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2f01ce55[0;39m
+[2024-06-04 15:40:20 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-06-04 15:40:20 [31mERROR[0;39m http-nio-8080-exec-4] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] [36mServlet.service() for servlet [dispatcherServlet] in context with path [] threw exception[0;39m
+java.io.FileNotFoundException: class path resource [static/index.html] cannot be resolved to URL because it does not exist
+	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:230)
+	at org.springframework.core.io.AbstractFileResolvingResource.lastModified(AbstractFileResolvingResource.java:268)
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:598)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-06-04 15:40:47 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-06-04 15:40:47 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-06-04 15:40:49 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 12420 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:40:49 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:40:49 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 15:40:49 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 15:40:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:40:50 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:40:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:40:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:40:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:40:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 948 ms[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 2.011 seconds (process running for 2.365)[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.148] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6ffe17bd[0;39m
+[2024-06-04 15:40:51 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-06-04 15:40:55 [31mERROR[0;39m http-nio-8080-exec-4] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] [36mServlet.service() for servlet [dispatcherServlet] in context with path [] threw exception[0;39m
+java.io.FileNotFoundException: class path resource [static/index.html] cannot be resolved to URL because it does not exist
+	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:230)
+	at org.springframework.core.io.AbstractFileResolvingResource.lastModified(AbstractFileResolvingResource.java:268)
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:598)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-06-04 15:40:56 [31mERROR[0;39m http-nio-8080-exec-2] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]] [36mServlet.service() for servlet [dispatcherServlet] in context with path [] threw exception[0;39m
+java.io.FileNotFoundException: class path resource [static/index.html] cannot be resolved to URL because it does not exist
+	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:230)
+	at org.springframework.core.io.AbstractFileResolvingResource.lastModified(AbstractFileResolvingResource.java:268)
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:598)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-06-04 15:41:15 [32mINFO [0;39m http-nio-8080-exec-9] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 230 ms[0;39m
+[2024-06-04 15:43:07 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-06-04 15:43:07 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-06-04 15:43:09 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 10024 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:43:09 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:43:09 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 15:43:09 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 15:43:10 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:43:10 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:43:10 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:43:10 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:43:10 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:43:10 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 955 ms[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 2.033 seconds (process running for 2.394)[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:43:11 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m
+[2024-06-04 15:43:12 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@8286e64[0;39m
+[2024-06-04 15:43:12 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-06-04 15:43:15 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (1, 1, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 2 msec}[0;39m
+[2024-06-04 15:43:15 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (1, 1, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 1 msec}[0;39m
+[2024-06-04 15:43:15 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|1         |
+|----------|
+[0;39m
+[2024-06-04 15:43:15 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO file (board_id, file_name)
+        VALUES
+
+            (1, 'cdb10de8-b064-40ca-a165-46d3ee4d79ec.jpg')
+         , 
+            (1, 'be3ff45f-6447-445f-8295-d27f02449156.jpg')
+ {executed in 0 msec}[0;39m
+[2024-06-04 15:45:17 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-06-04 15:45:17 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-06-04 15:45:20 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 5584 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:45:20 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:45:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 15:45:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 965 ms[0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 15:45:21 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 2.16 seconds (process running for 2.556)[0;39m
+[2024-06-04 15:45:22 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:45:22 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:45:22 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-06-04 15:45:22 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 2 ms[0;39m
+[2024-06-04 15:45:22 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@79d06c96[0;39m
+[2024-06-04 15:45:22 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-06-04 15:45:22 [32mINFO [0;39m http-nio-8080-exec-4] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 230 ms[0;39m
+[2024-06-04 15:45:54 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title, content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 15:45:54 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+|board_id |calendar_id |user_id |title  |content |state |start_day  |d_day      |dead_line |created_at          |updated_at |
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+|1        |1           |1       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |null       |
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+[0;39m
+[2024-06-04 15:46:30 [32mINFO [0;39m SpringApplicationShutdownHook] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:46:30 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-06-04 15:46:30 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-06-04 15:46:32 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 16292 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:46:32 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:46:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 15:46:32 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 15:46:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:46:33 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:46:33 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:46:33 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:46:33 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:46:33 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 958 ms[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 2.011 seconds (process running for 2.374)[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@78daebc8[0;39m
+[2024-06-04 15:46:34 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-06-04 15:46:36 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title, content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = 1
+ {executed in 1 msec}[0;39m
+[2024-06-04 15:46:36 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+|board_id |calendar_id |user_id |title  |content |state |start_day  |d_day      |dead_line |created_at          |updated_at |
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+|1        |1           |1       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |null       |
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+[0;39m
+[2024-06-04 15:46:43 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title, content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 15:46:43 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+|board_id |calendar_id |user_id |title  |content |state |start_day  |d_day      |dead_line |created_at          |updated_at |
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+|1        |1           |1       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |null       |
+|---------|------------|--------|-------|--------|------|-----------|-----------|----------|--------------------|-----------|
+[0;39m
+[2024-06-04 15:46:43 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. UPDATE board
+         SET title = 'ASDF'
+
+                , content = 'ASDF'
+
+                , start_day = '2024-04-11' 
+        WHERE board_id = 1 AND user_id = 1
+ {executed in 3 msec}[0;39m
+[2024-06-04 15:46:54 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title, content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 15:46:54 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|board_id |calendar_id |user_id |title |content |state |start_day  |d_day      |dead_line |created_at          |updated_at          |
+|---------|------------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|1        |1           |1       |ASDF  |ASDF    |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |2024-06-04 15:46:43 |
+|---------|------------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+[0;39m
+[2024-06-04 15:46:54 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. UPDATE board
+         SET title = 'ASDF'
+
+                , content = 'ASDF'
+
+                , start_day = '2024-04-10' 
+        WHERE board_id = 1 AND user_id = 1
+ {executed in 2 msec}[0;39m
+[2024-06-04 15:56:43 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)[0;39m
+[2024-06-04 15:56:43 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:56:43 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-06-04 15:56:43 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-06-04 15:56:43 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 16292 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:56:43 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 293 ms[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 0.637 seconds (process running for 612.531)[0;39m
+[2024-06-04 15:56:44 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)[0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m Thread-7] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 16292 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 15:57:14 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 265 ms[0;39m
+[2024-06-04 15:57:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 15:57:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 15:57:15 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 15:57:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 15:57:15 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 0.487 seconds (process running for 643.078)[0;39m
+[2024-06-04 15:57:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-06-04 16:00:54 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 2 class path changes (1 addition, 0 deletions, 1 modification)[0;39m
+[2024-06-04 16:00:54 [32mINFO [0;39m Thread-11] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:00:54 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 16292 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 16:00:54 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 291 ms[0;39m
+[2024-06-04 16:00:55 [33mWARN [0;39m restartedMain] [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] [36mMultiple @RequestMapping annotations found on public com.green.todo.common.model.ResultDto com.green.todo.board.BoardController.deleteBoard(com.green.todo.board.model.req.DeleteBoardReq), but only the first will be used: [@org.springframework.web.bind.annotation.PatchMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={}), @org.springframework.web.bind.annotation.DeleteMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})][0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 0.548 seconds (process running for 863.418)[0;39m
+[2024-06-04 16:00:55 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 1 class path change (0 additions, 0 deletions, 1 modification)[0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m Thread-15] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 16292 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 16:08:10 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 254 ms[0;39m
+[2024-06-04 16:08:10 [33mWARN [0;39m restartedMain] [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] [36mMultiple @RequestMapping annotations found on public com.green.todo.common.model.ResultDto com.green.todo.board.BoardController.deleteBoard(com.green.todo.board.model.req.DeleteBoardReq), but only the first will be used: [@org.springframework.web.bind.annotation.PatchMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={}), @org.springframework.web.bind.annotation.DeleteMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})][0;39m
+[2024-06-04 16:08:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 16:08:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 16:08:11 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:08:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 16:08:11 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 0.472 seconds (process running for 1299.045)[0;39m
+[2024-06-04 16:08:11 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-06-04 16:45:50 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 6732 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 16:45:50 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 16:45:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 16:45:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 16:45:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 16:45:51 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:45:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 16:45:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 16:45:51 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 16:45:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 950 ms[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 1.988 seconds (process running for 2.354)[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-06-04 16:45:52 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-06-04 16:45:53 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.148] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@74b502cd[0;39m
+[2024-06-04 16:45:53 [32mINFO [0;39m RMI TCP Connection(1)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-06-04 16:45:56 [32mINFO [0;39m http-nio-8080-exec-9] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 225 ms[0;39m
+[2024-06-04 16:46:24 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.board_id AS boardId,
+            A.calendar_id AS calendarId,
+            B.color,
+            A.user_id AS userId,
+            A.title,
+            A.content,
+            A.state,
+            A.start_day AS startDay,
+            A.d_day AS dDay,
+            A.dead_line AS deadLine,
+            A.created_at AS createdAt,
+            A.updated_at AS updatedAt
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        WHERE MONTH(start_day) = 4 OR MONTH(d_day) = 4
+ {executed in 2 msec}[0;39m
+[2024-06-04 16:46:24 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|board_id |calendar_id |color |user_id |title |content |state |start_day  |d_day      |dead_line |created_at          |updated_at          |
+|---------|------------|------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|1        |1           |9     |1       |ASDF  |ASDF    |1     |2024-04-10 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |2024-06-04 15:46:54 |
+|---------|------------|------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+[0;39m
+[2024-06-04 16:46:24 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 16:46:24 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|cdb10de8-b064-40ca-a165-46d3ee4d79ec.jpg |
+|be3ff45f-6447-445f-8295-d27f02449156.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 10 class path changes (1 addition, 0 deletions, 9 modifications)[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m Thread-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 6732 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 283 ms[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 0.53 seconds (process running for 2917.49)[0;39m
+[2024-06-04 17:34:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 6 class path changes (0 additions, 0 deletions, 6 modifications)[0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m Thread-7] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 6732 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 17:34:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 253 ms[0;39m
+[2024-06-04 17:34:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 17:34:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 17:34:54 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:34:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 17:34:54 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 0.489 seconds (process running for 2943.918)[0;39m
+[2024-06-04 17:34:54 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-06-04 17:36:23 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarting TodoApplication using Java 17.0.10 with PID 13820 (D:\youp\backEnd\todo\build\classes\java\main started by Administrator in D:\youp\backEnd\todo)[0;39m
+[2024-06-04 17:36:23 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-06-04 17:36:23 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-06-04 17:36:23 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.20][0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 955 ms[0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [36mExposing 1 endpoint(s) beneath base path '/actuator'[0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-06-04 17:36:24 [32mINFO [0;39m restartedMain] [com.green.todo.TodoApplication] [36mStarted TodoApplication in 2.03 seconds (process running for 2.394)[0;39m
+[2024-06-04 17:36:25 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-06-04 17:36:25 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-06-04 17:36:25 [32mINFO [0;39m RMI TCP Connection(2)-192.168.0.148] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-06-04 17:36:25 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-06-04 17:36:25 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@913f3d8[0;39m
+[2024-06-04 17:36:25 [32mINFO [0;39m RMI TCP Connection(3)-192.168.0.148] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-06-04 17:36:33 [32mINFO [0;39m http-nio-8080-exec-4] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 219 ms[0;39m
+[2024-06-04 17:36:38 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.board_id AS boardId,
+            A.calendar_id AS calendarId,
+            B.color,
+            A.user_id AS userId,
+            A.title,
+            A.content,
+            A.state,
+            A.start_day AS startDay,
+            A.d_day AS dDay,
+            A.dead_line AS deadLine,
+            A.created_at AS createdAt,
+            A.updated_at AS updatedAt
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 1
+ {executed in 1 msec}[0;39m
+[2024-06-04 17:36:38 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|board_id |calendar_id |color |user_id |title |content |state |start_day  |d_day      |dead_line |created_at          |updated_at          |
+|---------|------------|------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|1        |1           |9     |1       |ASDF  |ASDF    |1     |2024-04-10 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |2024-06-04 15:46:54 |
+|---------|------------|------|--------|------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+[0;39m
+[2024-06-04 17:36:38 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:36:38 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|cdb10de8-b064-40ca-a165-46d3ee4d79ec.jpg |
+|be3ff45f-6447-445f-8295-d27f02449156.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:47:29 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (1, 2, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 1 msec}[0;39m
+[2024-06-04 17:47:29 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (1, 2, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:47:29 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|2         |
+|----------|
+[0;39m
+[2024-06-04 17:47:29 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO file (board_id, file_name)
+        VALUES
+
+            (2, 'c628264b-d308-48b3-9936-4b0b279ff7b7.jpg')
+         , 
+            (2, '6d12ef6c-f7e0-4aae-b15b-c2be56973028.jpg')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:47:33 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (1, 3, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:47:33 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (1, 3, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:47:33 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|3         |
+|----------|
+[0;39m
+[2024-06-04 17:47:33 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO file (board_id, file_name)
+        VALUES
+
+            (3, 'deac65e2-d96e-49a5-800c-cd0f3977399c.jpg')
+         , 
+            (3, '9f334ff9-04e3-4854-9fc3-45b6d6e9d6e4.jpg')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:25 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (2, 1, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:25 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (2, 1, 'string', 'string', '2024-04-11', '2024-04-11', '11:10:12')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:25 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|4         |
+|----------|
+[0;39m
+[2024-06-04 17:48:25 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. INSERT INTO file (board_id, file_name)
+        VALUES
+
+            (4, '03c94118-47ff-4273-b17b-89f1f3e3c7b5.jpg')
+         , 
+            (4, '0bddde45-3053-48e9-8c04-4fb859491f17.jpg')
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:44 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.board_id AS boardId,
+            A.calendar_id AS calendarId,
+            B.color,
+            A.user_id AS userId,
+            A.title,
+            A.content,
+            A.state,
+            A.start_day AS startDay,
+            A.d_day AS dDay,
+            A.dead_line AS deadLine,
+            A.created_at AS createdAt,
+            A.updated_at AS updatedAt
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:44 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|board_id |calendar_id |color |user_id |title  |content |state |start_day  |d_day      |dead_line |created_at          |updated_at          |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|1        |1           |9     |1       |ASDF   |ASDF    |1     |2024-04-10 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |2024-06-04 15:46:54 |
+|2        |1           |9     |2       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:29 |null                |
+|3        |1           |9     |3       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:33 |null                |
+|4        |2           |1     |1       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:48:25 |null                |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+[0;39m
+[2024-06-04 17:48:44 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:44 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|cdb10de8-b064-40ca-a165-46d3ee4d79ec.jpg |
+|be3ff45f-6447-445f-8295-d27f02449156.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:48:44 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 2
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:44 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|c628264b-d308-48b3-9936-4b0b279ff7b7.jpg |
+|6d12ef6c-f7e0-4aae-b15b-c2be56973028.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:48:44 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 3
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:48:44 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|deac65e2-d96e-49a5-800c-cd0f3977399c.jpg |
+|9f334ff9-04e3-4854-9fc3-45b6d6e9d6e4.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:48:44 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 4
+ {executed in 1 msec}[0;39m
+[2024-06-04 17:48:44 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|03c94118-47ff-4273-b17b-89f1f3e3c7b5.jpg |
+|0bddde45-3053-48e9-8c04-4fb859491f17.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:49:10 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.board_id AS boardId,
+            A.calendar_id AS calendarId,
+            B.color,
+            A.user_id AS userId,
+            A.title,
+            A.content,
+            A.state,
+            A.start_day AS startDay,
+            A.d_day AS dDay,
+            A.dead_line AS deadLine,
+            A.created_at AS createdAt,
+            A.updated_at AS updatedAt
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 2
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:49:10 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|board_id |calendar_id |color |user_id |title  |content |state |start_day  |d_day      |dead_line |created_at          |updated_at          |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|1        |1           |9     |1       |ASDF   |ASDF    |1     |2024-04-10 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |2024-06-04 15:46:54 |
+|2        |1           |9     |2       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:29 |null                |
+|3        |1           |9     |3       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:33 |null                |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+[0;39m
+[2024-06-04 17:49:10 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 1
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:49:10 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|cdb10de8-b064-40ca-a165-46d3ee4d79ec.jpg |
+|be3ff45f-6447-445f-8295-d27f02449156.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:49:10 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 2
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:49:10 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|c628264b-d308-48b3-9936-4b0b279ff7b7.jpg |
+|6d12ef6c-f7e0-4aae-b15b-c2be56973028.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:49:10 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 3
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:49:10 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|deac65e2-d96e-49a5-800c-cd0f3977399c.jpg |
+|9f334ff9-04e3-4854-9fc3-45b6d6e9d6e4.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:51:32 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.board_id AS boardId,
+            A.calendar_id AS calendarId,
+            B.color,
+            A.user_id AS userId,
+            A.title,
+            A.content,
+            A.state,
+            A.start_day AS startDay,
+            A.d_day AS dDay,
+            A.dead_line AS deadLine,
+            A.created_at AS createdAt,
+            A.updated_at AS updatedAt
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 2
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:51:32 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|board_id |calendar_id |color |user_id |title  |content |state |start_day  |d_day      |dead_line |created_at          |updated_at          |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|1        |1           |9     |1       |ASDF   |ASDF    |1     |2024-04-10 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |2024-06-04 15:46:54 |
+|2        |1           |9     |2       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:29 |null                |
+|3        |1           |9     |3       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:33 |null                |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+[0;39m
+[2024-06-04 17:51:32 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 1
+ {executed in 1 msec}[0;39m
+[2024-06-04 17:51:32 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|cdb10de8-b064-40ca-a165-46d3ee4d79ec.jpg |
+|be3ff45f-6447-445f-8295-d27f02449156.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:51:32 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 2
+ {executed in 1 msec}[0;39m
+[2024-06-04 17:51:32 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|c628264b-d308-48b3-9936-4b0b279ff7b7.jpg |
+|6d12ef6c-f7e0-4aae-b15b-c2be56973028.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:51:32 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 3
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:51:32 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|deac65e2-d96e-49a5-800c-cd0f3977399c.jpg |
+|9f334ff9-04e3-4854-9fc3-45b6d6e9d6e4.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:58:31 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT
+            A.board_id AS boardId,
+            A.calendar_id AS calendarId,
+            B.color,
+            A.user_id AS userId,
+            A.title,
+            A.content,
+            A.state,
+            A.start_day AS startDay,
+            A.d_day AS dDay,
+            A.dead_line AS deadLine,
+            A.created_at AS createdAt,
+            A.updated_at AS updatedAt
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 3
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:58:31 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|board_id |calendar_id |color |user_id |title  |content |state |start_day  |d_day      |dead_line |created_at          |updated_at          |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+|1        |1           |9     |1       |ASDF   |ASDF    |1     |2024-04-10 |2024-04-11 |11:10:12  |2024-06-04 15:43:15 |2024-06-04 15:46:54 |
+|2        |1           |9     |2       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:29 |null                |
+|3        |1           |9     |3       |string |string  |1     |2024-04-11 |2024-04-11 |11:10:12  |2024-06-04 17:47:33 |null                |
+|---------|------------|------|--------|-------|--------|------|-----------|-----------|----------|--------------------|--------------------|
+[0;39m
+[2024-06-04 17:58:31 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 1
+ {executed in 1 msec}[0;39m
+[2024-06-04 17:58:31 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|cdb10de8-b064-40ca-a165-46d3ee4d79ec.jpg |
+|be3ff45f-6447-445f-8295-d27f02449156.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:58:31 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 2
+ {executed in 0 msec}[0;39m
+[2024-06-04 17:58:31 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|c628264b-d308-48b3-9936-4b0b279ff7b7.jpg |
+|6d12ef6c-f7e0-4aae-b15b-c2be56973028.jpg |
+|-----------------------------------------|
+[0;39m
+[2024-06-04 17:58:31 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. SELECT file_name
+        FROM file
+        WHERE board_id = 3
+ {executed in 1 msec}[0;39m
+[2024-06-04 17:58:31 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|-----------------------------------------|
+|file_name                                |
+|-----------------------------------------|
+|deac65e2-d96e-49a5-800c-cd0f3977399c.jpg |
+|9f334ff9-04e3-4854-9fc3-45b6d6e9d6e4.jpg |
+|-----------------------------------------|
+[0;39m
