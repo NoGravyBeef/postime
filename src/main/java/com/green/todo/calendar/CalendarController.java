@@ -1,13 +1,10 @@
 package com.green.todo.calendar;
 
-import com.green.todo.calendar.model.req.CreateCalendarReq;
-import com.green.todo.calendar.model.req.DeleteCalendarReq;
-import com.green.todo.calendar.model.req.PlusCalendarUserReq;
-import com.green.todo.calendar.model.req.UpdateCalendarReq;
+import com.green.todo.calendar.model.req.*;
 import com.green.todo.calendar.model.res.GetCalendarRes;
+import com.green.todo.calendar.model.res.MemRes;
 import com.green.todo.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Slf4j
@@ -34,7 +30,7 @@ public class CalendarController {
                     "<p>statusCode = 200 => 정상 </p>"+
                     "<p>statusCode = 406 => 생성된 캘린더 없음 및 오류 </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
-                    "<p>resultData =  (-1 => 생성 안됨 및 오류), (1 => 생성 성공) </p>"
+                    "<p>resultData =  (-1 => 생성 안됨 및 오류), (나머지 => 생성된 캘린더 id) </p>"
     )
     public ResultDto<Long> createCalendar(@RequestBody CreateCalendarReq p) {
         HttpStatus code = HttpStatus.OK;
@@ -77,6 +73,34 @@ public class CalendarController {
         }
 
         return ResultDto.<List<GetCalendarRes>>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
+    }
+
+    @GetMapping("memberlist")
+    @Operation(summary = "캘린더 멤버 목록 가지고오기", description = "<strong>캘린더 멤버 목록을 불러온다요~!~!</strong>" +
+            "<p>calendar_id 값을 넣어주세요~!~!</p>")
+    @ApiResponse(responseCode = "200",description =
+            "<p>statusCode = 200 => 정상</p>"+
+                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 가지고온 캘린더 멤버 목록~!~! </p>"
+    )
+    public ResultDto<List<MemRes>> getMemberList(@Schema(name = "calendar_id", example = "1") @RequestParam(name = "calendar_id") long calendarId) {
+        HttpStatus code = HttpStatus.OK;
+        String msg = "멤버 리스트 불러오기 완료~!~!";
+        List<MemRes> result = null;
+
+        try {
+            result = service.getMemberList(calendarId);
+        } catch (Exception e) {
+            code = HttpStatus.NOT_ACCEPTABLE;
+            msg = e.getMessage();
+        }
+
+        return ResultDto.<List<MemRes>>builder()
                 .statusCode(code)
                 .resultMsg(msg)
                 .resultData(result)
@@ -167,6 +191,36 @@ public class CalendarController {
         }
 
         return ResultDto.<String>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
+    }
+
+    @Operation(summary = "캘린더 멤버 삭제", description = "<p>캘린더 맴버 삭제하는 곳입니다요~!~!</p>" +
+            "<p>모든 항목에 올바른 값 넣으셔야 합니다.</p>" +
+            "<p>캘린더를 만든 주인만 다른 유저를 삭제할 수 있습니다.</p>")
+    @ApiResponse(responseCode = "200",description =
+            "<p>statusCode = 200 => 정상 </p>"+
+                    "<p>statusCode = 406 => 오류 </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = (0 => 주인이 아니라서 누굴 못지워서 0명 지워짐. 또는 지울 사람이 없어서 0명 지워짐.), " +
+                    "(1 => 생성 성공) </p>"
+    )
+    @DeleteMapping("delete/member")
+    public ResultDto<Integer> deleteCalendarMember(@RequestBody DeleteCalendarMemberReq p) {
+        HttpStatus code = HttpStatus.OK;
+        String msg = "멤버 삭제 완료~!~!";
+        int result = -1;
+
+        try {
+            result = service.deleteCalendarMember(p);
+        } catch (Exception e) {
+            code = HttpStatus.NOT_ACCEPTABLE;
+            msg = e.getMessage();
+        }
+
+        return ResultDto.<Integer>builder()
                 .statusCode(code)
                 .resultMsg(msg)
                 .resultData(result)

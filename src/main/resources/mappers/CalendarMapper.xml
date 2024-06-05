@@ -5,13 +5,16 @@
 <mapper namespace="com.green.todo.calendar.CalendarMapper">
     <insert id="createCalendar" useGeneratedKeys="true" keyProperty="calendarId">
         INSERT INTO calendar
-        SET title = #{title},
+        SET user_id = #{signedUserId},
+            title = #{title},
             color = #{color}
     </insert>
 
-    <insert id="plusCalendarUserById" parameterType="map">
-        INSERT INTO calendar_user (calendar_id, user_id)
-        VALUES (#{calendarId}, #{signedUserId})
+    <insert id="plusCalendarUserById">
+        INSERT INTO calendar_user
+        (calendar_id, user_id)
+        VALUES
+        (#{calendarId}, #{signedUserId})
     </insert>
 
     <select id="getUserIdByEmail">
@@ -25,6 +28,13 @@
         FROM calendar A
         JOIN calendar_user B ON A.calendar_id = B.calendar_id
         WHERE B.user_id = #{signedUserId}
+    </select>
+
+    <select id="getMemberList">
+        SELECT A.user_id AS userId, B.name, B.email
+        FROM calendar_user A
+        JOIN user B ON A.user_id = B.user_id
+        WHERE calendar_id = #{calendarId}
     </select>
 
     <update id="updateCalendar">
@@ -49,6 +59,17 @@
         DELETE FROM calendar
         WHERE calendar_id = #{calendarId} AND NOT EXISTS (
         SELECT 1 FROM calendar_user WHERE calendar_id = #{calendarId}
+        )
+    </delete>
+
+    <delete id="deleteCalendarMember">
+        DELETE FROM calendar_user
+        WHERE calendar_id = #{calendarId}
+        AND user_id = #{userId}
+        AND EXISTS (
+            SELECT 1 FROM calendar
+            WHERE calendar_id = #{calendarId}
+            AND user_id = #{signedUserId}
         )
     </delete>
 </mapper>

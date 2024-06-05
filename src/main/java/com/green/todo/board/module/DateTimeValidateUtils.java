@@ -23,7 +23,7 @@ public class DateTimeValidateUtils {
         return Date;
     }
 
-    public static void timeValidator (String time) throws Exception{
+    public static LocalTime timeValidator (String time) throws Exception{
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
         LocalTime Time;
@@ -32,6 +32,8 @@ public class DateTimeValidateUtils {
         } catch (DateTimeParseException e) {
             throw new Exception("시간 똑바로 입력해~");
         }
+
+        return Time;
     }
 
 }

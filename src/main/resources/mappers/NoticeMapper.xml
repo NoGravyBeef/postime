@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.todo.notice.NoticeMapper">
+
+    <insert id="insertNotice" useGeneratedKeys="true"
+            keyProperty="noticeId">          <!-- notice 테이블 insert -->
+        INSERT INTO notice
+        SET calendar_id = #{calendarId}
+            , content = #{content}
+    </insert>
+
+    <insert id="insertNoticeList">      <!-- notice_list 테이블 insert -->
+        INSERT INTO notice_list
+        SET notice_id = #{noticeId}
+        , user_id = #{userId}
+    </insert>
+
+    <select id="getCalendarMember">         <!-- 캘린더에 포함된 유저의 PK 가져오기 -->
+        SELECT user_id
+        FROM calendar_user
+        WHERE calendar_id = #{calendarId}
+    </select>
+
+    <select id="getCalendarName">         <!-- 알림 내용에 들어갈 이름 불러오기 -->
+        SELECT title
+        FROM calendar
+        WHERE calendar_id = #{calendarId}
+    </select>
+    <select id="getUserName">
+        SELECT name
+        FROM user
+        WHERE user_id = #{userId}
+    </select>
+    <select id="getBoardName">
+        SELECT title
+        FROM board
+        WHERE board_id = #{boardId}
+    </select>
+
+    <select id="getNoticeList">        <!-- 유저별 알림 불러오기 -->
+        SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, B.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = #{signedUserId}
+        ORDER BY A.notice_id DESC
+    </select>
+
+    <select id="notRead">        <!-- 읽지않은 알림 개수 -->
+        SELECT COUNT(created_at) - COUNT(updated_at)
+        FROM notice_list
+        WHERE user_id = #{signedUserId}
+    </select>
+
+    <update id="updateNotice">        <!-- 알림 업데이트 -->
+        UPDATE notice_list
+        SET updated_at = NOW()
+        WHERE notice_id = #{noticeId}
+            AND user_id = #{signedUserId}
+    </update>
+
+
+</mapper>

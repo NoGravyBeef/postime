@@ -3,10 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.todo.board.BoardMapper">
+
     <insert id="createBoard" keyProperty="boardId" useGeneratedKeys="true">
-        INSERT INTO board (user_id, title, content, color, state, start_day, d_day, dead_line, position)
-        SELECT #{signedUserId}, #{title}, #{content}, #{color}, #{state}, #{startDay}, #{dDay}, #{deadLine}, COALESCE(MAX(position) + 1, 1)
-        FROM board;
+        INSERT INTO board
+        (calendar_id, user_id, title, content, start_day, d_day, dead_line)
+        VALUES
+        (#{calendarId}, #{signedUserId}, #{title}, #{content}, #{startDay}, #{dDay}, #{deadLine})
     </insert>
 
     <insert id="createBoardFiles">
@@ -17,27 +19,89 @@
         </foreach>
     </insert>
 
-    <select id="getBoardListByMonth">
+    <insert id="createFile" keyProperty="fileId" useGeneratedKeys="true">
+        INSERT INTO file
+        (file_name, board_id)
+        values
+        (#{fileName}, #{boardId})
+    </insert>
+
+    <select id="getBoardListByUserIdAndMonth">
         SELECT
-            board_id AS boardId,
-            user_id AS userId,
-            title,
-            content,
-            color,
-            state,
-            start_day AS startDay,
-            d_day AS dDay,
-            dead_line AS deadLine,
-            position,
-            created_at AS createdAt,
-            updated_at AS updatedAt
-        FROM board
-        WHERE MONTH(start_day) = #{month} OR MONTH(d_day) = #{month}
+            A.board_id AS boardId,
+            A.calendar_id AS calendarId,
+            B.color,
+            A.user_id AS userId,
+            A.title,
+            A.content,
+            A.state,
+            A.start_day AS startDay,
+            A.d_day AS dDay,
+            A.dead_line AS deadLine,
+            A.created_at AS createdAt,
+            A.updated_at AS updatedAt
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = #{userId} AND MONTH(A.d_day) = #{month}
+        ORDER BY A.d_day ASC
     </select>
 
     <select id="getBoardFiles">
-        SELECT file_name
+        SELECT file_id AS fileId, file_name AS fileName
         FROM file
         WHERE board_id = #{boardId}
     </select>
+
+    <select id="getBoardByBoardId">
+        SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title, content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = #{boardId}
+    </select>
+
+    <update id="updateBoard">
+        UPDATE board
+        <set>
+            <if test="title != null">
+                title = #{title}
+            </if>
+            <if test="content != null">
+                , content = #{content}
+            </if>
+            <if test="startDay != null">
+                , start_day = #{startDay}
+            </if>
+            <if test="dDay != null">
+                , d_day = #{dDay}
+            </if>
+            <if test="deadLine != null">
+                , dead_line = #{deadLine}
+            </if>
+        </set>
+        WHERE board_id = #{boardId}
+    </update>
+
+    <update id="updateBoardState">
+        UPDATE board
+        SET state = #{state}
+        WHERE board_id = #{boardId}
+    </update>
+
+    <update id="updateBoardDnD">
+        UPDATE board
+        SET start_day = #{startDay}
+            , d_day = #{dDay}
+        WHERE board_id = #{boardId}
+    </update>
+
+    <delete id="deleteBoard">
+        DELETE FROM board
+        WHERE board_id = #{boardId}
+    </delete>
+
+    <delete id="deleteFile">
+        DELETE FROM file
+        WHERE file_id = #{fileId}
+    </delete>
+
 </mapper>

@@ -2,13 +2,10 @@ package com.green.todo.board.model.res;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class GetBoardRes {
+public class BoardEntity {
     private Long boardId;
     private Long calendarId;
-    private Long color;
     private Long userId;
     private String title;
     private String content;
@@ -18,5 +15,4 @@ public class GetBoardRes {
     private String deadLine;
     private String createdAt;
     private String updatedAt;
-    private List<FileRes> files;
 }

@@ -8,9 +8,18 @@ import org.springframework.http.HttpStatus;
 @Data
 @Builder
 public class ResultDto<T> {
-    @Schema(example = "통신코드 ex) 200, 406")
+    @Schema(example = "OK")
     private HttpStatus statusCode;
-    @Schema(example = "어디서 오류났는지 알려드립니다~!")
+    @Schema(example = "완료")
     private String resultMsg;
     private T resultData;
+
+    public static <T> ResultDto<T> resultDto(HttpStatus status, String msg, T data) {
+        return ResultDto.<T>builder()
+                .statusCode(status)
+                .resultMsg(msg)
+                .resultData(data)
+                .build();
+    }
+
 }

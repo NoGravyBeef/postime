@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.todo.tag.TagMapper">
+
+    <insert id="insertTag" useGeneratedKeys="true" keyProperty="tagId">
+        INSERT INTO tag
+        SET calendar_id = #{calendarId}
+        , title = #{title}
+        , color = #{color}
+    </insert>
+
+    <insert id="insertBoardTag">
+        INSERT INTO board_tag
+        (board_id, tag_id)
+        VALUES
+        <foreach collection="tags" item="tagId" separator=",">
+            (#{boardId}, #{tagId})
+        </foreach>
+    </insert>
+
+    <select id="getTagForCheckTitle">
+        SELECT tag_id AS tagId, calendar_id AS calendarId, title, color
+        , created_at AS createdAt, updated_at AS updatedAt
+        FROM tag
+        WHERE title = #{title}
+        AND calendar_id = #{calendarId}
+    </select>
+
+    <select id="getTagByBoardId">
+        SELECT tag_id
+        FROM board_tag
+        WHERE board_id = #{boardId}
+    </select>
+
+    <delete id="deleteTagPermanent">
+        DELETE FROM tag
+        WHERE tag_id = #{tagId}
+        AND NOT EXISTS (
+        SELECT 1
+        FROM board_tag
+        WHERE tag_id = #{tagId}
+        )
+    </delete>
+
+    <delete id="deleteBoardTag">
+        DELETE FROM board_tag
+        WHERE (board_id, tag_id) IN
+        <foreach collection="p" item="item" separator=", " open="(" close=")">
+            (#{item.boardId}, #{item.tagId})
+        </foreach>
+    </delete>
+
+</mapper>
