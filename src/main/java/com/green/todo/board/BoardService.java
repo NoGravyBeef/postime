@@ -1,17 +1,16 @@
 package com.green.todo.board;
 
 import com.green.todo.board.model.req.*;
-import com.green.todo.board.model.res.BoardEntity;
-import com.green.todo.board.model.res.GetBoardRes;
+import com.green.todo.board.model.res.*;
 import com.green.todo.board.module.DateTimeValidateUtils;
 import com.green.todo.board.module.EtcModule;
 import com.green.todo.calendar.module.CountLengthUtil;
 import com.green.todo.common.CustomFileUtils;
-import com.green.todo.board.model.res.FileRes;
 import com.green.todo.notice.NoticeService;
 import com.green.todo.notice.model.req.NoticeReq;
 import com.green.todo.tag.TagMapper;
 import com.green.todo.tag.TagService;
+import com.green.todo.tag.model.TagEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -125,31 +124,106 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardRes> getBoardList(Long userId, Integer month){
-
-        if (userId == null) {
-            throw new RuntimeException("유저 id 값은 반드시 필요합니다.");
+    public GetBoardRes getBoardInfo(Long boardId) {
+        if (boardId == null) {
+            throw new RuntimeException("보드id를 넣으셔야 합니다~!~!");
         }
 
-
-        List<GetBoardRes> boardListByUserId;
+        GetBoardRes boardInfo;
         try {
-            boardListByUserId = mapper.getBoardListByUserIdAndMonth(userId, month);
+            boardInfo = mapper.getBoardInfoByBoardId(boardId);
+
+            List<FileRes> files = mapper.getBoardFiles(boardInfo.getBoardId());
+            boardInfo.setFiles(files);
+
+            List<TagEntity> tags = tagMapper.getTagsByBoardId(boardId);
+            boardInfo.setTags(tags);
         } catch (Exception e) {
             throw new RuntimeException("board정보 불러오기 실패~!~!");
         }
 
+        return boardInfo;
+    }
 
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+
+    public List<GetBoardMiniRes> getBoardMiniList(Long userId, Integer month){
+
+        if (userId == null || month == null) {
+            throw new RuntimeException("모든 항목은 반드시 필요합니다.");
+        }
+
+        List<GetBoardMiniRes> boardListByUserId;
         try {
-            for (GetBoardRes oneBoard : boardListByUserId) {
-                List<FileRes> files = mapper.getBoardFiles(oneBoard.getBoardId());
-                oneBoard.setFiles(files);
-            }
+            boardListByUserId = mapper.getBoardMiniListByUserIdAndMonth(userId, month);
         } catch (Exception e) {
-            throw new RuntimeException("파일 불러오기 실패~!~!");
+            throw new RuntimeException("board정보 불러오기 실패~!~!");
         }
 
         return boardListByUserId;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+
+    public List<GetBoardMiniRes> getBoardDoneList(Long userId) {
+
+        if (userId == null) {
+            throw new RuntimeException("유저 id를 입력하셔야합니다.");
+        }
+
+        List<GetBoardMiniRes> doneBoardList = null;
+        try {
+            doneBoardList = mapper.getBoardMiniByState(userId, 2);
+        } catch (Exception e) {
+            throw new RuntimeException("완료 보드 불러오기 쿼링 이슈~!~!");
+        }
+
+        return doneBoardList;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+
+    public List<GetBoardMiniRes> getBoardDeletedList(Long userId) {
+
+        if (userId == null) {
+            throw new RuntimeException("유저 id를 입력하셔야합니다.");
+        }
+
+        List<GetBoardMiniRes> doneBoardList = null;
+        try {
+            doneBoardList = mapper.getBoardMiniByState(userId, 3);
+        } catch (Exception e) {
+            throw new RuntimeException("삭제 보드 불러오기 쿼링 이슈~!~!");
+        }
+
+        return doneBoardList;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+
+    public TodoListRes getBoardTodoList(Long userId) {
+        if (userId == null) {
+            throw new RuntimeException("유저 id를 입력하셔야합니다.");
+        }
+
+        TodoListRes todoListRes = new TodoListRes();
+        try {
+            List<GetBoardTodoRes> untilTodayBoard = mapper.selectBoardsByUserIdForToday(userId);
+            List<GetBoardTodoRes> untilThisMonthBoard = mapper.selectBoardsByUserIdForCurrentMonth(userId);
+            List<GetBoardTodoRes> untilNextMonthBoard = mapper.selectBoardsByUserIdForNextMonth(userId);
+
+            todoListRes.setUntilTodayBoard(untilTodayBoard);
+            todoListRes.setUntilThisMonthBoard(untilThisMonthBoard);
+            todoListRes.setUntilNextMonthBoard(untilNextMonthBoard);
+        } catch (Exception e) {
+            throw new RuntimeException("할 일 목록을 불러오는 도중 오류가 발생했습니다.");
+        }
+
+        return todoListRes;
     }
 
     ///////////////////////////////////////////////////////////////

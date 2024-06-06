@@ -11,6 +11,7 @@ public interface TagMapper {
     int insertTag(TagPostReq p);
     int insertBoardTag(BoardTagPostReq p);
 
+    List<TagEntity> getTagsByBoardId(Long BoardId);
     TagEntity getTagForCheckTitle(TagGetReq p);
     List<Long> getTagByBoardId(long boardId);
 

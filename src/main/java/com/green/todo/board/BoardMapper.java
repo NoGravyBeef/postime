@@ -1,9 +1,7 @@
 package com.green.todo.board;
 
 import com.green.todo.board.model.req.*;
-import com.green.todo.board.model.res.BoardEntity;
-import com.green.todo.board.model.res.GetBoardRes;
-import com.green.todo.board.model.res.FileRes;
+import com.green.todo.board.model.res.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,9 +10,14 @@ import java.util.List;
 public interface BoardMapper {
     int createBoard(CreateBoardReq p);
     void createBoardFiles(CreateBoardFileDto dto);
-    List<GetBoardRes> getBoardListByUserIdAndMonth(Long userId, Integer month);
+    GetBoardRes getBoardInfoByBoardId(Long boardId);
+    List<GetBoardMiniRes> getBoardMiniListByUserIdAndMonth(Long userId, Integer month);
     List<FileRes> getBoardFiles(long boardId);
     BoardEntity getBoardByBoardId(Long boardId);
+    List<GetBoardMiniRes> getBoardMiniByState(Long userId, Integer state);
+    List<GetBoardTodoRes> selectBoardsByUserIdForToday(Long userId);
+    List<GetBoardTodoRes> selectBoardsByUserIdForCurrentMonth(Long userId);
+    List<GetBoardTodoRes> selectBoardsByUserIdForNextMonth(Long userId);
     int updateBoard(UpdateBoardReq p);
     int updateBoardState(UpdateBoardStateReq p);
     int updateBoardDnD(UpdateBoardDnDReq p);

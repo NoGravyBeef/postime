@@ -19,6 +19,20 @@
         </foreach>
     </insert>
 
+    <select id="getTagsByBoardId">
+        SELECT
+        T.tag_id AS tagId,
+        T.calendar_id AS calendarId,
+        T.title,
+        T.color,
+        T.created_at AS createdAt,
+        T.updated_at AS updatedAt
+        FROM tag T
+        JOIN board_tag BT ON T.tag_id = BT.tag_id
+        WHERE
+        BT.board_id = #{boardId}
+    </select>
+
     <select id="getTagForCheckTitle">
         SELECT tag_id AS tagId, calendar_id AS calendarId, title, color
         , created_at AS createdAt, updated_at AS updatedAt

@@ -1,8 +1,7 @@
 package com.green.todo.board;
 
 import com.green.todo.board.model.req.*;
-import com.green.todo.board.model.res.GetBoardRes;
-import com.green.todo.board.model.res.FileRes;
+import com.green.todo.board.model.res.*;
 import com.green.todo.common.model.ResultDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.xml.transform.Result;
 import java.util.List;
 
 @RestController
@@ -23,7 +23,6 @@ public class BoardController {
     //TODO: 파일, 태그도 넣는거 해줘야함.
     public ResultDto<Long> createBoard(@RequestPart CreateBoardReq p
                                        ,@RequestPart(required = false) List<MultipartFile> files
-//                                       ,@RequestPart List<Tag> tags
                                        ) {
         HttpStatus code = HttpStatus.OK;
         String msg = "board 업로드 완료요~!~!";
@@ -44,22 +43,81 @@ public class BoardController {
     }
 
     @GetMapping
-    public ResultDto<List<GetBoardRes>> getBoardListByMonth(@RequestParam(name = "user_id") Long userId, @RequestParam Integer month) {
-
+    public ResultDto<GetBoardRes> getBoardInfo (@RequestParam(name = "board_id") Long boardId) {
 
         HttpStatus code = HttpStatus.OK;
-        String msg = "board 불러오기 완료요~!~!";
-        List<GetBoardRes> result = null;
+        String msg = "board 정보 불러오기 완료요~!~!";
+        GetBoardRes result = null;
 
         try {
-
-            result = service.getBoardList(userId, month);
+            result = service.getBoardInfo(boardId);
         } catch (Exception e) {
             code = HttpStatus.NOT_ACCEPTABLE;
             msg = e.getMessage();
         }
 
-        return ResultDto.<List<GetBoardRes>>builder()
+        return ResultDto.<GetBoardRes>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
+    }
+
+    @GetMapping("mini")
+    public ResultDto<List<GetBoardMiniRes>> getBoardMiniListByMonth(@RequestParam(name = "user_id") Long signedUserId, @RequestParam Integer month) {
+
+        HttpStatus code = HttpStatus.OK;
+        String msg = "board mini 리스트 불러오기 완료요~!~!";
+        List<GetBoardMiniRes> result = null;
+
+        try {
+            result = service.getBoardMiniList(signedUserId, month);
+        } catch (Exception e) {
+            code = HttpStatus.NOT_ACCEPTABLE;
+            msg = e.getMessage();
+        }
+
+        return ResultDto.<List<GetBoardMiniRes>>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
+    }
+
+    @GetMapping("done")
+    public ResultDto<List<GetBoardMiniRes>> getBoardDoneList(@RequestParam(name = "user_id") Long signedUserId) {
+        HttpStatus code = HttpStatus.OK;
+        String msg = "완료된 board 불러오기 완료요~!~!";
+        List<GetBoardMiniRes> result = null;
+
+        try {
+            result = service.getBoardDoneList(signedUserId);
+        } catch (Exception e) {
+            code = HttpStatus.NOT_ACCEPTABLE;
+            msg = e.getMessage();
+        }
+
+        return ResultDto.<List<GetBoardMiniRes>>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
+    }
+
+    @GetMapping("deleted")
+    public ResultDto<List<GetBoardMiniRes>> getBoardDeletedList(@RequestParam(name = "user_id") Long signedUserId) {
+        HttpStatus code = HttpStatus.OK;
+        String msg = "삭제된 board 불러오기 완료요~!~!";
+        List<GetBoardMiniRes> result = null;
+
+        try {
+            result = service.getBoardDeletedList(signedUserId);
+        } catch (Exception e) {
+            code = HttpStatus.NOT_ACCEPTABLE;
+            msg = e.getMessage();
+        }
+
+        return ResultDto.<List<GetBoardMiniRes>>builder()
                 .statusCode(code)
                 .resultMsg(msg)
                 .resultData(result)
@@ -67,22 +125,21 @@ public class BoardController {
     }
 
     @GetMapping("todo")
-    public ResultDto<List<GetBoardRes>> getBoardTodoListByMonth(@RequestParam(name = "user_id") Long userId, @RequestParam Integer month) {
+    public ResultDto<TodoListRes> getBoardTodoList(@RequestParam(name = "user_id") Long signedUserId) {
 
 
         HttpStatus code = HttpStatus.OK;
-        String msg = "board 불러오기 완료요~!~!";
-        List<GetBoardRes> result = null;
+        String msg = "todo 리스트 불러오기 완료요~!~!";
+        TodoListRes result = null;
 
         try {
-
-            result = service.getBoardList(userId, month);
+            result = service.getBoardTodoList(signedUserId);
         } catch (Exception e) {
             code = HttpStatus.NOT_ACCEPTABLE;
             msg = e.getMessage();
         }
 
-        return ResultDto.<List<GetBoardRes>>builder()
+        return ResultDto.<TodoListRes>builder()
                 .statusCode(code)
                 .resultMsg(msg)
                 .resultData(result)

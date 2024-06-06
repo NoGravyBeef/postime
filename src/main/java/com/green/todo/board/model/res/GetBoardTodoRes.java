@@ -6,18 +6,11 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GetBoardRes {
+public class GetBoardTodoRes {
     private Long boardId;
     private Long calendarId;
-    private Long userId;
+    private Integer color;
     private String title;
-    private String content;
-    private Integer state;
-    private String startDay;
     private String dDay;
-    private String deadLine;
-    private String createdAt;
-    private String updatedAt;
-    private List<FileRes> files;
     private List<TagEntity> tags;
 }

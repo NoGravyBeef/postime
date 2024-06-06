@@ -26,25 +26,26 @@
         (#{fileName}, #{boardId})
     </insert>
 
-    <select id="getBoardListByUserIdAndMonth">
+    <select id="getBoardInfoByBoardId">
+        SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title,
+        content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = #{boardId}
+    </select>
+
+    <select id="getBoardMiniListByUserIdAndMonth">
         <![CDATA[
         SELECT
             A.board_id AS boardId,
-            A.calendar_id AS calendarId,
+            B.calendar_id AS calendarId,
             B.color,
-            A.user_id AS userId,
             A.title,
-            A.content,
-            A.state,
             A.start_day AS startDay,
-            A.d_day AS dDay,
-            A.dead_line AS deadLine,
-            A.created_at AS createdAt,
-            A.updated_at AS updatedAt
+            A.d_day AS dDay
         FROM board A
         JOIN calendar B ON A.calendar_id = B.calendar_id
         JOIN calendar_user C ON B.calendar_id = C.calendar_id
-        WHERE C.user_id = #{userId}
+        WHERE C.user_id = #{userId} AND A.state = 1
           AND (
             (A.start_day <= LAST_DAY(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))
             AND A.d_day >= STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))
@@ -63,6 +64,73 @@
         SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title, content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
         FROM board
         WHERE board_id = #{boardId}
+    </select>
+
+    <select id="getBoardMiniByState">
+        SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.start_day AS startDay,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = #{userId} AND A.state = #{state}
+    </select>
+
+    <select id="selectBoardsByUserIdForToday">
+        <![CDATA[
+        SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = #{userId} AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+        ]]>
+    </select>
+
+    <select id="selectBoardsByUserIdForCurrentMonth">
+        <![CDATA[
+        SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = #{userId} AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+        ]]>
+    </select>
+
+    <select id="selectBoardsByUserIdForNextMonth">
+        <![CDATA[
+        SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = #{userId} AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+        ]]>
     </select>
 
     <update id="updateBoard">
