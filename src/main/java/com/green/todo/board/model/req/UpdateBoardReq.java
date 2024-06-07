@@ -21,5 +21,6 @@ public class UpdateBoardReq {
     private String dDay;
     @Schema(example = "12:30:00", description = "마감 시간")
     private String deadLine;
+    @Schema(example = "[1, 2]")
     private List<Long> deltagList;
 }

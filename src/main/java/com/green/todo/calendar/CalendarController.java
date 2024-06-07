@@ -81,7 +81,7 @@ public class CalendarController {
                 .build();
     }
 
-    @GetMapping("memberlist")
+    @GetMapping("member")
     @Operation(summary = "캘린더 멤버 목록 가지고오기", description = "<strong>캘린더 멤버 목록을 불러온다요~!~!</strong>" +
             "<p>calendar_id 값을 넣어주세요~!~!</p>")
     @ApiResponse(responseCode = "200",description =
@@ -208,7 +208,7 @@ public class CalendarController {
                     "<p>resultData = (0 => 주인이 아니라서 누굴 못지워서 0명 지워짐. 또는 지울 사람이 없어서 0명 지워짐.), " +
                     "(1 => 생성 성공) </p>"
     )
-    @DeleteMapping("delete/member")
+    @DeleteMapping("member")
     public ResultDto<Integer> deleteCalendarMember(@RequestBody DeleteCalendarMemberReq p) {
         int code = 2;
         String msg = "멤버 삭제 완료~!~!";
