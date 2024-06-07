@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import static com.green.todo.common.model.ResultDto.resultDto;
 
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @Slf4j
 @RestController

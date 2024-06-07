@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.todo.user.UserMapper">
-    <select id="getUserByUserId">
-        SELECT user_index AS userIndex, user_id AS userId, user_pw AS userPw, user_name AS userName, created_at AS createdAt
+
+    <insert id="postUser" keyProperty="userId" useGeneratedKeys="true">
+        INSERT INTO user
+         SET id = #{id}
+        , name = #{name}
+        , pwd = #{pwd}
+        , email = #{email}
+    </insert>
+
+    <select id="getUserById">
+        SELECT user_id AS userId, id, name, pwd, email
         FROM user
-        WHERE user_id = #{user_id}
+        WHERE id = #{id}
     </select>
 
-    <insert id="userSignUp">
-        INSERT INTO user
-        SET user_id = #{userId},
-            user_pw = #{userPw},
-            user_name = #{userName}
-    </insert>
+    <select id="getUser">
+        SELECT user_id AS userId, id, name, pwd, email
+        FROM  user
+        WHERE id = #{id}
+        AND email = #{email}
+    </select>
+
+    <delete id="delUser" >
+        DELETE FROM user
+        WHERE user_id = #{signedUserId}
+    </delete>
+
+
+    <select id="getUserByUserId">
+        SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- 비밀번호 변경 -->
+    <update id="patchPassword">
+        UPDATE user
+        SET pwd = #{newPw}
+        WHERE user_id = #{userId}
+    </update>
+
+    <!-- 아이디 찾기 -->
+    <select id="findId">
+        SELECT id
+        FROM user
+        WHERE email = #{email} AND name = #{name}
+    </select>
+
+    <select id="reqPwd">
+        SELECT user_id AS userId
+        FROM user
+        WHERE id = #{id} AND email = #{email}
+    </select>
+
+    <update id="updUser">
+        UPDATE user
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name}
+            </if>
+            <if test="email != null and email != ''">
+                ,email = #{email}
+            </if>
+            <if test="newPw != null and newPw != ''">
+                ,pwd = #{newPw}
+            </if>
+        </set>
+        WHERE user_id = #{userId}
+    </update>
+
+
 </mapper>
