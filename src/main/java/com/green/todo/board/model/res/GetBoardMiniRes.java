@@ -16,6 +16,8 @@ public class GetBoardMiniRes {
     private Long color;
     @Schema(example = "title", description = "글 제목")
     private String title;
+    @Schema(example = "content", description = "글 내용")
+    private String content;
     @Schema(example = "2024-04-11", description = "일정 시작일")
     private String startDay;
     @Schema(example = "2024-04-12", description = "일정 마감일")

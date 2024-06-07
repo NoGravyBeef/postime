@@ -40,6 +40,7 @@
             B.calendar_id AS calendarId,
             B.color,
             A.title,
+            A.content,
             A.start_day AS startDay,
             A.d_day AS dDay
         FROM board A
@@ -72,12 +73,35 @@
             B.calendar_id AS calendarId,
             B.color,
             A.title,
+            A.content,
             A.start_day AS startDay,
             A.d_day AS dDay
         FROM board A
         JOIN calendar B ON A.calendar_id = B.calendar_id
         JOIN calendar_user C ON B.calendar_id = C.calendar_id
         WHERE C.user_id = #{userId} AND A.state = #{state}
+    </select>
+
+    <select id="getBoardSearchList">
+        SELECT
+        A.board_id AS boardId,
+        B.calendar_id AS calendarId,
+        B.color,
+        A.title,
+        A.content,
+        A.start_day AS startDay,
+        A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        <where>
+            <if test="searchWord != null and searchWord != ''">
+                A.title LIKE '%${searchWord}%'
+                OR
+                A.content LIKE '%${searchWord}%'
+            </if>
+        </where>
+        ORDER BY A.d_day ASC
     </select>
 
     <select id="selectBoardsByUserIdForToday">

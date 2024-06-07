@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @Builder
 public class ResultDto<T> {
-    @Schema(example = "OK")
+    @Schema(example = "2")
     private int statusCode;
     @Schema(example = "완료")
     private String resultMsg;

@@ -205,6 +205,25 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
+    public List<GetBoardMiniRes> getBoardSearchList(String searchWord) {
+
+        if (searchWord == null || searchWord.isEmpty()) {
+            throw new RuntimeException("검색어를 입력하셔야합니다.");
+        }
+
+        List<GetBoardMiniRes> searchBoardList = null;
+        try {
+            searchBoardList = mapper.getBoardSearchList(searchWord);
+        } catch (Exception e) {
+            throw new RuntimeException("검색한 보드 불러오기 쿼링 이슈~!~!");
+        }
+
+        return searchBoardList;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+
     public TodoListRes getBoardTodoList(Long userId) {
         if (userId == null) {
             throw new RuntimeException("유저 id를 입력하셔야합니다.");
@@ -225,6 +244,11 @@ public class BoardService {
 
         return todoListRes;
     }
+
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+
+
 
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////

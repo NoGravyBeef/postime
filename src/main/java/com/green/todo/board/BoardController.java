@@ -170,6 +170,34 @@ public class BoardController {
                 .build();
     }
 
+    @GetMapping("search")
+    @Operation(summary = "검색한 board 목록 가지고오기", description = "<strong>검색한 board 목록을 불러온다요~!~!</strong>" +
+            "<p>검색어를 넣어주세요~!~!</p>")
+    @ApiResponse(responseCode = "200",description =
+            "<p>statusCode = 200 => 정상</p>"+
+                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 검색한 board 목록~!~! </p>"
+    )
+    public ResultDto<List<GetBoardMiniRes>> getBoardSearchList(@Schema(example = "search_word") @RequestParam(required = false, name = "search_word") String searchWord) {
+        int code = 2;
+        String msg = "검색한 board 불러오기 완료요~!~!";
+        List<GetBoardMiniRes> result = null;
+
+        try {
+            result = service.getBoardSearchList(searchWord);
+        } catch (Exception e) {
+            code = 4;
+            msg = e.getMessage();
+        }
+
+        return ResultDto.<List<GetBoardMiniRes>>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
+    }
+
     @GetMapping("todo")
     @Operation(summary = "todo 리스트 가지고오기", description = "<strong>todo 리스트 가지고오기~!~!</strong>" +
             "<p>로그인한 user_id 값을 넣어주세요~!~!</p>")

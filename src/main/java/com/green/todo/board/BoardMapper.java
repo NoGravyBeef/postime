@@ -15,6 +15,7 @@ public interface BoardMapper {
     List<FileRes> getBoardFiles(long boardId);
     BoardEntity getBoardByBoardId(Long boardId);
     List<GetBoardMiniRes> getBoardMiniByState(Long userId, Integer state);
+    List<GetBoardMiniRes> getBoardSearchList(String searchWord);
     List<GetBoardTodoRes> selectBoardsByUserIdForToday(Long userId);
     List<GetBoardTodoRes> selectBoardsByUserIdForCurrentMonth(Long userId);
     List<GetBoardTodoRes> selectBoardsByUserIdForNextMonth(Long userId);
