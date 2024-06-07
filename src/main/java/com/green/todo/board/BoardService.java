@@ -229,7 +229,7 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public int updateBoard(UpdateBoardReq p) {
+    public long updateBoard(UpdateBoardReq p) {
         if (p.getDDay() == null && p.getStartDay() == null && p.getTitle() == null
         && p.getContent() == null && p.getDeadLine() == null) {
             throw new RuntimeException("수정할 사안이 없습니다.");
@@ -305,14 +305,14 @@ public class BoardService {
             throw new RuntimeException("일정 업데이트 쿼링 이슈~!~!");
         }
 
-        return result;
+        return p.getBoardId();
 
     }
 
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public int updateBoardState(UpdateBoardStateReq p) {
+    public long updateBoardState(UpdateBoardStateReq p) {
         if (p.getBoardId() == null || p.getState() == null) {
             throw new RuntimeException("모든 항목 무조건 넣으셔야 합니다~!~!");
         }
@@ -327,13 +327,13 @@ public class BoardService {
             throw new RuntimeException("state 업데이트 쿼링 이슈~!~!");
         }
 
-        return result;
+        return p.getBoardId();
     }
 
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public int updateBoardDnD(UpdateBoardDnDReq p) {
+    public long updateBoardDnD(UpdateBoardDnDReq p) {
         if (p.getBoardId() == null || p.getDDay() == null || p.getStartDay() == null) {
             throw new RuntimeException("모든 항목을 반드시 채우셔야 합니다~!~!");
         }
@@ -361,7 +361,7 @@ public class BoardService {
             throw new RuntimeException("DnD 업데이트 쿼링 이슈~!~!");
         }
 
-        return result;
+        return p.getBoardId();
     }
 
     ///////////////////////////////////////////////////////////////

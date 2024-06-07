@@ -86,10 +86,6 @@ public class CalendarService {
             throw new RuntimeException("캘린더 불러오기 쿼링 이슈~!~!");
         }
 
-        if (result == null) {
-            throw new RuntimeException("가지고온 캘린더가 0개임~!~!");
-        }
-
         return result;
     }
 
@@ -113,7 +109,7 @@ public class CalendarService {
     }
 
     /*-------------------------캘린더 수정 service-------------------------*/
-    public int updateCalendar(UpdateCalendarReq p) throws Exception{
+    public long updateCalendar(UpdateCalendarReq p) throws Exception{
         if (p.getCalendarId() == null) {
             throw new RuntimeException("업데이트 양식 맞춰주세요~!~!");
         }
@@ -147,7 +143,7 @@ public class CalendarService {
             throw new RuntimeException("캘린더 수정 제대로 안됨~!~!");
         }
 
-        return result;
+        return p.getCalendarId();
     }
 
     /*-------------------------캘린더 삭제 service-------------------------*/

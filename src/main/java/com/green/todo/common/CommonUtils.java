@@ -12,16 +12,16 @@ import java.nio.charset.StandardCharsets;
 @Setter
 public class CommonUtils {
 
-    private HttpStatus code;
+    private int code;
     private String msg;
 
     public void init(String msg){
-        this.code = HttpStatus.OK;
+        this.code = 2;
         this.msg = msg;
     }
     public void noAcceptable(Exception e) {
         this.msg = e.getMessage();
-        this.code = HttpStatus.NOT_ACCEPTABLE;
+        this.code = 4;
     }
 
     public boolean isWithinByteLimit(String str, int limitByte) {

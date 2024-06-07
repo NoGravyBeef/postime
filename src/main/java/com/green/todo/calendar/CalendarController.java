@@ -33,14 +33,14 @@ public class CalendarController {
                     "<p>resultData =  (-1 => 생성 안됨 및 오류), (나머지 => 생성된 캘린더 id) </p>"
     )
     public ResultDto<Long> createCalendar(@RequestBody CreateCalendarReq p) {
-        HttpStatus code = HttpStatus.OK;
+        int code = 2;
         String msg = "캘린더 생성 완료~!~!";
         long result = -1;
 
         try {
             result = service.createCalendar(p);
         } catch (Exception e) {
-            code = HttpStatus.NOT_ACCEPTABLE;
+            code = 4;
             msg = e.getMessage();
         }
 
@@ -56,19 +56,19 @@ public class CalendarController {
             "<p>로그인한 user_id 값을 넣어주세요~!~!</p>")
     @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 불러온개 0개 이거나, 오류난거임~!~! </p>" +
+                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 캘린더 목록~!~! </p>"
     )
     public ResultDto<List<GetCalendarRes>> getCalendarList(@Schema(example = "1") @RequestParam(name = "signed_user_id") long signedUserId) {
-        HttpStatus code = HttpStatus.OK;
+        int code = 2;
         String msg = "캘린더 불러오기 완료~!~!";
         List<GetCalendarRes> result = null;
 
         try {
             result = service.getCalendarList(signedUserId);
         } catch (Exception e) {
-            code = HttpStatus.NOT_ACCEPTABLE;
+            code = 4;
             msg = e.getMessage();
         }
 
@@ -89,14 +89,14 @@ public class CalendarController {
                     "<p>resultData = 가지고온 캘린더 멤버 목록~!~! </p>"
     )
     public ResultDto<List<MemRes>> getMemberList(@Schema(name = "calendar_id", example = "1") @RequestParam(name = "calendar_id") long calendarId) {
-        HttpStatus code = HttpStatus.OK;
+        int code = 2;
         String msg = "멤버 리스트 불러오기 완료~!~!";
         List<MemRes> result = null;
 
         try {
             result = service.getMemberList(calendarId);
         } catch (Exception e) {
-            code = HttpStatus.NOT_ACCEPTABLE;
+            code = 4;
             msg = e.getMessage();
         }
 
@@ -111,26 +111,25 @@ public class CalendarController {
     @Operation(summary = "캘린더 정보 업데이트", description = "<p>캘린더 정보를 업데이트 한다요~!~!</p>" +
             "<p>캘린더 만들때 양식이랑 똑같이!!</p>"+
             "<p>넣은 부분만 수정하니까, 수정할 거만 넣으시면 됩니다~!~!</p>")
-
     @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 불러온개 0개 이거나, 오류난거임~!~!</p>" +
+                    "<p>statusCode = 406 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
-                    "<p>resultData = 가지고온 캘린더 목록~!~! </p>"
+                    "<p>resultData = 수정된 캘린더의 id </p>"
     )
-    public ResultDto<Integer> updateCalendar(@RequestBody UpdateCalendarReq p) {
-        HttpStatus code = HttpStatus.OK;
+    public ResultDto<Long> updateCalendar(@RequestBody UpdateCalendarReq p) {
+        int code = 2;
         String msg = "캘린더 수정 완료~!~!";
-        int result = -1;
+        long result = -1;
 
         try {
             result = service.updateCalendar(p);
         } catch (Exception e) {
-            code = HttpStatus.NOT_ACCEPTABLE;
+            code = 4;
             msg = e.getMessage();
         }
 
-        return ResultDto.<Integer>builder()
+        return ResultDto.<Long>builder()
                 .statusCode(code)
                 .resultMsg(msg)
                 .resultData(result)
@@ -145,19 +144,19 @@ public class CalendarController {
             "<p>**캘린더를 가지고 있는 마지막 유저가 삭제하면, 캘린더 또한 영원히 삭제됨!!!!**</p>")
     @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 불러온개 0개 이거나, 오류난거임~!~!</p>" +
+                    "<p>statusCode = 406 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 캘린더가 지워지면  1  나옵니다!. </p>"
     )
     public ResultDto<Integer> deleteCalendar(@ParameterObject @ModelAttribute DeleteCalendarReq p) {
-        HttpStatus code = HttpStatus.OK;
+        int code = 2;
         String msg = "캘린더 삭제 완료~!~!";
         int result = -1;
 
         try {
             result = service.deleteCalendar(p);
         } catch (Exception e) {
-            code = HttpStatus.NOT_ACCEPTABLE;
+            code = 4;
             msg = e.getMessage();
         }
 
@@ -179,14 +178,14 @@ public class CalendarController {
                             "<p>추가된 사람이 없으면, null 나옴!</p>"
     )
     public ResultDto<String> plusCalendarUser(@RequestBody PlusCalendarUserReq p) {
-        HttpStatus code = HttpStatus.OK;
+        int code = 2;
         String msg = "유저 추가 완료~!~!";
         String result = null;
 
         try {
             result = service.plusCalendarUser(p);
         } catch (Exception e) {
-            code = HttpStatus.NOT_ACCEPTABLE;
+            code = 4;
             msg = e.getMessage();
         }
 
@@ -209,14 +208,14 @@ public class CalendarController {
     )
     @DeleteMapping("delete/member")
     public ResultDto<Integer> deleteCalendarMember(@RequestBody DeleteCalendarMemberReq p) {
-        HttpStatus code = HttpStatus.OK;
+        int code = 2;
         String msg = "멤버 삭제 완료~!~!";
         int result = -1;
 
         try {
             result = service.deleteCalendarMember(p);
         } catch (Exception e) {
-            code = HttpStatus.NOT_ACCEPTABLE;
+            code = 4;
             msg = e.getMessage();
         }
 
