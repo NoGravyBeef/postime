@@ -179,13 +179,14 @@ public class BoardController {
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 검색한 board 목록~!~! </p>"
     )
-    public ResultDto<List<GetBoardMiniRes>> getBoardSearchList(@Schema(example = "search_word") @RequestParam(required = false, name = "search_word") String searchWord) {
+    public ResultDto<List<GetBoardMiniRes>> getBoardSearchList(@Schema(example = "1") @RequestParam(name = "signed_user_id") Long signedUserId
+                                                                    , @Schema(example = "search_word") @RequestParam(required = false, name = "search_word") String searchWord) {
         int code = 2;
         String msg = "검색한 board 불러오기 완료요~!~!";
         List<GetBoardMiniRes> result = null;
 
         try {
-            result = service.getBoardSearchList(searchWord);
+            result = service.getBoardSearchList(searchWord, signedUserId);
         } catch (Exception e) {
             code = 4;
             msg = e.getMessage();

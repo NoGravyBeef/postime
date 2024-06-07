@@ -205,7 +205,11 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardMiniRes> getBoardSearchList(String searchWord) {
+    public List<GetBoardMiniRes> getBoardSearchList(String searchWord, Long signedUserId) {
+
+        if (signedUserId == null) {
+            throw new RuntimeException("유저 id를 입력하셔야합니다.");
+        }
 
         if (searchWord == null || searchWord.isEmpty()) {
             throw new RuntimeException("검색어를 입력하셔야합니다.");
@@ -213,7 +217,7 @@ public class BoardService {
 
         List<GetBoardMiniRes> searchBoardList = null;
         try {
-            searchBoardList = mapper.getBoardSearchList(searchWord);
+            searchBoardList = mapper.getBoardSearchList(searchWord, signedUserId);
         } catch (Exception e) {
             throw new RuntimeException("검색한 보드 불러오기 쿼링 이슈~!~!");
         }

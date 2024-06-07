@@ -96,6 +96,8 @@
         JOIN calendar_user C ON B.calendar_id = C.calendar_id
         <where>
             <if test="searchWord != null and searchWord != ''">
+                C.user_id = #{signedUserId}
+                AND
                 A.title LIKE '%${searchWord}%'
                 OR
                 A.content LIKE '%${searchWord}%'
