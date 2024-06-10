@@ -12,10 +12,10 @@ import java.beans.ConstructorProperties;
 public class DelUserReq {
     @Schema(example = "3", description = "유저 PK")
     @Parameter(name = "signed_user_id")
-    private long signedUserId;
+    private String signedUserId;
 
     @ConstructorProperties({"signed_user_id"})
-    public DelUserReq(long signedUserId) {
+    public DelUserReq(String signedUserId) {
         this.signedUserId = signedUserId;
     }
 }

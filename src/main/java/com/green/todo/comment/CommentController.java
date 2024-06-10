@@ -7,6 +7,7 @@ import com.green.todo.comment.model.res.CommentGetRes;
 import com.green.todo.common.CommonUtils;
 import com.green.todo.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +30,14 @@ public class CommentController {
     private final CommonUtils utils;
 
     @PostMapping
-    @Operation(summary = "댓글 작성", description = "댓글 PK 리턴")
+    @Operation(summary = "댓글 작성", description = "<strong>모두 필수 입력입니다.</strong>" +
+            "<p>성공시 댓글 PK, 실패시 -1을 리턴합니다.</p>")
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 댓글 PK~!~! </p>"
+    )
     public ResultDto<Long> postComment(@RequestBody CommentPostReq p) {
         utils.init("댓글 작성을 완료하였습니다.");
         long result = -1;
@@ -42,8 +50,15 @@ public class CommentController {
     }
 
     @GetMapping
-    @Operation(summary = "댓글 리스트 불러오기", description = "댓글 리스트 리턴")
-    public ResultDto<List<CommentGetRes>> getCommentList(@RequestParam("board_id") Long boardId) {
+    @Operation(summary = "댓글 리스트 불러오기", description = "<strong>필수 입력입니다.</strong>" +
+            "<p>댓글 리스트 리턴합니다.</p>")
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 가지고온 댓글 목록~!~! </p>"
+    )
+    public ResultDto<List<CommentGetRes>> getCommentList(@RequestParam("board_id") String boardId) {
         utils.init("댓글 불러오기 완료");
         List<CommentGetRes> result = new ArrayList<>(0);
         try {
@@ -55,7 +70,14 @@ public class CommentController {
     }
 
     @PutMapping
-    @Operation(summary = "댓글 수정", description = "수정된 댓글 내용 리턴")
+    @Operation(summary = "댓글 수정하기", description = "<strong>모두 필수 입력입니다.</strong>" +
+            "<p>수정된 댓글의 내용을 리턴합니다.</p>")
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 수정된 댓글 내용~!~! </p>"
+    )
     public ResultDto<String> updateComment (@RequestBody CommentUpdateReq p) {
         utils.init("댓글 수정을 완료하였습니다.");
         String result = null;
@@ -68,7 +90,14 @@ public class CommentController {
     }
 
     @DeleteMapping
-    @Operation(summary = "댓글 삭제", description = "삭제되면 1을 리턴")
+    @Operation(summary = "댓글 삭제하기", description = "<strong>모두 필수 입력입니다!</strong>" +
+            "<p>삭제되면 1을 리턴 실패하면 -1을 리턴합니다.</p>")
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 삭제 성공하면 1~!~! </p>"
+    )
     public ResultDto<Integer> deleteComment (@ParameterObject @ModelAttribute CommentDeleteReq p) {
         utils.init("댓글 삭제를 완료하였습니다.");
         int result = -1;

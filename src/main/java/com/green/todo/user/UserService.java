@@ -21,6 +21,8 @@ public class UserService {
     private final Pattern passwordPattern = Pattern.compile(PASSWORD_PATTERN);
     private final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
     private final Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
+    private final String NAME_PATTERN  = "^[가-힣a-zA-Z\\s-]+$";
+    private final Pattern namePattern = Pattern.compile(NAME_PATTERN);
     private final MailService mailService;
 
 
@@ -38,6 +40,12 @@ public class UserService {
         if (isDuplicatedId(p.getId())) {
             throw new IllegalArgumentException("이미 사용중인 아이디입니다");
         }
+        if (p.getName() == null) {
+            throw new IllegalArgumentException("이름칸지우지마라!!!!!!");
+        }
+        if (!validateName(p.getName())) {
+            throw new IllegalArgumentException("성명을 확인하세요");
+        }
         String hashedPw = BCrypt.hashpw(p.getPwd(), BCrypt.gensalt());
         p.setPwd(hashedPw);
 
@@ -51,8 +59,11 @@ public class UserService {
 
     public SignInRes postSignIn(SignInPostReq p) {
         User user = mapper.getUserById(p.getId());
-        if (user == null || !BCrypt.checkpw(p.getPwd(), user.getPwd())) {
-            throw new RuntimeException("아이디와 비밀번호를 확인해주세요");
+        if (user == null) {
+            throw new RuntimeException("아이디를 확인해주세요");
+        }
+        if (!BCrypt.checkpw(p.getPwd(), user.getPwd())){
+            throw new RuntimeException("비밀번호를 확인해주세요");
         }
 
         return SignInRes.builder()
@@ -64,12 +75,20 @@ public class UserService {
 
     public int deleteUser(DelUserReq p) {
         log.info("p의 유저ID{}", p.getSignedUserId());
-        User user = mapper.getUserByUserId(p.getSignedUserId());
+
+        long signedUserId = 0;
+        try {
+            signedUserId = Long.parseLong(p.getSignedUserId());
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
+        User user = mapper.getUserByUserId(signedUserId);
         if (user == null) {
             throw new IllegalArgumentException("존재하지 않는 사용자입니다");
         }
         log.info("User의 유저 ID{}", user.getUserId());
-        int result = mapper.delUser(p.getSignedUserId());
+        int result = mapper.delUser(signedUserId);
         return result;
     }
 
@@ -176,4 +195,8 @@ public class UserService {
     private boolean validateEmail(String email) {
         return emailPattern.matcher(email).matches();
     }
+
+    private boolean validateName(String name) {return namePattern.matcher(name).matches(); }
+
+
 }

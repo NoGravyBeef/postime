@@ -82,7 +82,15 @@ public class NoticeService {
     }
 
 // get ======================================================================
-    public NoticeListRes getNoticeList (Long userId) {
+    public NoticeListRes getNoticeList (String p) {
+
+        Long userId = null;
+        try {
+            userId = Long.parseLong(p);
+        } catch (Exception e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
         if(userId == null || userId < 0) {
             throw new RuntimeException("유저 PK를 입력해주세요.");
         }

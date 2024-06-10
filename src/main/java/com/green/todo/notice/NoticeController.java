@@ -7,6 +7,7 @@ import com.green.todo.notice.model.res.NoticeListRes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +26,15 @@ public class NoticeController {
 
 
     @GetMapping
-    @Operation(summary = "알림 리스트")
-    public ResultDto<NoticeListRes> noticeList(@RequestParam("signed_user_id") long signedUserId) {
+    @Operation(summary = "알림 목록 가지고오기", description = "<strong>필수 입력입니다.~!~!</strong>" +
+            "<p>알림 목록을 가져옵니다~!~!</p>")
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 가지고온 알림 목록~!~! </p>"
+    )
+    public ResultDto<NoticeListRes> noticeList(@RequestParam("signed_user_id") String signedUserId) {
         utils.init("알림 목록을 불러왔습니다.");
         NoticeListRes result = null;
         try {
@@ -38,7 +46,14 @@ public class NoticeController {
     }
 
     @PutMapping
-    @Operation(summary = "알림 업데이트", description = "알림 읽음처리")
+    @Operation(summary = "알림 읽음처리 (업데이트)", description = "<strong>모두 필수 입력입니다~!~!</strong>" +
+            "<p>성공하면 1, 실패하면 0 리턴합니다~!~!</p>")
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 1을 리턴합니다~!~! </p>"
+    )
     public ResultDto<Integer> readNotice(@RequestBody NoticeUpdateReq p) {
         utils.init("알림을 읽음으로 처리하였습니다.");
         int result = 0;
