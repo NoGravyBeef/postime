@@ -46,9 +46,9 @@ public class UserService {
         if (!validateName(p.getName())) {
             throw new IllegalArgumentException("성명을 확인하세요");
         }
+
         String hashedPw = BCrypt.hashpw(p.getPwd(), BCrypt.gensalt());
         p.setPwd(hashedPw);
-
 
         int result = mapper.postUser(p);
         if (result == 0) {

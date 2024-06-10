@@ -62,12 +62,14 @@ public class UserController {
         int code = 2;
         String msg = "로그인 성공";
         SignInRes result = null;
+
         try {
             result = service.postSignIn(p);
         }catch (Exception e){
             code = 4;
             msg = e.getMessage();
         }
+
         return ResultDto.<SignInRes>builder()
                 .statusCode(code)
                 .resultMsg(msg)
