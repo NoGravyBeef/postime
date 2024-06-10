@@ -62,7 +62,7 @@ public class CalendarController {
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 캘린더 목록~!~! </p>"
     )
-    public ResultDto<List<GetCalendarRes>> getCalendarList(@Schema(example = "1") @RequestParam(name = "signed_user_id") long signedUserId) {
+    public ResultDto<List<GetCalendarRes>> getCalendarList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String  signedUserId) {
         int code = 2;
         String msg = "캘린더 불러오기 완료~!~!";
         List<GetCalendarRes> result = null;
@@ -90,7 +90,7 @@ public class CalendarController {
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 캘린더 멤버 목록~!~! </p>"
     )
-    public ResultDto<List<MemRes>> getMemberList(@Schema(name = "calendar_id", example = "1") @RequestParam(name = "calendar_id") long calendarId) {
+    public ResultDto<List<MemRes>> getMemberList(@Schema(name = "calendar_id", example = "1") @RequestParam(name = "calendar_id") String calendarId) {
         int code = 2;
         String msg = "멤버 리스트 불러오기 완료~!~!";
         List<MemRes> result = null;

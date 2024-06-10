@@ -37,11 +37,19 @@ public class CommentService {
         return p.getCommentId();
     }
 
-    public List<CommentGetRes> getCommentList(Long boardId) {
-        if(boardId == null || boardId <= 0) {
+    public List<CommentGetRes> getCommentList(String boardId) {
+
+        Long board_id = null;
+        try {
+            board_id = Long.parseLong(boardId);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
+        if(board_id == null || board_id <= 0) {
             throw new RuntimeException("보드의 PK를 입력해주세요.");
         }
-        return mapper.getCommentList(boardId);
+        return mapper.getCommentList(board_id);
     }
 
     public String updateComment(CommentUpdateReq p) {
@@ -60,8 +68,18 @@ public class CommentService {
     }
 
     public int deleteComment (CommentDeleteReq p) {
-        CommentGetRes comment = mapper.getCommentOne(p.getCommentId());
-        if(comment.getUserId() != p.getSignedUserId()) {
+
+        Long comment_id = null;
+        Long signed_user_id = null;
+        try {
+            comment_id = Long.parseLong(p.getCommentId());
+            signed_user_id = Long.parseLong(p.getSignedUserId());
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
+        CommentGetRes comment = mapper.getCommentOne(comment_id);
+        if(comment.getUserId() != signed_user_id) {
             throw new RuntimeException("댓글 작성자가 다릅니다.");
         }
         int result = mapper.deleteComment(p);

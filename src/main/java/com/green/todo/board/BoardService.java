@@ -124,19 +124,26 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public GetBoardRes getBoardInfo(Long boardId) {
+    public GetBoardRes getBoardInfo(String boardId) {
         if (boardId == null) {
             throw new RuntimeException("보드id를 넣으셔야 합니다~!~!");
         }
 
+        Long board_id = null;
+        try {
+            board_id = Long.parseLong(boardId);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
         GetBoardRes boardInfo;
         try {
-            boardInfo = mapper.getBoardInfoByBoardId(boardId);
+            boardInfo = mapper.getBoardInfoByBoardId(board_id);
 
             List<FileRes> files = mapper.getBoardFiles(boardInfo.getBoardId());
             boardInfo.setFiles(files);
 
-            List<TagEntity> tags = tagMapper.getTagsByBoardId(boardId);
+            List<TagEntity> tags = tagMapper.getTagsByBoardId(board_id);
             boardInfo.setTags(tags);
         } catch (Exception e) {
             throw new RuntimeException("board정보 불러오기 실패~!~!");
@@ -148,15 +155,24 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardMiniRes> getBoardMiniList(Long userId, Integer month){
+    public List<GetBoardMiniRes> getBoardMiniList(String userId, String month){
 
         if (userId == null || month == null) {
             throw new RuntimeException("모든 항목은 반드시 필요합니다.");
         }
 
+        Long user_id = null;
+        Integer Month = null;
+        try {
+            user_id = Long.parseLong(userId);
+            Month = Integer.parseInt(month);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
         List<GetBoardMiniRes> boardListByUserId;
         try {
-            boardListByUserId = mapper.getBoardMiniListByUserIdAndMonth(userId, month);
+            boardListByUserId = mapper.getBoardMiniListByUserIdAndMonth(user_id, Month);
         } catch (Exception e) {
             throw new RuntimeException("board정보 불러오기 실패~!~!");
         }
@@ -167,15 +183,22 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardMiniRes> getBoardDoneList(Long userId) {
+    public List<GetBoardMiniRes> getBoardDoneList(String userId) {
 
         if (userId == null) {
             throw new RuntimeException("유저 id를 입력하셔야합니다.");
         }
 
+        Long user_id = null;
+        try {
+            user_id = Long.parseLong(userId);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
         List<GetBoardMiniRes> doneBoardList = null;
         try {
-            doneBoardList = mapper.getBoardMiniByState(userId, 2);
+            doneBoardList = mapper.getBoardMiniByState(user_id, 2);
         } catch (Exception e) {
             throw new RuntimeException("완료 보드 불러오기 쿼링 이슈~!~!");
         }
@@ -186,15 +209,22 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardMiniRes> getBoardDeletedList(Long userId) {
+    public List<GetBoardMiniRes> getBoardDeletedList(String userId) {
 
         if (userId == null) {
             throw new RuntimeException("유저 id를 입력하셔야합니다.");
         }
 
+        Long user_id = null;
+        try {
+            user_id = Long.parseLong(userId);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
         List<GetBoardMiniRes> doneBoardList = null;
         try {
-            doneBoardList = mapper.getBoardMiniByState(userId, 3);
+            doneBoardList = mapper.getBoardMiniByState(user_id, 3);
         } catch (Exception e) {
             throw new RuntimeException("삭제 보드 불러오기 쿼링 이슈~!~!");
         }
@@ -205,7 +235,7 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardMiniRes> getBoardSearchList(String searchWord, Long signedUserId) {
+    public List<GetBoardMiniRes> getBoardSearchList(String searchWord, String signedUserId) {
 
         if (signedUserId == null) {
             throw new RuntimeException("유저 id를 입력하셔야합니다.");
@@ -215,9 +245,16 @@ public class BoardService {
             throw new RuntimeException("검색어를 입력하셔야합니다.");
         }
 
+        Long signed_user_id = null;
+        try {
+            signed_user_id = Long.parseLong(signedUserId);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
         List<GetBoardMiniRes> searchBoardList = null;
         try {
-            searchBoardList = mapper.getBoardSearchList(searchWord, signedUserId);
+            searchBoardList = mapper.getBoardSearchList(searchWord, signed_user_id);
         } catch (Exception e) {
             throw new RuntimeException("검색한 보드 불러오기 쿼링 이슈~!~!");
         }
@@ -228,16 +265,23 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public TodoListRes getBoardTodoList(Long userId) {
+    public TodoListRes getBoardTodoList(String userId) {
         if (userId == null) {
             throw new RuntimeException("유저 id를 입력하셔야합니다.");
         }
 
+        Long user_id = null;
+        try {
+            user_id = Long.parseLong(userId);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱 에러");
+        }
+
         TodoListRes todoListRes = new TodoListRes();
         try {
-            List<GetBoardTodoRes> untilTodayBoard = mapper.selectBoardsByUserIdForToday(userId);
-            List<GetBoardTodoRes> untilThisMonthBoard = mapper.selectBoardsByUserIdForCurrentMonth(userId);
-            List<GetBoardTodoRes> untilNextMonthBoard = mapper.selectBoardsByUserIdForNextMonth(userId);
+            List<GetBoardTodoRes> untilTodayBoard = mapper.selectBoardsByUserIdForToday(user_id);
+            List<GetBoardTodoRes> untilThisMonthBoard = mapper.selectBoardsByUserIdForCurrentMonth(user_id);
+            List<GetBoardTodoRes> untilNextMonthBoard = mapper.selectBoardsByUserIdForNextMonth(user_id);
 
             todoListRes.setUntilTodayBoard(untilTodayBoard);
             todoListRes.setUntilThisMonthBoard(untilThisMonthBoard);

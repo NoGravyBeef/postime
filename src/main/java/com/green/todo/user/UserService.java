@@ -28,11 +28,14 @@ public class UserService {
 
         if (!validateEmail(p.getEmail())) {
             throw new IllegalArgumentException("이메일 형식에 맞게 작성하여 주십시오");
-        } else if (!validateId(p.getId())) {
+        }
+        if (!validateId(p.getId())) {
             throw new IllegalArgumentException("아이디는 영문자와 숫자로만 구성되어야 하며, 길이는 6자 이상 12자 이하여야 합니다.");
-        } else if (!validatePassword(p.getPwd())) {
+        }
+        if (!validatePassword(p.getPwd())) {
             throw new IllegalArgumentException("비밀번호는 대/소문자, 숫자, 특수문자를 포함하여 8자 이상 20자 이하여야 합니다.");
-        } else if (isDuplicatedId(p.getId())) {
+        }
+        if (isDuplicatedId(p.getId())) {
             throw new IllegalArgumentException("이미 사용중인 아이디입니다");
         }
         String hashedPw = BCrypt.hashpw(p.getPwd(), BCrypt.gensalt());

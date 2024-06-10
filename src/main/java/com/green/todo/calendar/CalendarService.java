@@ -1,5 +1,6 @@
 package com.green.todo.calendar;
 
+import com.green.todo.calendar.model.req.DeleteCalendarServiceReq;
 import com.green.todo.calendar.model.req.*;
 import com.green.todo.calendar.model.res.GetCalendarRes;
 import com.green.todo.calendar.model.res.GetUserByEmailRes;
@@ -77,11 +78,18 @@ public class CalendarService {
     }
 
     /*-------------------------캘린더 불러오기 service-------------------------*/
-    public List<GetCalendarRes> getCalendarList(long signedUserId) throws Exception{
+    public List<GetCalendarRes> getCalendarList(String signedUserId) throws Exception{
         List<GetCalendarRes> result = null;
 
+        Long signed_user_id = null;
         try {
-            result = mapper.getCalendarList(signedUserId);
+            signed_user_id = Long.parseLong(signedUserId);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱에러~");
+        }
+
+        try {
+            result = mapper.getCalendarList(signed_user_id);
         } catch (Exception e) {
             throw new RuntimeException("캘린더 불러오기 쿼링 이슈~!~!");
         }
@@ -90,14 +98,16 @@ public class CalendarService {
     }
 
     /*-------------------------캘린더 멤버 불러오기 service-------------------------*/
-    public List<MemRes> getMemberList(Long calendarId) {
+    public List<MemRes> getMemberList(String calendarId) {
         if (calendarId == null) {
             throw new RuntimeException("캘린더 id가 선택 안됐어요~!~!");
         }
 
+        Long calendar_id = Long.parseLong(calendarId);
+
         List<MemRes> result = null;
         try {
-            result = mapper.getMemberList(calendarId);
+            result = mapper.getMemberList(calendar_id);
         } catch (Exception e) {
             throw new RuntimeException("멤버 불러오기 쿼링 이슈~!~!");
         }
@@ -157,9 +167,21 @@ public class CalendarService {
             throw new RuntimeException("삭제할 캘린더가 선택안됨~!~!");
         }
 
+        DeleteCalendarServiceReq req = null;
+        try {
+            req = new DeleteCalendarServiceReq();
+            Long signed_user_id = Long.parseLong(p.getSignedUserId());
+            Long calendar_id = Long.parseLong(p.getCalendarId());
+            req.setSignedUserId(signed_user_id);
+            req.setCalendarId(calendar_id);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("파싱에러");
+        }
+
+
         int result = 0;
         try {
-            result = mapper.deleteCalendar(p);
+            result = mapper.deleteCalendar(req);
         } catch (Exception e) {
             throw new RuntimeException("캘린더 삭제 쿼링 이슈~!~!");
         }
@@ -168,7 +190,7 @@ public class CalendarService {
         }
 
         try {
-            mapper.deleteCalendarPermanent(p.getCalendarId());
+            mapper.deleteCalendarPermanent(req.getCalendarId());
             customFileUtils.deleteFolder(String.format("%scalendar/%d", customFileUtils.uploadPath, p.getCalendarId()));
         } catch (Exception e) {
             throw new RuntimeException("캘린더 삭제 쿼링 이슈~!~!");

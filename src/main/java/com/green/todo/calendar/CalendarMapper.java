@@ -1,8 +1,8 @@
 package com.green.todo.calendar;
 
+import com.green.todo.calendar.model.req.DeleteCalendarServiceReq;
 import com.green.todo.calendar.model.req.CreateCalendarReq;
 import com.green.todo.calendar.model.req.DeleteCalendarMemberReq;
-import com.green.todo.calendar.model.req.DeleteCalendarReq;
 import com.green.todo.calendar.model.req.UpdateCalendarReq;
 import com.green.todo.calendar.model.res.GetCalendarRes;
 import com.green.todo.calendar.model.res.GetUserByEmailRes;
@@ -19,7 +19,7 @@ public interface CalendarMapper {
     int plusCalendarUserById(@Param("calendarId") long calendarId, @Param("signedUserId") long signedUserId);
     List<GetCalendarRes> getCalendarList(long signedUserId);
     int updateCalendar(UpdateCalendarReq p);
-    int deleteCalendar(DeleteCalendarReq p);
+    int deleteCalendar(DeleteCalendarServiceReq p);
     void deleteCalendarPermanent(long calendarId);
     List<MemRes> getMemberList(Long calendarId);
     int deleteCalendarMember(DeleteCalendarMemberReq p);

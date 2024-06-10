@@ -28,9 +28,9 @@ public class BoardController {
             "<p>모든 항목에 올바른 값 넣으셔야 합니다.</p>" +
             "<p>제목은 1~20자 사이로 넣으셔야 합니다.(한글은 1개당 2자임)</p>" +
             "<p>본문은 1~1000자 사이로 넣으셔야 합니다.</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상 </p>"+
-                    "<p>statusCode = 406 => 생성된 보드 없음 및 오류 </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상 </p>"+
+                    "<p>statusCode = 4 => 생성된 보드 없음 및 오류 </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData =  (-1 => 생성 안됨 및 오류), (나머지 => 생성된 보드 id) </p>"
     )
@@ -57,14 +57,14 @@ public class BoardController {
     @GetMapping
     @Operation(summary = "보드 한개 정보 가지고오기", description = "<strong>보드 한개 정보를 불러온다요~!~!</strong>" +
             "<p>선택된 보드 id 값을 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 보드 정보 </p>"
     )
     public ResultDto<GetBoardRes> getBoardInfo (@Schema(example = "1", description = "선택한 보드의 id")
-                                                    @RequestParam(name = "board_id") Long boardId) {
+                                                    @RequestParam(name = "board_id") String boardId) {
 
         int code = 2;
         String msg = "board 정보 불러오기 완료요~!~!";
@@ -87,14 +87,14 @@ public class BoardController {
     @GetMapping("mini")
     @Operation(summary = "달력에서 보여줄 보드 목록 가지고오기", description = "<strong>달력에서 보여줄 보드 목록 가지고옵니다.</strong>" +
             "<p>로그인한 user_id 값을 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 달력에서 보여줄 보드 목록~!~! </p>"
     )
-    public ResultDto<List<GetBoardMiniRes>> getBoardMiniListByMonth(@Schema(example = "1") @RequestParam(name = "signed_user_id") Long signedUserId,
-                                                                    @RequestParam Integer month) {
+    public ResultDto<List<GetBoardMiniRes>> getBoardMiniListByMonth(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId,
+                                                                    @RequestParam String month) {
 
         int code = 2;
         String msg = "board mini 리스트 불러오기 완료요~!~!";
@@ -117,13 +117,13 @@ public class BoardController {
     @GetMapping("done")
     @Operation(summary = "완료된 board 목록 가지고오기", description = "<strong>완료된 board 목록을 불러온다요~!~!</strong>" +
             "<p>로그인한 user_id 값을 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 완료된 board 목록~!~! </p>"
     )
-    public ResultDto<List<GetBoardMiniRes>> getBoardDoneList(@Schema(example = "1") @RequestParam(name = "signed_user_id") Long signedUserId) {
+    public ResultDto<List<GetBoardMiniRes>> getBoardDoneList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId) {
         int code = 2;
         String msg = "완료된 board 불러오기 완료요~!~!";
         List<GetBoardMiniRes> result = null;
@@ -145,13 +145,13 @@ public class BoardController {
     @GetMapping("deleted")
     @Operation(summary = "삭제된 board 목록 가지고오기", description = "<strong>삭제된 board 목록을 불러온다요~!~!</strong>" +
             "<p>로그인한 user_id 값을 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 삭제된 board 목록~!~! </p>"
     )
-    public ResultDto<List<GetBoardMiniRes>> getBoardDeletedList(@Schema(example = "1") @RequestParam(name = "signed_user_id") Long signedUserId) {
+    public ResultDto<List<GetBoardMiniRes>> getBoardDeletedList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId) {
         int code = 2;
         String msg = "삭제된 board 불러오기 완료요~!~!";
         List<GetBoardMiniRes> result = null;
@@ -173,13 +173,13 @@ public class BoardController {
     @GetMapping("search")
     @Operation(summary = "검색한 board 목록 가지고오기", description = "<strong>검색한 board 목록을 불러온다요~!~!</strong>" +
             "<p>검색어를 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 검색한 board 목록~!~! </p>"
     )
-    public ResultDto<List<GetBoardMiniRes>> getBoardSearchList(@Schema(example = "1") @RequestParam(name = "signed_user_id") Long signedUserId
+    public ResultDto<List<GetBoardMiniRes>> getBoardSearchList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId
                                                                     , @Schema(example = "search_word") @RequestParam(required = false, name = "search_word") String searchWord) {
         int code = 2;
         String msg = "검색한 board 불러오기 완료요~!~!";
@@ -202,13 +202,13 @@ public class BoardController {
     @GetMapping("todo")
     @Operation(summary = "todo 리스트 가지고오기", description = "<strong>todo 리스트 가지고오기~!~!</strong>" +
             "<p>로그인한 user_id 값을 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~! </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 todo 리스트 목록~!~! </p>"
     )
-    public ResultDto<TodoListRes> getBoardTodoList(@Schema(example = "1") @RequestParam(name = "signed_user_id") Long signedUserId) {
+    public ResultDto<TodoListRes> getBoardTodoList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId) {
 
 
         int code = 2;
@@ -233,9 +233,9 @@ public class BoardController {
     @Operation(summary = "보드 정보 업데이트", description = "<p>보드 정보를 업데이트 한다요~!~!</p>" +
             "<p>보드 만들때 양식이랑 똑같이!!</p>"+
             "<p>넣은 부분만 수정하니까, 수정할 거만 넣으시면 됩니다~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~!</p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 수정된 보드의 id </p>"
     )
@@ -265,9 +265,9 @@ public class BoardController {
     @Operation(summary = "보드 상태 업데이트", description = "<p>보드 상태를 업데이트 한다요~!~!</p>" +
             "<p>모든 항목 무조건 넣으셔야 합니다~!~!</p>" +
             "<p>1 -> 진행중, 2 -> 완료, 3 -> 휴지통</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~!</p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 수정된 보드의 id </p>"
     )
@@ -293,9 +293,9 @@ public class BoardController {
     @PatchMapping("dnd")
     @Operation(summary = "보드 dnd 업데이트", description = "<p>보드 dnd를 업데이트 한다요~!~!</p>" +
             "<p>모든 항목 무조건 넣으셔야 합니다~!~!</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~!</p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 수정된 보드의 id </p>"
     )
@@ -322,9 +322,9 @@ public class BoardController {
     @Operation(summary = "선택한 보드들 지우기", description = "<strong>보드들을 지운다니깐요?</strong>" +
             "<p>지울 보드의 id와 해당 보드의 캘린더 id를 담은 객체의 리스트를 넘겨주세요~!~!</p>" +
             "<p>**태그를 가지고 있는 마지막 보드가 삭제하면, 태그 또한 영원히 삭제됨!!!!**</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~!</p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 보드가 지워지면  1  나옵니다!. </p>"
     )
@@ -353,9 +353,9 @@ public class BoardController {
     @DeleteMapping("file")
     @Operation(summary = "파일 지우기", description = "<strong>파일 한개를 지운다니깐요?</strong>" +
             "<p>지울 파일의 id와 이름, 그리고 파일을 담은 보드와, 캘린더의 id</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상</p>"+
-                    "<p>statusCode = 406 => 오류난거임~!~!</p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상</p>"+
+                    "<p>statusCode = 4 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 파일이 지워지면  1  나옵니다!. </p>"
     )
@@ -381,9 +381,9 @@ public class BoardController {
     @PostMapping("file")
     @Operation(summary = "파일 생성", description = "<p>파일 생성하는 곳입니다요~!~!</p>" +
             "<p>모든 항목에 올바른 값 넣으셔야 합니다.</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 200 => 정상 </p>"+
-                    "<p>statusCode = 406 => 생성된 캘린더 없음 및 오류 </p>" +
+    @ApiResponse(responseCode = "2",description =
+            "<p>statusCode = 2 => 정상 </p>"+
+                    "<p>statusCode = 4 => 생성된 캘린더 없음 및 오류 </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 파일 id와 이름 -> 성공, null -> 실패</p>"
     )

@@ -15,7 +15,7 @@ public class SignUpPostReq {
     private String id;
     @Schema(example = "Ckdgusdlqkqh@@3", description = "유저 비밀번호", requiredMode = Schema.RequiredMode.REQUIRED)
     private String pwd;
-    @Schema(example = "백창현", description = "유저 이름", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(example = "백창현", description = "유저 이름")
     private String name;
     @Schema(example = "asdqwe@naver.com", requiredMode = Schema.RequiredMode.REQUIRED)
     private String email;
