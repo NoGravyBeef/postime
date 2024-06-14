@@ -206,5 +206,52 @@ public class UserController {
 
     }
 
+    @GetMapping("checkuser")
+    @Operation(summary = "중복 체크", description = "리턴 값은 참 또는 거짓")
+    @ApiResponse(responseCode = "200", description =
+            "<p>statusCode = 2 => 정상</p>" +
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 참, 거짓 </p>"
+    )
+    public ResultDto<Boolean> checkUser(@ParameterObject @ModelAttribute CheckReq p) {
+        int code = 2;
+        String msg = "중복체크완료";
+        Boolean result = false;
+        try {
+            result = service.checkUser(p);
+        } catch (Exception e) {
+            code = 4;
+            msg = e.getMessage();
+        }
+        return ResultDto.<Boolean>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
+
+    }
+    @PostMapping("checkPwd")
+    @Operation(summary = "비번 검증", description = "리턴 값은 참 또는 거짓")
+    @ApiResponse(responseCode = "200", description =
+            "<p>statusCode = 2 => 정상</p>" +
+                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+                    "<p>resultData = 참, 거짓 </p>")
+    public ResultDto<String> checkPassword(@RequestBody CheckPassword p) {
+        int code = 2;
+        String msg = "검증완료";
+        String result = null;
+        try {
+            result = service.checkPwd(p);
+        } catch (Exception e) {
+            code = 4;
+            msg = e.getMessage();
+        }
+        return ResultDto.<String>builder()
+                .statusCode(code)
+                .resultMsg(msg)
+                .resultData(result)
+                .build();
 
 }

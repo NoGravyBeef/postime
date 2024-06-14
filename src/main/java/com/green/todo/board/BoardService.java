@@ -116,7 +116,7 @@ public class BoardService {
 
         NoticeReq req = new NoticeReq(p.getCalendarId(), p.getSignedUserId());
         //ㅣ이거 김민지가 한거
-        noticeService.newBoardNotice(req);
+        noticeService.newBoardNotice(req, p.getTitle());
 
         return p.getBoardId();
     }
@@ -155,27 +155,35 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardMiniRes> getBoardMiniList(String userId, String month){
+    public List<GetViewCalendarRes> getBoardMiniList(String userId){
 
-        if (userId == null || month == null) {
+        if (userId == null) {
             throw new RuntimeException("모든 항목은 반드시 필요합니다.");
         }
 
         Long user_id = null;
-        Integer Month = null;
         try {
             user_id = Long.parseLong(userId);
-            Month = Integer.parseInt(month);
         } catch (NumberFormatException e) {
             throw new RuntimeException("파싱 에러");
         }
 
-        List<GetBoardMiniRes> boardListByUserId;
+        List<GetViewCalendarRes> boardListByUserId;
         try {
-            boardListByUserId = mapper.getBoardMiniListByUserIdAndMonth(user_id, Month);
+            boardListByUserId = mapper.getBoardViewListByUserId(user_id);
         } catch (Exception e) {
             throw new RuntimeException("board정보 불러오기 실패~!~!");
         }
+
+//        List<IdDto> result1 = new ArrayList<>();
+//        List<GetViewCalendarDto> result2 = new ArrayList<>();
+//        for (int i = 0; i < boardListByUserId.size(); i++) {
+//            IdDto dto1 = new IdDto(boardListByUserId.get(i).getCalendarId(), boardListByUserId.get(i).getBoardId());
+//            result1.add(dto1);
+//            GetViewCalendarDto dto2 = new GetViewCalendarDto(boardListByUserId.get(i).getTitle(), boardListByUserId.get(i).getStartDay(),
+//                    boardListByUserId.get(i).getDDay(), boardListByUserId.get(i).getColor());
+//            result2.add(dto2);
+//        }
 
         return boardListByUserId;
     }
@@ -235,7 +243,7 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public List<GetBoardMiniRes> getBoardSearchList(String searchWord, String signedUserId) {
+    public List<GetBoardSearchRes> getBoardSearchList(String searchWord, String signedUserId) {
 
         if (signedUserId == null) {
             throw new RuntimeException("유저 id를 입력하셔야합니다.");
@@ -252,7 +260,7 @@ public class BoardService {
             throw new RuntimeException("파싱 에러");
         }
 
-        List<GetBoardMiniRes> searchBoardList = null;
+        List<GetBoardSearchRes> searchBoardList = null;
         try {
             searchBoardList = mapper.getBoardSearchList(searchWord, signed_user_id);
         } catch (Exception e) {
@@ -384,22 +392,26 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public long updateBoardState(UpdateBoardStateReq p) {
-        if (p.getBoardId() == null || p.getState() == null) {
-            throw new RuntimeException("모든 항목 무조건 넣으셔야 합니다~!~!");
-        }
-        if (p.getState() < 1 || p.getState() > 3) {
-            throw new RuntimeException("state값 제대로 넣으셔야해요~!~!");
+    public int updateBoardState(List<UpdateBoardStateReq> p) {
+        for (UpdateBoardStateReq res : p) {
+            if (res.getBoardId() == null || res.getState() == null) {
+                throw new RuntimeException("모든 항목 무조건 넣으셔야 합니다~!~!");
+            }
+            if (res.getState() < 1 || res.getState() > 3) {
+                throw new RuntimeException("state값 제대로 넣으셔야해요~!~!");
+            }
+
         }
 
-        int result;
         try {
-            result = mapper.updateBoardState(p);
+            for (UpdateBoardStateReq res : p) {
+                mapper.updateBoardState(res);
+            }
         } catch (Exception e) {
             throw new RuntimeException("state 업데이트 쿼링 이슈~!~!");
         }
 
-        return p.getBoardId();
+        return 1;
     }
 
     ///////////////////////////////////////////////////////////////

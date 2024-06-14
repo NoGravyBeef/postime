@@ -9,8 +9,8 @@ public class GetCalendarRes {
     private long calendarId;
     @Schema(example = "캘린더 이름")
     private String title;
-    @Schema(example = "3")
-    private int color;
+    @Schema(example = "#FF922B")
+    private String color;
     @Schema(example = "2022-05-30 18:14:38")
     private String createdAt;
     @Schema(example = "2022-05-31 13:09:02")

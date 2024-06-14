@@ -33,27 +33,28 @@
         WHERE board_id = #{boardId}
     </select>
 
-    <select id="getBoardMiniListByUserIdAndMonth">
+    <select id="getBoardViewListByUserId">
         <![CDATA[
         SELECT
             A.board_id AS boardId,
             B.calendar_id AS calendarId,
-            B.color,
+            B.color AS backgroundColor,
             A.title,
             A.content,
-            A.start_day AS startDay,
-            A.d_day AS dDay
+            A.start_day AS start,
+            A.d_day AS end
         FROM board A
         JOIN calendar B ON A.calendar_id = B.calendar_id
         JOIN calendar_user C ON B.calendar_id = C.calendar_id
         WHERE C.user_id = #{userId} AND A.state = 1
-          AND (
-            (A.start_day <= LAST_DAY(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))
-            AND A.d_day >= STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))
-          )
         ORDER BY A.d_day ASC
         ]]>
     </select>
+
+<!--    AND (-->
+<!--    (A.start_day <= LAST_DAY(STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))-->
+<!--    AND A.d_day >= STR_TO_DATE(CONCAT(YEAR(CURDATE()), '-', #{month}, '-01'), '%Y-%m-%d'))-->
+<!--    )-->
 
     <select id="getBoardFiles">
         SELECT file_id AS fileId, file_name AS fileName
@@ -71,6 +72,7 @@
         SELECT
             A.board_id AS boardId,
             B.calendar_id AS calendarId,
+            B.title AS calendarName,
             B.color,
             A.title,
             A.content,
@@ -86,11 +88,13 @@
         SELECT
         A.board_id AS boardId,
         B.calendar_id AS calendarId,
+        B.title AS calendarName,
         B.color,
         A.title,
         A.content,
         A.start_day AS startDay,
-        A.d_day AS dDay
+        A.d_day AS dDay,
+        A.state
         FROM board A
         JOIN calendar B ON A.calendar_id = B.calendar_id
         JOIN calendar_user C ON B.calendar_id = C.calendar_id
@@ -103,7 +107,7 @@
                 A.content LIKE '%${searchWord}%'
             </if>
         </where>
-        ORDER BY A.d_day ASC
+        ORDER BY A.board_id DESC
     </select>
 
     <select id="selectBoardsByUserIdForToday">
@@ -122,6 +126,12 @@
         ORDER BY A.d_day ASC
         ]]>
     </select>
+
+    <update id="updateBoardState">
+        UPDATE board
+        SET state = #{state}
+        WHERE board_id = #{boardId}
+    </update>
 
     <select id="selectBoardsByUserIdForCurrentMonth">
         <![CDATA[
@@ -178,12 +188,6 @@
                 , dead_line = #{deadLine}
             </if>
         </set>
-        WHERE board_id = #{boardId}
-    </update>
-
-    <update id="updateBoardState">
-        UPDATE board
-        SET state = #{state}
         WHERE board_id = #{boardId}
     </update>
 

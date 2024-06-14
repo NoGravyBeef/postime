@@ -1,6 +1,7 @@
 package com.green.todo.user;
 
 
+
 import com.green.todo.Mail.MailService;
 import com.green.todo.user.model.*;
 import lombok.RequiredArgsConstructor;
@@ -148,7 +149,7 @@ public class UserService {
             throw new IllegalArgumentException("유저정보가 일치하지 않습니다");
         }
         if (p.getEmail() != null && !validateEmail(p.getEmail())) {
-            throw new IllegalArgumentException("이메일은 지메일로~");
+            throw new IllegalArgumentException("이메일이 틀렸습니다");
         }
         if (p.getPwd() == null) {
             throw new RuntimeException("기존 비밀번호는 필수로 넣어야 합니다.");

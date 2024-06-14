@@ -14,7 +14,7 @@ public class GetBoardTodoRes {
     @Schema(example = "1", description = "캘린더 id")
     private Long calendarId;
     @Schema(example = "1", description = "캘린더 색깔")
-    private Integer color;
+    private String color;
     @Schema(example = "title", description = "글 제목")
     private String title;
     @Schema(example = "2024-04-12", description = "일정 마감일")

@@ -11,8 +11,10 @@
     </insert>
 
     <select id="getCommentList">
-        SELECT user_id AS userId, content, created_at AS createdAt, updated_at AS updatedAt
-        FROM comment
+        SELECT A.user_id AS userId, B.name AS userName, A.comment_id AS commentId, A.content, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM comment A
+        JOIN user B
+        ON A.user_id = B.user_id
         WHERE board_id = #{boardId}
         ORDER BY comment_id
     </select>

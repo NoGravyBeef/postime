@@ -10,8 +10,8 @@ import java.util.List;
 
 @Mapper
 public interface NoticeMapper {
-    int insertNotice(NoticePostReq p);
-    int insertNoticeList(NoticeListPostReq p);
+    void insertNotice(NoticePostReq p);
+    void insertNoticeList(NoticeListPostReq p);
 
     List<Long> getCalendarMember(long calendarId);
 
@@ -20,7 +20,6 @@ public interface NoticeMapper {
     String getBoardName(long boardId);
 
     List<NoticeGetRes> getNoticeList (long signedUserId);
-    int notRead(long signedUserId);
 
-    int updateNotice(NoticeUpdateReq p);
+    void updateNotice(NoticeUpdateReq p);
 }

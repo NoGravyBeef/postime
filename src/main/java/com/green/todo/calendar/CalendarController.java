@@ -27,8 +27,8 @@ public class CalendarController {
     @Operation(summary = "캘린더 생성", description = "<p>캘린더 생성하는 곳입니다요~!~!</p>" +
             "<p>모든 항목에 올바른 값 넣으셔야 합니다.</p>" +
             "<p>캘린더 이름은 1~20자 사이로 넣으셔야 합니다.(한글은 1개당 2자임)</p>" +
-            "<p>색상은 1~9번 사이의 숫자로 정합니다.</p>")
-    @ApiResponse(responseCode = "2",description =
+            "<p>색상은 약속된 색상만 사용합니다.</p>")
+    @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 2 => 정상 </p>"+
                     "<p>statusCode = 4 => 생성된 캘린더 없음 및 오류 </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -56,7 +56,7 @@ public class CalendarController {
     @GetMapping
     @Operation(summary = "캘린더 목록 가지고오기", description = "<strong>캘린더 목록을 불러온다요~!~!</strong>" +
             "<p>로그인한 user_id 값을 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -84,7 +84,7 @@ public class CalendarController {
     @GetMapping("member")
     @Operation(summary = "캘린더 멤버 목록 가지고오기", description = "<strong>캘린더 멤버 목록을 불러온다요~!~!</strong>" +
             "<p>calendar_id 값을 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
             "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -113,7 +113,7 @@ public class CalendarController {
     @Operation(summary = "캘린더 정보 업데이트", description = "<p>캘린더 정보를 업데이트 한다요~!~!</p>" +
             "<p>캘린더 만들때 양식이랑 똑같이!!</p>"+
             "<p>넣은 부분만 수정하니까, 수정할 거만 넣으시면 됩니다~!~!</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -144,7 +144,7 @@ public class CalendarController {
             "<p>누구에게서 캘린더를 지울지 유저id를 넣어주세요~!~!</p>" +
             "<strong>해당 유저한테서만 캘린더가 삭제됩니다</strong>" +
             "<p>**캘린더를 가지고 있는 마지막 유저가 삭제하면, 캘린더 또한 영원히 삭제됨!!!!**</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -172,7 +172,7 @@ public class CalendarController {
     @PostMapping("plus")
     @Operation(summary = "캘린더에 유저 한명씩 추가", description = "<strong>캘린더를 볼 수 있는 유저 한명 추가!</strong>" +
             "<p>선택한 캘린더 id와, 추가할 유저 Email를 입력해 주세요~!~!</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
                     "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 추가 못했거나, 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -201,7 +201,7 @@ public class CalendarController {
     @Operation(summary = "캘린더 멤버 삭제", description = "<p>캘린더 맴버 삭제하는 곳입니다요~!~!</p>" +
             "<p>모든 항목에 올바른 값 넣으셔야 합니다.</p>" +
             "<p>캘린더를 만든 주인만 다른 유저를 삭제할 수 있습니다.</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
             "<p>statusCode = 2 => 정상 </p>"+
                     "<p>statusCode = 4 => 오류 </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +

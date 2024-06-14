@@ -19,7 +19,7 @@ public interface CalendarMapper {
     int plusCalendarUserById(@Param("calendarId") long calendarId, @Param("signedUserId") long signedUserId);
     List<GetCalendarRes> getCalendarList(long signedUserId);
     int updateCalendar(UpdateCalendarReq p);
-    int deleteCalendar(DeleteCalendarServiceReq p);
+    int deleteCalendar(Long signedUserId, Long calendarId);
     void deleteCalendarPermanent(long calendarId);
     List<MemRes> getMemberList(Long calendarId);
     int deleteCalendarMember(DeleteCalendarMemberReq p);

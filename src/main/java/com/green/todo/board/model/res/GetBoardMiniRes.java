@@ -12,8 +12,10 @@ public class GetBoardMiniRes {
     //얘는 달력에서 정렬떄문에
     @Schema(example = "1", description = "캘린더 id")
     private Long calendarId;
-    @Schema(example = "1", description = "캘린더 색상")
-    private Long color;
+    @Schema(example = "title", description = "캘린더 이름")
+    private String calendarName;
+    @Schema(example = "#FF922B", description = "캘린더 색상")
+    private String color;
     @Schema(example = "title", description = "글 제목")
     private String title;
     @Schema(example = "content", description = "글 내용")

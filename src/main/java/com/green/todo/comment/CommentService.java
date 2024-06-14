@@ -33,12 +33,11 @@ public class CommentService {
         }
         // 댓글 알림 보내기
         NoticeReq notice = new NoticeReq(p.getCalendarId(), p.getSignedUserId());
-        noticeService.newCommentNotice(notice, p.getBoardId());
+        noticeService.newCommentNotice(notice, p.getBoardId(), p.getContent());
         return p.getCommentId();
     }
 
     public List<CommentGetRes> getCommentList(String boardId) {
-
         Long board_id = null;
         try {
             board_id = Long.parseLong(boardId);

@@ -9,6 +9,6 @@ public class UpdateCalendarReq {
     private Long calendarId;
     @Schema(example = "수정할 캘린더 이름 넣으세요~!~!")
     private String title;
-    @Schema(example = "수정할 캘린더 색상 번호 넣으세요~!~!")
-    private Integer color;
+    @Schema(example = "수정할 캘린더 색상 넣으세요~!~!")
+    private String color;
 }

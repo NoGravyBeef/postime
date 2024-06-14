@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.green.todo.common.model.ResultDto.resultDto;
 
 @CrossOrigin(origins = "*")
 @Slf4j
@@ -32,7 +31,7 @@ public class CommentController {
     @PostMapping
     @Operation(summary = "댓글 작성", description = "<strong>모두 필수 입력입니다.</strong>" +
             "<p>성공시 댓글 PK, 실패시 -1을 리턴합니다.</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
             "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -46,13 +45,13 @@ public class CommentController {
         } catch (Exception e) {
             utils.noAcceptable(e);
         }
-        return resultDto(utils.getCode(), utils.getMsg(),result);
+        return new ResultDto<>(utils.getCode(), utils.getMsg(),result);
     }
 
     @GetMapping
     @Operation(summary = "댓글 리스트 불러오기", description = "<strong>필수 입력입니다.</strong>" +
             "<p>댓글 리스트 리턴합니다.</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
             "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -66,13 +65,13 @@ public class CommentController {
         } catch (Exception e) {
             utils.noAcceptable(e);
         }
-        return resultDto(utils.getCode(), utils.getMsg(),result);
+        return new ResultDto<>(utils.getCode(), utils.getMsg(),result);
     }
 
     @PutMapping
     @Operation(summary = "댓글 수정하기", description = "<strong>모두 필수 입력입니다.</strong>" +
             "<p>수정된 댓글의 내용을 리턴합니다.</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
             "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -86,13 +85,13 @@ public class CommentController {
         } catch (Exception e) {
             utils.noAcceptable(e);
         }
-        return resultDto(utils.getCode(), utils.getMsg(),result);
+        return new ResultDto<>(utils.getCode(), utils.getMsg(),result);
     }
 
     @DeleteMapping
     @Operation(summary = "댓글 삭제하기", description = "<strong>모두 필수 입력입니다!</strong>" +
             "<p>삭제되면 1을 리턴 실패하면 -1을 리턴합니다.</p>")
-    @ApiResponse(responseCode = "2",description =
+    @ApiResponse(responseCode = "200",description =
             "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
@@ -106,7 +105,7 @@ public class CommentController {
         } catch (Exception e) {
             utils.noAcceptable(e);
         }
-        return resultDto(utils.getCode(), utils.getMsg(),result);
+        return new ResultDto<>(utils.getCode(), utils.getMsg(),result);
     }
 
 }

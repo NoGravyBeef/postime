@@ -12,6 +12,6 @@ public class CreateCalendarReq {
     private Long signedUserId;
     @Schema(example = "title", description = "캘린더 이름 입력")
     private String title;
-    @Schema(example = "3", description = "1~9사이의 색상 값 늫으세요~!")
-    private Integer color;
+    @Schema(example = "#FF922B", description = "색상 hex값 넣어주세요~!~!")
+    private String color;
 }

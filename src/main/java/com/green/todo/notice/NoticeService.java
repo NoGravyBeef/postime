@@ -6,7 +6,6 @@ import com.green.todo.notice.model.req.NoticePostReq;
 import com.green.todo.notice.model.req.NoticeReq;
 import com.green.todo.notice.model.req.NoticeUpdateReq;
 import com.green.todo.notice.model.res.NoticeGetRes;
-import com.green.todo.notice.model.res.NoticeListRes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -48,8 +47,9 @@ public class NoticeService {
     }
 
     // NoticeReq = 캘린더 PK, 보드를 추가한 유저의 PK
-    public void newBoardNotice(NoticeReq p) {
+    public void newBoardNotice(NoticeReq p, String boardName) {
         contents.setCalendarName(mapper.getCalendarName(p.getCalendarId()));
+        contents.setContent(boardName);
 
         NoticePostReq insNotice = new NoticePostReq();
         insNotice.setCalendarId(p.getCalendarId());
@@ -65,8 +65,9 @@ public class NoticeService {
     }
 
     // NoticeReq = 캘린더PK, 댓글을 추가한 유저의 PK  + 보드 PK
-    public void newCommentNotice(NoticeReq p, long boardId) {
+    public void newCommentNotice(NoticeReq p, long boardId, String content) {
         contents.setBoardName(mapper.getBoardName(boardId));
+        contents.setContent(content);
 
         NoticePostReq insNotice = new NoticePostReq();
         insNotice.setCalendarId(p.getCalendarId());
@@ -82,39 +83,34 @@ public class NoticeService {
     }
 
 // get ======================================================================
-    public NoticeListRes getNoticeList (String p) {
-
+    public List<NoticeGetRes> getNoticeList (String signedUserId) {
         Long userId = null;
         try {
-            userId = Long.parseLong(p);
+            userId = Long.parseLong(signedUserId);
         } catch (Exception e) {
             throw new RuntimeException("파싱 에러");
         }
-
-        if(userId == null || userId < 0) {
-            throw new RuntimeException("유저 PK를 입력해주세요.");
+        if(userId == null || userId < 0){
+            throw new RuntimeException("로그인된 유저의 PK를 입력해주세요.");
         }
-        int notRead = mapper.notRead(userId);
-        List<NoticeGetRes> list = mapper.getNoticeList(userId);
-        NoticeListRes result = new NoticeListRes();
-        result.setNotice(list);
-        result.setNotRead(notRead);
+        List<NoticeGetRes> result = mapper.getNoticeList(userId);
         return result;
     }
 
 // update ======================================================================
-    public int noticeUpdate(NoticeUpdateReq p) {
-        if(p.getNoticeId() == null || p.getNoticeId() < 0) {
-            throw new RuntimeException("알림 PK를 입력해주세요.");
+    public void noticeRead(List<NoticeGetRes> p, String signedUserId) {
+        Long userId = null;
+        try {
+            userId = Long.parseLong(signedUserId);
+            for(NoticeGetRes notice : p) {
+                NoticeUpdateReq req = new NoticeUpdateReq();
+                req.setNoticeId(notice.getNoticeId());
+                req.setSignedUserId(userId);
+                mapper.updateNotice(req);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("알림 읽음처리 실패");
         }
-        if(p.getSignedUserId() == null || p.getSignedUserId() < 0){
-            throw new RuntimeException("로그인된 유저의 PK를 입력해주세요.");
-        }
-        int result = mapper.updateNotice(p);
-        if(result != 1) {
-            throw new RuntimeException("알림 업데이트 실패");
-        }
-        return result;
     }
 
 

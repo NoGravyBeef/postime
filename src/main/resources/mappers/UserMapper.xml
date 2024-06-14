@@ -71,5 +71,17 @@
         WHERE user_id = #{userId}
     </update>
 
+    <select id="checkUser">
+        SELECT user_id
+        FROM user
+        <where>
+            <if test="id != null and id != ''">
+                id = #{id}
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email}
+            </if>
+        </where>
+    </select>
 
 </mapper>

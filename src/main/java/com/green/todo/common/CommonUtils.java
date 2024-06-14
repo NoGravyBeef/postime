@@ -27,4 +27,13 @@ public class CommonUtils {
     public boolean isWithinByteLimit(String str, int limitByte) {
         return str.getBytes(StandardCharsets.UTF_8).length <= limitByte;
     }
+
+    public boolean validateColor(String color) {
+        if (color.equals("#FF922B") || color.equals("#FCC419") || color.equals("#51CF66") || color.equals("#339AF0") ||
+                color.equals("#845EF7") || color.equals("#CC5DE8") || color.equals("#F06595") || color.equals("#FF6B6B") || color.equals("#ABD5BD")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
