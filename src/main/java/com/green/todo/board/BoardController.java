@@ -171,13 +171,11 @@ public class BoardController {
     @GetMapping("search")
     @Operation(summary = "검색한 board 목록 가지고오기", description = "<strong>검색한 board 목록을 불러온다요~!~!</strong>" +
             "<p>검색어를 넣어주세요~!~!</p>")
-    @ApiResponse(responseCode = "2",description =
-            "<p>statusCode = 2 => 정상</p>"+
-                    "<p>statusCode = 4 => 오류난거임~!~! </p>" +
-                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
-                    "<p>resultData = 검색한 board 목록~!~! </p>"
-    )
-    public ResultDto<List<GetBoardMiniRes>> getBoardSearchList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId
+    @ApiResponse(responseCode = "200", description = "<p>statusCode = 2 => 정상</p>"+
+            "<p>statusCode = 4 => 오류난거임~!~! </p>" +
+            "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+            "<p>resultData = 검색된 board 목록~!~! </p>")
+    public ResultDto<List<GetBoardSearchRes>> getBoardSearchList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId
                                                                     , @Schema(example = "search_word") @RequestParam(required = false, name = "search_word") String searchWord) {
         int code = 2;
         String msg = "검색한 board 불러오기 완료요~!~!";
@@ -392,6 +390,9 @@ public class BoardController {
 
         try {
             result = service.createFile(file, p);
+
+
+
         } catch (Exception e) {
             code = 4;
             msg = e.getMessage();

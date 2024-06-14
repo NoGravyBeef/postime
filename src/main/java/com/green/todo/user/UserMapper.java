@@ -15,4 +15,6 @@ public interface UserMapper {
     String findId(FindIdReq p);
     int updUser(EditReq p);
     PwdAcRes reqPwd(PwdAcReq p);
+    Long checkUser(CheckReq p);
+    Long checkPassword(CheckPassword p);
 }

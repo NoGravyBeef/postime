@@ -5022,3 +5022,2074 @@ java.io.FileNotFoundException: class path resource [static/index.html] cannot be
 |64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
 |------------|------------|--------|--------------------|--------------------|
 [0;39m
+[2024-06-14 09:40:12 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:40:12 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:40:12 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:40:12 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:40:37 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id
+        FROM user
+         WHERE id = 'jojo0614'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:40:37 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:40:48 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT user_id
+        FROM user
+         WHERE email = 'jojo0614@gmail.com'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:40:48 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:40:53 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:40:53 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:40:53 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:40:53 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:41:03 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'jojo0614'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:41:03 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|--------|---|-----|----|------|
+|user_id |id |name |pwd |email |
+|--------|---|-----|----|------|
+|--------|---|-----|----|------|
+[0;39m
+[2024-06-14 09:41:04 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. INSERT INTO user
+         SET id = 'jojo0614'
+        , name = '조수현'
+        , pwd = '$2a$10$Q0dhdpt83jTR1WzykOUASOEjrZ2Z1foTqtfZQpeW4mc0C/2JPKK26'
+        , email = 'jojo0614@gmail.com'
+ {executed in 3 msec}[0;39m
+[2024-06-14 09:41:04 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+352. getGeneratedKeys on query: INSERT INTO user
+         SET id = 'jojo0614'
+        , name = '조수현'
+        , pwd = '$2a$10$Q0dhdpt83jTR1WzykOUASOEjrZ2Z1foTqtfZQpeW4mc0C/2JPKK26'
+        , email = 'jojo0614@gmail.com'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:41:04 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|110       |
+|----------|
+[0;39m
+[2024-06-14 09:41:52 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:41:52 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:41:52 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:41:52 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:41:59 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:41:59 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:41:59 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:41:59 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:41:59 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:41:59 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:41:59 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:41:59 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:41:59 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:41:59 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:41:59 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color AS backgroundColor,
+            A.title,
+            A.content,
+            A.start_day AS start,
+            A.d_day AS end
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:41:59 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|board_id |calendar_id |color   |title       |content                                      |start_day  |d_day      |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|133      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|155      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|40       |62          |#FF922B |Geo         |BioDelivery Sciences International, Inc.     |2022-04-28 |2024-01-25 |
+|97       |64          |#FF922B |Honda       |Professional Disposables International, Inc. |2023-09-12 |2024-01-25 |
+|164      |63          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|153      |61          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|162      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|152      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|140      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|161      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|151      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|139      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|74       |63          |#FF922B |Lincoln     |West-ward Pharmaceutical Corp                |2023-10-23 |2024-03-17 |
+|28       |62          |#FF922B |Kia         |Teva Parenteral Medicines, Inc.              |2023-08-19 |2024-03-25 |
+|56       |61          |#FF922B |MINI        |Meijer Distribution Inc                      |2022-06-20 |2024-03-26 |
+|10       |1           |#FF922B |title       |content                                      |2024-04-11 |2024-04-12 |
+|17       |63          |#FF922B |GMC         |Hospira, Inc.                                |2023-09-08 |2024-04-12 |
+|32       |63          |#FF922B |Mercury     |Par Pharmaceutical Inc.                      |2022-04-10 |2024-04-13 |
+|37       |62          |#FF922B |Ford        |BluePoint Laboratories                       |2022-03-16 |2024-04-13 |
+|137      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|159      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|100      |63          |#FF922B |Ford        |Nelco Laboratories, Inc.                     |2023-11-08 |2024-05-01 |
+|147      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|157      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|66       |63          |#FF922B |Rolls-Royce |Kmart Corporation                            |2022-04-21 |2024-06-07 |
+|143      |61          |#FF922B |ㅁㄴㅇㅁ        |ㅁㄴㄹㅇ                                         |2024-06-12 |2024-06-12 |
+|165      |63          |#FF922B |test        |test test                                    |2024-06-13 |2024-06-14 |
+|144      |1           |#FF922B |보드보드        |content                                      |2024-06-12 |2024-06-24 |
+|124      |64          |#FF922B |Mazda       |Flexidy                                      |2024-06-10 |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen  |Mat Lam Tam                                  |2024-06-28 |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet   |Tresom                                       |2024-06-21 |2024-07-06 |
+|113      |62          |#FF922B |Suzuki      |Greenlam                                     |2024-06-28 |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet   |Voltsillam                                   |2024-06-03 |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen  |Voltsillam                                   |2024-06-13 |2024-07-29 |
+|125      |61          |#FF922B |Chevrolet   |Tres-Zap                                     |2024-06-14 |2024-08-03 |
+|128      |63          |#FF922B |Dodge       |Daltfresh                                    |2024-06-24 |2024-08-07 |
+|131      |64          |#FF922B |BMW         |Bamity                                       |2024-06-08 |2024-08-08 |
+|120      |61          |#FF922B |Chevrolet   |Tampflex                                     |2024-06-08 |2024-08-13 |
+|118      |61          |#FF922B |Mazda       |Home Ing                                     |2024-06-07 |2024-08-14 |
+|126      |61          |#FF922B |Saturn      |Sub-Ex                                       |2024-06-22 |2024-08-26 |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+[0;39m
+[2024-06-14 09:42:25 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT user_id
+        FROM user
+         WHERE id = 'jojo06142'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:42:25 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:42:26 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id
+        FROM user
+         WHERE email = 'jojo06142@gmail.com'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:42:26 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:42:28 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'jojo06142'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:42:28 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|--------|---|-----|----|------|
+|user_id |id |name |pwd |email |
+|--------|---|-----|----|------|
+|--------|---|-----|----|------|
+[0;39m
+[2024-06-14 09:42:28 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. INSERT INTO user
+         SET id = 'jojo06142'
+        , name = '조수현'
+        , pwd = '$2a$10$4jMnyYlGjka2X3YegLtPWOYvcYg8IdpbaxWZbpOpQPRoXwg2eTHLi'
+        , email = 'jojo06142@gmail.com'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:42:28 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+351. getGeneratedKeys on query: INSERT INTO user
+         SET id = 'jojo06142'
+        , name = '조수현'
+        , pwd = '$2a$10$4jMnyYlGjka2X3YegLtPWOYvcYg8IdpbaxWZbpOpQPRoXwg2eTHLi'
+        , email = 'jojo06142@gmail.com'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:42:28 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|111       |
+|----------|
+[0;39m
+[2024-06-14 09:43:56 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:43:56 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:43:56 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:43:56 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:43:59 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:43:59 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:43:59 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:43:59 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:43:59 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:43:59 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:43:59 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:43:59 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:43:59 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:43:59 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:43:59 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color AS backgroundColor,
+            A.title,
+            A.content,
+            A.start_day AS start,
+            A.d_day AS end
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:43:59 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|board_id |calendar_id |color   |title       |content                                      |start_day  |d_day      |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|133      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|155      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|40       |62          |#FF922B |Geo         |BioDelivery Sciences International, Inc.     |2022-04-28 |2024-01-25 |
+|97       |64          |#FF922B |Honda       |Professional Disposables International, Inc. |2023-09-12 |2024-01-25 |
+|164      |63          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|153      |61          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|162      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|152      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|140      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|161      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|151      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|139      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|74       |63          |#FF922B |Lincoln     |West-ward Pharmaceutical Corp                |2023-10-23 |2024-03-17 |
+|28       |62          |#FF922B |Kia         |Teva Parenteral Medicines, Inc.              |2023-08-19 |2024-03-25 |
+|56       |61          |#FF922B |MINI        |Meijer Distribution Inc                      |2022-06-20 |2024-03-26 |
+|10       |1           |#FF922B |title       |content                                      |2024-04-11 |2024-04-12 |
+|17       |63          |#FF922B |GMC         |Hospira, Inc.                                |2023-09-08 |2024-04-12 |
+|32       |63          |#FF922B |Mercury     |Par Pharmaceutical Inc.                      |2022-04-10 |2024-04-13 |
+|37       |62          |#FF922B |Ford        |BluePoint Laboratories                       |2022-03-16 |2024-04-13 |
+|137      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|159      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|100      |63          |#FF922B |Ford        |Nelco Laboratories, Inc.                     |2023-11-08 |2024-05-01 |
+|147      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|157      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|66       |63          |#FF922B |Rolls-Royce |Kmart Corporation                            |2022-04-21 |2024-06-07 |
+|143      |61          |#FF922B |ㅁㄴㅇㅁ        |ㅁㄴㄹㅇ                                         |2024-06-12 |2024-06-12 |
+|165      |63          |#FF922B |test        |test test                                    |2024-06-13 |2024-06-14 |
+|144      |1           |#FF922B |보드보드        |content                                      |2024-06-12 |2024-06-24 |
+|124      |64          |#FF922B |Mazda       |Flexidy                                      |2024-06-10 |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen  |Mat Lam Tam                                  |2024-06-28 |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet   |Tresom                                       |2024-06-21 |2024-07-06 |
+|113      |62          |#FF922B |Suzuki      |Greenlam                                     |2024-06-28 |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet   |Voltsillam                                   |2024-06-03 |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen  |Voltsillam                                   |2024-06-13 |2024-07-29 |
+|125      |61          |#FF922B |Chevrolet   |Tres-Zap                                     |2024-06-14 |2024-08-03 |
+|128      |63          |#FF922B |Dodge       |Daltfresh                                    |2024-06-24 |2024-08-07 |
+|131      |64          |#FF922B |BMW         |Bamity                                       |2024-06-08 |2024-08-08 |
+|120      |61          |#FF922B |Chevrolet   |Tampflex                                     |2024-06-08 |2024-08-13 |
+|118      |61          |#FF922B |Mazda       |Home Ing                                     |2024-06-07 |2024-08-14 |
+|126      |61          |#FF922B |Saturn      |Sub-Ex                                       |2024-06-22 |2024-08-26 |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+[0;39m
+[2024-06-14 09:45:02 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id
+        FROM user
+         WHERE id = '1212dd'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:02 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:45:08 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT user_id
+        FROM user
+         WHERE email = '1212dd@naver.com'
+ {executed in 2 msec}[0;39m
+[2024-06-14 09:45:08 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:45:18 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = '1212dd'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:45:18 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|--------|---|-----|----|------|
+|user_id |id |name |pwd |email |
+|--------|---|-----|----|------|
+|--------|---|-----|----|------|
+[0;39m
+[2024-06-14 09:45:18 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. INSERT INTO user
+         SET id = '1212dd'
+        , name = '조수횬'
+        , pwd = '$2a$10$eCVj/WAhHQqbczUJdBV8dO6kN4UvL0LRxTcZzpjW8cx.7bRluwcFS'
+        , email = '1212dd@naver.com'
+ {executed in 2 msec}[0;39m
+[2024-06-14 09:45:18 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+352. getGeneratedKeys on query: INSERT INTO user
+         SET id = '1212dd'
+        , name = '조수횬'
+        , pwd = '$2a$10$eCVj/WAhHQqbczUJdBV8dO6kN4UvL0LRxTcZzpjW8cx.7bRluwcFS'
+        , email = '1212dd@naver.com'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:18 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|112       |
+|----------|
+[0;39m
+[2024-06-14 09:45:20 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:45:20 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:45:20 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:45:20 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:45:23 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:23 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:45:24 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:45:24 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:45:24 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:24 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color AS backgroundColor,
+            A.title,
+            A.content,
+            A.start_day AS start,
+            A.d_day AS end
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:24 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:45:24 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:24 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:45:24 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|board_id |calendar_id |color   |title       |content                                      |start_day  |d_day      |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|133      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|155      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|40       |62          |#FF922B |Geo         |BioDelivery Sciences International, Inc.     |2022-04-28 |2024-01-25 |
+|97       |64          |#FF922B |Honda       |Professional Disposables International, Inc. |2023-09-12 |2024-01-25 |
+|164      |63          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|153      |61          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|162      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|152      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|140      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|161      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|151      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|139      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|74       |63          |#FF922B |Lincoln     |West-ward Pharmaceutical Corp                |2023-10-23 |2024-03-17 |
+|28       |62          |#FF922B |Kia         |Teva Parenteral Medicines, Inc.              |2023-08-19 |2024-03-25 |
+|56       |61          |#FF922B |MINI        |Meijer Distribution Inc                      |2022-06-20 |2024-03-26 |
+|10       |1           |#FF922B |title       |content                                      |2024-04-11 |2024-04-12 |
+|17       |63          |#FF922B |GMC         |Hospira, Inc.                                |2023-09-08 |2024-04-12 |
+|32       |63          |#FF922B |Mercury     |Par Pharmaceutical Inc.                      |2022-04-10 |2024-04-13 |
+|37       |62          |#FF922B |Ford        |BluePoint Laboratories                       |2022-03-16 |2024-04-13 |
+|137      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|159      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|100      |63          |#FF922B |Ford        |Nelco Laboratories, Inc.                     |2023-11-08 |2024-05-01 |
+|147      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|157      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|66       |63          |#FF922B |Rolls-Royce |Kmart Corporation                            |2022-04-21 |2024-06-07 |
+|143      |61          |#FF922B |ㅁㄴㅇㅁ        |ㅁㄴㄹㅇ                                         |2024-06-12 |2024-06-12 |
+|165      |63          |#FF922B |test        |test test                                    |2024-06-13 |2024-06-14 |
+|144      |1           |#FF922B |보드보드        |content                                      |2024-06-12 |2024-06-24 |
+|124      |64          |#FF922B |Mazda       |Flexidy                                      |2024-06-10 |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen  |Mat Lam Tam                                  |2024-06-28 |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet   |Tresom                                       |2024-06-21 |2024-07-06 |
+|113      |62          |#FF922B |Suzuki      |Greenlam                                     |2024-06-28 |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet   |Voltsillam                                   |2024-06-03 |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen  |Voltsillam                                   |2024-06-13 |2024-07-29 |
+|125      |61          |#FF922B |Chevrolet   |Tres-Zap                                     |2024-06-14 |2024-08-03 |
+|128      |63          |#FF922B |Dodge       |Daltfresh                                    |2024-06-24 |2024-08-07 |
+|131      |64          |#FF922B |BMW         |Bamity                                       |2024-06-08 |2024-08-08 |
+|120      |61          |#FF922B |Chevrolet   |Tampflex                                     |2024-06-08 |2024-08-13 |
+|118      |61          |#FF922B |Mazda       |Home Ing                                     |2024-06-07 |2024-08-14 |
+|126      |61          |#FF922B |Saturn      |Sub-Ex                                       |2024-06-22 |2024-08-26 |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+[0;39m
+[2024-06-14 09:45:24 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:45:24 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:45:51 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:51 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:45:52 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:45:52 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:46:00 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:46:00 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:46:00 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:46:00 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:17 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:17 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:17 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:17 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:47:18 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:18 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:18 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:18 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:47:20 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:20 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:47:21 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:21 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:23 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:23 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:23 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:23 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:47:27 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:27 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:47:27 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:27 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:27 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:27 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:47:27 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:27 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:47:27 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:27 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:27 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color AS backgroundColor,
+            A.title,
+            A.content,
+            A.start_day AS start,
+            A.d_day AS end
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:27 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|board_id |calendar_id |color   |title       |content                                      |start_day  |d_day      |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|133      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|155      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|40       |62          |#FF922B |Geo         |BioDelivery Sciences International, Inc.     |2022-04-28 |2024-01-25 |
+|97       |64          |#FF922B |Honda       |Professional Disposables International, Inc. |2023-09-12 |2024-01-25 |
+|164      |63          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|153      |61          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|162      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|152      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|140      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|161      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|151      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|139      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|74       |63          |#FF922B |Lincoln     |West-ward Pharmaceutical Corp                |2023-10-23 |2024-03-17 |
+|28       |62          |#FF922B |Kia         |Teva Parenteral Medicines, Inc.              |2023-08-19 |2024-03-25 |
+|56       |61          |#FF922B |MINI        |Meijer Distribution Inc                      |2022-06-20 |2024-03-26 |
+|10       |1           |#FF922B |title       |content                                      |2024-04-11 |2024-04-12 |
+|17       |63          |#FF922B |GMC         |Hospira, Inc.                                |2023-09-08 |2024-04-12 |
+|32       |63          |#FF922B |Mercury     |Par Pharmaceutical Inc.                      |2022-04-10 |2024-04-13 |
+|37       |62          |#FF922B |Ford        |BluePoint Laboratories                       |2022-03-16 |2024-04-13 |
+|137      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|159      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|100      |63          |#FF922B |Ford        |Nelco Laboratories, Inc.                     |2023-11-08 |2024-05-01 |
+|147      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|157      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|66       |63          |#FF922B |Rolls-Royce |Kmart Corporation                            |2022-04-21 |2024-06-07 |
+|143      |61          |#FF922B |ㅁㄴㅇㅁ        |ㅁㄴㄹㅇ                                         |2024-06-12 |2024-06-12 |
+|165      |63          |#FF922B |test        |test test                                    |2024-06-13 |2024-06-14 |
+|144      |1           |#FF922B |보드보드        |content                                      |2024-06-12 |2024-06-24 |
+|124      |64          |#FF922B |Mazda       |Flexidy                                      |2024-06-10 |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen  |Mat Lam Tam                                  |2024-06-28 |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet   |Tresom                                       |2024-06-21 |2024-07-06 |
+|113      |62          |#FF922B |Suzuki      |Greenlam                                     |2024-06-28 |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet   |Voltsillam                                   |2024-06-03 |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen  |Voltsillam                                   |2024-06-13 |2024-07-29 |
+|125      |61          |#FF922B |Chevrolet   |Tres-Zap                                     |2024-06-14 |2024-08-03 |
+|128      |63          |#FF922B |Dodge       |Daltfresh                                    |2024-06-24 |2024-08-07 |
+|131      |64          |#FF922B |BMW         |Bamity                                       |2024-06-08 |2024-08-08 |
+|120      |61          |#FF922B |Chevrolet   |Tampflex                                     |2024-06-08 |2024-08-13 |
+|118      |61          |#FF922B |Mazda       |Home Ing                                     |2024-06-07 |2024-08-14 |
+|126      |61          |#FF922B |Saturn      |Sub-Ex                                       |2024-06-22 |2024-08-26 |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:35 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:35 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:35 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:35 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:47:36 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color AS backgroundColor,
+            A.title,
+            A.content,
+            A.start_day AS start,
+            A.d_day AS end
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:36 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:36 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:47:36 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:36 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:47:36 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|board_id |calendar_id |color   |title       |content                                      |start_day  |d_day      |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+|133      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|155      |61          |#FF922B |BMW         |Chain Drug Marketing Association, Inc.       |2023-02-18 |2024-01-23 |
+|97       |64          |#FF922B |Honda       |Professional Disposables International, Inc. |2023-09-12 |2024-01-25 |
+|40       |62          |#FF922B |Geo         |BioDelivery Sciences International, Inc.     |2022-04-28 |2024-01-25 |
+|153      |61          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|164      |63          |#FF922B |Toyota      |PD-Rx Pharmaceuticals, Inc.                  |2022-03-25 |2024-02-12 |
+|140      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|162      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|152      |62          |#FF922B |Plymouth    |Merck Sharp & Dohme Corp.                    |2023-09-18 |2024-02-24 |
+|161      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|151      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|139      |62          |#FF922B |Volvo       |Bryant Ranch Prepack                         |2022-08-08 |2024-02-28 |
+|74       |63          |#FF922B |Lincoln     |West-ward Pharmaceutical Corp                |2023-10-23 |2024-03-17 |
+|28       |62          |#FF922B |Kia         |Teva Parenteral Medicines, Inc.              |2023-08-19 |2024-03-25 |
+|56       |61          |#FF922B |MINI        |Meijer Distribution Inc                      |2022-06-20 |2024-03-26 |
+|17       |63          |#FF922B |GMC         |Hospira, Inc.                                |2023-09-08 |2024-04-12 |
+|10       |1           |#FF922B |title       |content                                      |2024-04-11 |2024-04-12 |
+|32       |63          |#FF922B |Mercury     |Par Pharmaceutical Inc.                      |2022-04-10 |2024-04-13 |
+|37       |62          |#FF922B |Ford        |BluePoint Laboratories                       |2022-03-16 |2024-04-13 |
+|137      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|159      |61          |#FF922B |Dodge       |Jubilant HollisterStier LLC                  |2023-11-11 |2024-04-23 |
+|100      |63          |#FF922B |Ford        |Nelco Laboratories, Inc.                     |2023-11-08 |2024-05-01 |
+|157      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|147      |62          |#FF922B |Jeep        |Physicians Total Care, Inc.                  |2023-12-26 |2024-05-20 |
+|66       |63          |#FF922B |Rolls-Royce |Kmart Corporation                            |2022-04-21 |2024-06-07 |
+|143      |61          |#FF922B |ㅁㄴㅇㅁ        |ㅁㄴㄹㅇ                                         |2024-06-12 |2024-06-12 |
+|165      |63          |#FF922B |test        |test test                                    |2024-06-13 |2024-06-14 |
+|144      |1           |#FF922B |보드보드        |content                                      |2024-06-12 |2024-06-24 |
+|129      |63          |#FF922B |Volkswagen  |Mat Lam Tam                                  |2024-06-28 |2024-07-05 |
+|124      |64          |#FF922B |Mazda       |Flexidy                                      |2024-06-10 |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet   |Tresom                                       |2024-06-21 |2024-07-06 |
+|113      |62          |#FF922B |Suzuki      |Greenlam                                     |2024-06-28 |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet   |Voltsillam                                   |2024-06-03 |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen  |Voltsillam                                   |2024-06-13 |2024-07-29 |
+|125      |61          |#FF922B |Chevrolet   |Tres-Zap                                     |2024-06-14 |2024-08-03 |
+|128      |63          |#FF922B |Dodge       |Daltfresh                                    |2024-06-24 |2024-08-07 |
+|131      |64          |#FF922B |BMW         |Bamity                                       |2024-06-08 |2024-08-08 |
+|120      |61          |#FF922B |Chevrolet   |Tampflex                                     |2024-06-08 |2024-08-13 |
+|118      |61          |#FF922B |Mazda       |Home Ing                                     |2024-06-07 |2024-08-14 |
+|126      |61          |#FF922B |Saturn      |Sub-Ex                                       |2024-06-22 |2024-08-26 |
+|---------|------------|--------|------------|---------------------------------------------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:36 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:36 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:47:41 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id
+        FROM user
+         WHERE id = 'ss2323'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:41 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:47:50 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT user_id
+        FROM user
+         WHERE email = 'ss2323@naver.com'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:47:50 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|--------|
+|user_id |
+|--------|
+|--------|
+[0;39m
+[2024-06-14 09:47:56 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'ss2323'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:47:56 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|--------|---|-----|----|------|
+|user_id |id |name |pwd |email |
+|--------|---|-----|----|------|
+|--------|---|-----|----|------|
+[0;39m
+[2024-06-14 09:48:03 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'ss2323'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:48:03 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|--------|---|-----|----|------|
+|user_id |id |name |pwd |email |
+|--------|---|-----|----|------|
+|--------|---|-----|----|------|
+[0;39m
+[2024-06-14 09:48:03 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. INSERT INTO user
+         SET id = 'ss2323'
+        , name = '이름'
+        , pwd = '$2a$10$0rgc26Q6R9Ic.9q6CKtt3OhJfKUOxRCXkdfc0HkMSSMBcHze/.5YS'
+        , email = 'ss2323@naver.com'
+ {executed in 2 msec}[0;39m
+[2024-06-14 09:48:03 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+351. getGeneratedKeys on query: INSERT INTO user
+         SET id = 'ss2323'
+        , name = '이름'
+        , pwd = '$2a$10$0rgc26Q6R9Ic.9q6CKtt3OhJfKUOxRCXkdfc0HkMSSMBcHze/.5YS'
+        , email = 'ss2323@naver.com'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:48:03 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------|
+|insert_id |
+|----------|
+|113       |
+|----------|
+[0;39m
+[2024-06-14 09:48:18 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'jojo0614'
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:48:18 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|--------|---------|-----|-------------------------------------------------------------|-------------------|
+|user_id |id       |name |pwd                                                          |email              |
+|--------|---------|-----|-------------------------------------------------------------|-------------------|
+|110     |jojo0614 |조수현  |$2a$10$Q0dhdpt83jTR1WzykOUASOEjrZ2Z1foTqtfZQpeW4mc0C/2JPKK26 |jojo0614@gmail.com |
+|--------|---------|-----|-------------------------------------------------------------|-------------------|
+[0;39m
+[2024-06-14 09:48:18 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:48:18 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:48:18 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:48:18 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:48:18 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:48:18 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:48:18 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 2 msec}[0;39m
+[2024-06-14 09:48:18 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:48:18 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:48:18 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:49:47 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:49:47 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:49:47 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:49:47 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:16 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'mybirth811'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:16 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+|user_id |id         |name |pwd                                                          |email           |
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+|72      |mybirth811 |조수현  |$2a$10$zsbc3zYCFfoHA4V0g2uuq.tfxD3GdxnlAc8sqZVSElcBXIYrZhFj. |tngus@naver.com |
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+[0;39m
+[2024-06-14 09:50:16 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:16 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:50:16 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:16 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:16 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:16 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:50:16 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:16 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:50:16 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:16 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:24 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'mybirth811'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:24 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+|user_id |id         |name |pwd                                                          |email           |
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+|72      |mybirth811 |조수현  |$2a$10$zsbc3zYCFfoHA4V0g2uuq.tfxD3GdxnlAc8sqZVSElcBXIYrZhFj. |tngus@naver.com |
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+[0;39m
+[2024-06-14 09:50:25 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:25 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:25 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:50:25 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:25 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:25 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:50:25 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:25 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:50:25 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:25 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:28 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.title AS calendarName,
+            B.color,
+            A.title,
+            A.content,
+            A.start_day AS startDay,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 2
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:28 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|------------|------------|--------|------|---------------------------------------|-----------|-----------|
+|board_id |calendar_id |title       |color   |title |content                                |start_day  |d_day      |
+|---------|------------|------------|--------|------|---------------------------------------|-----------|-----------|
+|145      |61          |Savana 1500 |#FF922B |BMW   |Chain Drug Marketing Association, Inc. |2023-02-18 |2024-01-23 |
+|---------|------------|------------|--------|------|---------------------------------------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:28 [32mDEBUG[0;39m http-nio-8080-exec-3] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:28 [32mINFO [0;39m http-nio-8080-exec-3] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:50:28 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:28 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:29 [32mDEBUG[0;39m http-nio-8080-exec-6] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:29 [32mINFO [0;39m http-nio-8080-exec-6] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:50:29 [32mDEBUG[0;39m http-nio-8080-exec-2] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:29 [32mINFO [0;39m http-nio-8080-exec-2] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:43 [32mDEBUG[0;39m http-nio-8080-exec-7] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:43 [32mINFO [0;39m http-nio-8080-exec-7] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:50:43 [32mDEBUG[0;39m http-nio-8080-exec-9] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:43 [32mINFO [0;39m http-nio-8080-exec-9] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:49 [32mDEBUG[0;39m http-nio-8080-exec-8] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT user_id AS userId, id, name, pwd, email
+        FROM user
+        WHERE id = 'mybirth811'
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:49 [32mINFO [0;39m http-nio-8080-exec-8] [jdbc.resultsettable] [36m
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+|user_id |id         |name |pwd                                                          |email           |
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+|72      |mybirth811 |조수현  |$2a$10$zsbc3zYCFfoHA4V0g2uuq.tfxD3GdxnlAc8sqZVSElcBXIYrZhFj. |tngus@naver.com |
+|--------|-----------|-----|-------------------------------------------------------------|----------------|
+[0;39m
+[2024-06-14 09:50:49 [32mDEBUG[0;39m http-nio-8080-exec-5] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        FROM calendar A
+        JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        WHERE B.user_id = 8
+ {executed in 3 msec}[0;39m
+[2024-06-14 09:50:49 [32mINFO [0;39m http-nio-8080-exec-5] [jdbc.resultsettable] [36m
+|------------|------------|--------|--------------------|--------------------|
+|calendar_id |title       |color   |created_at          |updated_at          |
+|------------|------------|--------|--------------------|--------------------|
+|1           |title       |#FF922B |2024-06-07 15:49:59 |2024-06-11 14:49:51 |
+|61          |Savana 1500 |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:36 |
+|62          |SLR McLaren |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:34 |
+|63          |EXP         |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:32 |
+|64          |Mystique    |#FF922B |2024-06-10 15:37:19 |2024-06-11 14:49:30 |
+|------------|------------|--------|--------------------|--------------------|
+[0;39m
+[2024-06-14 09:50:50 [32mDEBUG[0;39m http-nio-8080-exec-10] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+353. SELECT A.notice_id AS noticeId, A.calendar_id AS calendarId
+            , A.content, A.created_at AS createdAt, B.updated_at AS updatedAt
+        FROM notice A
+        JOIN notice_list B
+        ON A.notice_id = B.notice_id
+        WHERE B.user_id = 8
+            AND B.updated_at IS NULL
+        ORDER BY A.notice_id DESC
+        LIMIT 6
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:50 [32mINFO [0;39m http-nio-8080-exec-10] [jdbc.resultsettable] [36m
+|----------|------------|--------|-----------|-----------|
+|notice_id |calendar_id |content |created_at |updated_at |
+|----------|------------|--------|-----------|-----------|
+|----------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:50 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) = CURDATE()
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:50 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|165      |63          |#FF922B |test  |2024-06-14 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:50:50 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > CURDATE()
+          AND DATE(A.d_day) <= LAST_DAY(CURDATE())
+        ORDER BY A.d_day ASC
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:50 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|------------|--------|------|-----------|
+|board_id |calendar_id |color   |title |d_day      |
+|---------|------------|--------|------|-----------|
+|144      |1           |#FF922B |보드보드  |2024-06-24 |
+|---------|------------|--------|------|-----------|
+[0;39m
+[2024-06-14 09:50:50 [32mDEBUG[0;39m http-nio-8080-exec-1] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+352. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.color,
+            A.title,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 1
+          AND DATE(A.d_day) > LAST_DAY(CURDATE())
+          AND DATE(A.d_day) <= LAST_DAY(DATE_ADD(CURDATE(), INTERVAL 1 MONTH))
+        ORDER BY A.d_day ASC
+ {executed in 0 msec}[0;39m
+[2024-06-14 09:50:50 [32mINFO [0;39m http-nio-8080-exec-1] [jdbc.resultsettable] [36m
+|---------|------------|--------|-----------|-----------|
+|board_id |calendar_id |color   |title      |d_day      |
+|---------|------------|--------|-----------|-----------|
+|124      |64          |#FF922B |Mazda      |2024-07-05 |
+|129      |63          |#FF922B |Volkswagen |2024-07-05 |
+|127      |61          |#FF922B |Chevrolet  |2024-07-06 |
+|113      |62          |#FF922B |Suzuki     |2024-07-09 |
+|117      |63          |#FF922B |Chevrolet  |2024-07-11 |
+|119      |62          |#FF922B |Volkswagen |2024-07-29 |
+|---------|------------|--------|-----------|-----------|
+[0;39m
+[2024-06-14 09:50:51 [32mDEBUG[0;39m http-nio-8080-exec-4] [jdbc.sqltiming] [36m com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+351. SELECT
+            A.board_id AS boardId,
+            B.calendar_id AS calendarId,
+            B.title AS calendarName,
+            B.color,
+            A.title,
+            A.content,
+            A.start_day AS startDay,
+            A.d_day AS dDay
+        FROM board A
+        JOIN calendar B ON A.calendar_id = B.calendar_id
+        JOIN calendar_user C ON B.calendar_id = C.calendar_id
+        WHERE C.user_id = 8 AND A.state = 3
+ {executed in 1 msec}[0;39m
+[2024-06-14 09:50:51 [32mINFO [0;39m http-nio-8080-exec-4] [jdbc.resultsettable] [36m
+|---------|------------|---------|--------|-------|----------------------------|-----------|-----------|
+|board_id |calendar_id |title    |color   |title  |content                     |start_day  |d_day      |
+|---------|------------|---------|--------|-------|----------------------------|-----------|-----------|
+|23       |64          |Mystique |#FF922B |Ford   |Shire US Manufacturing Inc. |2022-06-11 |2024-04-24 |
+|95       |64          |Mystique |#FF922B |Subaru |Qualitest Pharmaceuticals   |2022-03-15 |2024-02-04 |
+|---------|------------|---------|--------|-------|----------------------------|-----------|-----------|
+[0;39m

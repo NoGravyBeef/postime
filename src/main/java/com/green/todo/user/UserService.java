@@ -6,6 +6,7 @@ import com.green.todo.Mail.MailService;
 import com.green.todo.user.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.Check;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -58,6 +59,48 @@ public class UserService {
         return result;
     }
 
+    public String checkPwd(CheckPassword p) {
+        if (!validatePassword(p.getPwd())) {
+            throw new IllegalArgumentException("비밀번호는 대/소문자, 숫자, 특수문자를 포함하여 8자 이상 20자 이하여야 합니다.");
+        }
+
+        User user = null;
+        try {
+            user = mapper.getUserByUserId(p.getUserId());
+        } catch (Exception e) {
+            throw new RuntimeException("유저가 존재하지 않습니다.");
+        }
+
+        if (!BCrypt.checkpw(p.getPwd(), user.getPwd())){
+            throw new RuntimeException("현재 비밀번호를 확인해주세요");
+
+        }
+        return  user.getEmail();
+    }
+
+    public boolean checkUser(CheckReq p) {
+        if(p.getEmail() == null && p.getId() == null){
+            throw new RuntimeException("값이 정상적이지 않습니다.");
+        }
+        if(p.getEmail() != null && p.getId() != null){
+            throw new RuntimeException("값이 정상적이지 않습니다.");
+        }
+        if (p.getId() != null && !validateId(p.getId())) {
+            throw new IllegalArgumentException("아이디는 영문자와 숫자로만 구성되어야 하며, 길이는 6자 이상 12자 이하여야 합니다.");
+        }
+        if (p.getEmail() != null && !validateEmail(p.getEmail())) {
+            throw new IllegalArgumentException("이메일 형식에 맞게 작성하여 주십시오");
+        }
+
+        Long result = mapper.checkUser(p);
+        if (result != null) {
+            throw new RuntimeException("중복되었읍니다");
+        }
+        return true;
+        }
+
+
+
     public SignInRes postSignIn(SignInPostReq p) {
         User user = mapper.getUserById(p.getId());
         if (user == null) {
@@ -73,7 +116,6 @@ public class UserService {
                 .email(user.getEmail())
                 .build();
     }
-
     public int deleteUser(DelUserReq p) {
         log.info("p의 유저ID{}", p.getSignedUserId());
 
@@ -92,8 +134,9 @@ public class UserService {
         int result = mapper.delUser(signedUserId);
         return result;
     }
-
     // 비번 재설정
+
+
     public int patchPassWord(ChangePasswordPatchReq p) {
         if (!validatePassword(p.getNewPw())) {
             throw new IllegalArgumentException("비밀번호는 대소문자, 숫자, 특수문자를 포함하여 8자 이상 20자 이하여야 합니다.");
@@ -142,7 +185,6 @@ public class UserService {
 
         return result;
     }
-
     public long updUser(EditReq p) {
 
         if (p.getUserId() == null) {
@@ -196,6 +238,9 @@ public class UserService {
     private boolean validateEmail(String email) {
         return emailPattern.matcher(email).matches();
     }
+
+
+
 
     private boolean validateName(String name) {return namePattern.matcher(name).matches(); }
 
