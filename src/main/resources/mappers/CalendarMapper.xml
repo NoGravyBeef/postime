@@ -24,9 +24,10 @@
     </select>
 
     <select id="getCalendarList">
-        SELECT  A.calendar_id AS calendarId, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
+        SELECT  A.calendar_id AS calendarId, A.user_id AS userId, C.name AS name, A.title, A.color, A.created_at AS createdAt, A.updated_at AS updatedAt
         FROM calendar A
         JOIN calendar_user B ON A.calendar_id = B.calendar_id
+        JOIN user C ON A.user_id = C.user_id
         WHERE B.user_id = #{signedUserId}
     </select>
 

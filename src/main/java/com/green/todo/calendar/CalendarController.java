@@ -92,7 +92,7 @@ public class CalendarController {
                     "<p>resultData = 가지고온 캘린더 멤버 목록~!~! </p>"
     )
     public ResultDto<List<MemRes>> getMemberList(@Schema(name = "calendar_id", example = "1") @RequestParam(name = "calendar_id") String calendarId,
-                                                 @Schema(name = "signed_user_id", example = "1") @RequestParam(name = "signed_user_id") String signedUserId ) {
+                                                 @Schema(name = "owner_user_id", example = "1") @RequestParam(name = "owner_user_id") String signedUserId ) {
         int code = 2;
         String msg = "멤버 리스트 불러오기 완료";
         List<MemRes> result = null;

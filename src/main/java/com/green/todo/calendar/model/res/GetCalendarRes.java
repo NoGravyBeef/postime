@@ -7,6 +7,10 @@ import lombok.Data;
 public class GetCalendarRes {
     @Schema(example = "1")
     private long calendarId;
+    @Schema(example = "1")
+    private Long userId;
+    @Schema(example = "소유자 이름")
+    private String name;
     @Schema(example = "캘린더 이름")
     private String title;
     @Schema(example = "#FF922B")
