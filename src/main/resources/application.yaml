@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:log4jdbc:mariadb://localhost:3306/to_do_list
+    url: jdbc:log4jdbc:mariadb://localhost:3306/db_odd_first_3
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     username: root
     password: green502
@@ -30,8 +30,8 @@ springdoc:
     path: /swagger
     operations-sorter: method
     default-model-expand-depth: 10
-    cache:
-      disabled: true
+  cache:
+    disabled: true
 
 file:
   dir: /home/download/postime/
@@ -41,7 +41,10 @@ file:
 spring:
   config:
     activate:
-      on-profile: test
-
-logging:
-  directory: /home/download/postime/
+      on-profile: prod
+  datasource:
+    url: jdbc:log4jdbc:mariadb://192.168.0.144:3306/db_odd_first_3
+    username: odd_first_3
+    password: loctite
+file:
+  dir: /home/download/postime
