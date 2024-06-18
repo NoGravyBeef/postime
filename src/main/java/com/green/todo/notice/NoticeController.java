@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -37,6 +38,7 @@ public class NoticeController {
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 알림 목록~!~! </p>"
     ) // 읽음 -> 삭제
+    @Transactional
     public ResultDto<List<NoticeGetRes>> noticeList(@Schema(example = "1") @RequestParam("signed_user_id") String signedUserId) {
         utils.init("알림 목록을 불러왔습니다.");
         List<NoticeGetRes> result = null;
