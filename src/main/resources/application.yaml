@@ -48,4 +48,3 @@ spring:
     password: loctite
 file:
   dir: /home/download/postime
-
