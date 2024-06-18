@@ -23,10 +23,24 @@
         INSERT INTO file
         (file_name, board_id)
         values
-        (#{fileName}, #{boardId})
+        (#{newName}, #{boardId})
     </insert>
 
     <select id="getBoardInfoByBoardId">
+        SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title,
+        content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = #{boardId}
+    </select>
+
+    <select id="getBoardInfoByBoardIdCalendarId">
+        SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title,
+        content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
+        FROM board
+        WHERE board_id = #{boardId} AND calendar_id = #{calendarId}
+    </select>
+
+    <select id="getBoardByBoardIdAndCalendarId">
         SELECT board_id AS boardId, calendar_id AS calendarId, user_id AS userId, title,
         content, state, start_day AS startDay, d_day AS dDay, dead_line AS deadLine, created_at AS createdAt, updated_at AS updatedAt
         FROM board
@@ -85,7 +99,7 @@
     </select>
 
     <select id="getBoardSearchList">
-        SELECT
+        SELECT DISTINCT
         A.board_id AS boardId,
         B.calendar_id AS calendarId,
         B.title AS calendarName,
@@ -102,9 +116,9 @@
             <if test="searchWord != null and searchWord != ''">
                 C.user_id = #{signedUserId}
                 AND
-                A.title LIKE '%${searchWord}%'
+                (A.title LIKE '%${searchWord}%'
                 OR
-                A.content LIKE '%${searchWord}%'
+                A.content LIKE '%${searchWord}%')
             </if>
         </where>
         ORDER BY A.board_id DESC

@@ -34,7 +34,7 @@
         SELECT A.user_id AS userId, B.name, B.email
         FROM calendar_user A
         JOIN user B ON A.user_id = B.user_id
-        WHERE calendar_id = #{calendarId}
+        WHERE calendar_id = #{calendarId} AND A.user_id != #{signedUserIdLong}
     </select>
 
     <update id="updateCalendar">
@@ -72,4 +72,10 @@
             AND user_id = #{signedUserId}
         )
     </delete>
+
+    <select id="selecteCalendar">
+        SELECT user_id
+        FROM calendar
+        WHERE calendar_id = #{calendarId}
+    </select>
 </mapper>

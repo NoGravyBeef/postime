@@ -21,6 +21,7 @@ public interface CalendarMapper {
     int updateCalendar(UpdateCalendarReq p);
     int deleteCalendar(Long signedUserId, Long calendarId);
     void deleteCalendarPermanent(long calendarId);
-    List<MemRes> getMemberList(Long calendarId);
+    List<MemRes> getMemberList(Long calendarId, Long signedUserIdLong);
     int deleteCalendarMember(DeleteCalendarMemberReq p);
+    long selecteCalendar(long calendarId);
 }

@@ -2,6 +2,7 @@ package com.green.todo.calendar;
 
 import com.green.todo.calendar.model.req.*;
 import com.green.todo.calendar.model.res.GetCalendarRes;
+import com.green.todo.calendar.model.res.GetUserByEmailRes;
 import com.green.todo.calendar.model.res.MemRes;
 import com.green.todo.common.model.ResultDto;
 import io.swagger.v3.oas.annotations.Operation;
@@ -36,7 +37,7 @@ public class CalendarController {
     )
     public ResultDto<Long> createCalendar(@RequestBody CreateCalendarReq p) {
         int code = 2;
-        String msg = "캘린더 생성 완료~!~!";
+        String msg = "캘린더 생성 완료";
         long result = -1;
 
         try {
@@ -64,7 +65,7 @@ public class CalendarController {
     )
     public ResultDto<List<GetCalendarRes>> getCalendarList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String  signedUserId) {
         int code = 2;
-        String msg = "캘린더 불러오기 완료~!~!";
+        String msg = "캘린더 불러오기 완료";
         List<GetCalendarRes> result = null;
 
         try {
@@ -90,13 +91,14 @@ public class CalendarController {
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 캘린더 멤버 목록~!~! </p>"
     )
-    public ResultDto<List<MemRes>> getMemberList(@Schema(name = "calendar_id", example = "1") @RequestParam(name = "calendar_id") String calendarId) {
+    public ResultDto<List<MemRes>> getMemberList(@Schema(name = "calendar_id", example = "1") @RequestParam(name = "calendar_id") String calendarId,
+                                                 @Schema(name = "signed_user_id", example = "1") @RequestParam(name = "signed_user_id") String signedUserId ) {
         int code = 2;
-        String msg = "멤버 리스트 불러오기 완료~!~!";
+        String msg = "멤버 리스트 불러오기 완료";
         List<MemRes> result = null;
 
         try {
-            result = service.getMemberList(calendarId);
+            result = service.getMemberList(calendarId, signedUserId);
         } catch (Exception e) {
             code = 4;
             msg = e.getMessage();
@@ -121,7 +123,7 @@ public class CalendarController {
     )
     public ResultDto<Long> updateCalendar(@RequestBody UpdateCalendarReq p) {
         int code = 2;
-        String msg = "캘린더 수정 완료~!~!";
+        String msg = "캘린더 수정 완료";
         long result = -1;
 
         try {
@@ -152,7 +154,7 @@ public class CalendarController {
     )
     public ResultDto<Integer> deleteCalendar(@ParameterObject @ModelAttribute DeleteCalendarReq p) {
         int code = 2;
-        String msg = "캘린더 삭제 완료~!~!";
+        String msg = "캘린더 삭제 완료";
         int result = -1;
 
         try {
@@ -176,13 +178,13 @@ public class CalendarController {
                     "<p>statusCode = 2 => 정상</p>"+
                     "<p>statusCode = 4 => 추가 못했거나, 오류난거임~!~!</p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
-                    "<p>resultData = 1명 추가되면, 추가된 사람 이름 나옴!</p>" +
+                    "<p>resultData = 1명 추가되면, 추가된 사람 이름, user_id 나옴!</p>" +
                             "<p>추가된 사람이 없으면, null 나옴!</p>"
     )
-    public ResultDto<String> plusCalendarUser(@RequestBody PlusCalendarUserReq p) {
+    public ResultDto<GetUserByEmailRes> plusCalendarUser(@RequestBody PlusCalendarUserReq p) {
         int code = 2;
-        String msg = "유저 추가 완료~!~!";
-        String result = null;
+        String msg = "유저 추가 완료";
+        GetUserByEmailRes result = null;
 
         try {
             result = service.plusCalendarUser(p);
@@ -191,7 +193,7 @@ public class CalendarController {
             msg = e.getMessage();
         }
 
-        return ResultDto.<String>builder()
+        return ResultDto.<GetUserByEmailRes>builder()
                 .statusCode(code)
                 .resultMsg(msg)
                 .resultData(result)
@@ -211,7 +213,7 @@ public class CalendarController {
     @DeleteMapping("member")
     public ResultDto<Integer> deleteCalendarMember(@RequestBody DeleteCalendarMemberReq p) {
         int code = 2;
-        String msg = "멤버 삭제 완료~!~!";
+        String msg = "멤버 삭제 완료";
         int result = -1;
 
         try {

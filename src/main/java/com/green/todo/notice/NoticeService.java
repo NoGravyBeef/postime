@@ -1,15 +1,12 @@
 package com.green.todo.notice;
 
 import com.green.todo.notice.model.NoticeContent;
-import com.green.todo.notice.model.req.NoticeListPostReq;
-import com.green.todo.notice.model.req.NoticePostReq;
-import com.green.todo.notice.model.req.NoticeReq;
-import com.green.todo.notice.model.req.NoticeUpdateReq;
+import com.green.todo.notice.model.req.*;
 import com.green.todo.notice.model.res.NoticeGetRes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Slf4j
@@ -18,6 +15,7 @@ import java.util.List;
 public class NoticeService {
     private final NoticeMapper mapper;
     NoticeContent contents = new NoticeContent();
+
 
 // post ======================================================================
 
@@ -84,14 +82,14 @@ public class NoticeService {
 
 // get ======================================================================
     public List<NoticeGetRes> getNoticeList (String signedUserId) {
+        if(signedUserId == null || signedUserId.isEmpty()) {
+            throw new RuntimeException("로그인된 유저의 PK가 입력되지 않았습니다.");
+        }
         Long userId = null;
         try {
             userId = Long.parseLong(signedUserId);
         } catch (Exception e) {
             throw new RuntimeException("파싱 에러");
-        }
-        if(userId == null || userId < 0){
-            throw new RuntimeException("로그인된 유저의 PK를 입력해주세요.");
         }
         List<NoticeGetRes> result = mapper.getNoticeList(userId);
         return result;
@@ -110,6 +108,20 @@ public class NoticeService {
             }
         } catch (Exception e) {
             throw new RuntimeException("알림 읽음처리 실패");
+        }
+    }
+
+// update ======================================================================
+    public void deleteNotice(List<NoticeGetRes> p, String signedUserId) {
+        Long userId = null;
+        try {
+            userId = Long.parseLong(signedUserId);
+            for(NoticeGetRes notice : p) {
+                mapper.deleteNoticeList(userId);
+                mapper.deleteNoticePermanent(notice.getNoticeId());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("알림 삭제 실패");
         }
     }
 

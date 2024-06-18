@@ -57,5 +57,20 @@
             AND user_id = #{signedUserId}
     </update>
 
+    <delete id="deleteNoticeList">      <!-- 알림  삭제 -->
+        DELETE FROM notice_list
+        WHERE user_id = #{userId}
+    </delete>
+
+    <delete id="deleteNoticePermanent">
+        DELETE FROM notice
+        WHERE notice_id = #{noticeId}
+        AND NOT EXISTS (
+        SELECT 1
+        FROM notice_list
+        WHERE notice_id = #{noticeId}
+        )
+    </delete>
+
 
 </mapper>

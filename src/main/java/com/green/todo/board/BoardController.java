@@ -37,9 +37,9 @@ public class BoardController {
     public ResultDto<Long> createBoard(@RequestPart CreateBoardReq p
                                        ,@RequestPart(required = false) List<MultipartFile> files) {
         int code = 2;
-        String msg = "board 업로드 완료요~!~!";
+        String msg = "board 업로드 완료";
         long result = -1;
-
+        log.info("보드 정보{}",p);
         try {
             result = service.createBoard(p, files);
         } catch (Exception e) {
@@ -67,7 +67,7 @@ public class BoardController {
                                                     @RequestParam(name = "board_id") String boardId) {
 
         int code = 2;
-        String msg = "board 정보 불러오기 완료요~!~!";
+        String msg = "board 정보 불러오기 완료";
         GetBoardRes result = null;
 
         try {
@@ -96,7 +96,7 @@ public class BoardController {
     public ResultDto<List<GetViewCalendarRes>> getBoardMiniList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId) {
 
         int code = 2;
-        String msg = "board mini 리스트 불러오기 완료요~!~!";
+        String msg = "board mini 리스트 불러오기 완료";
         List<GetViewCalendarRes> result = null;
 
         try {
@@ -124,7 +124,7 @@ public class BoardController {
     )
     public ResultDto<List<GetBoardMiniRes>> getBoardDoneList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId) {
         int code = 2;
-        String msg = "완료된 board 불러오기 완료요~!~!";
+        String msg = "완료된 board 불러오기 완료";
         List<GetBoardMiniRes> result = null;
 
         try {
@@ -151,7 +151,7 @@ public class BoardController {
 
     public ResultDto<List<GetBoardMiniRes>> getBoardDeletedList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId) {
         int code = 2;
-        String msg = "삭제된 board 불러오기 완료요~!~!";
+        String msg = "삭제된 board 불러오기 완료";
         List<GetBoardMiniRes> result = null;
 
         try {
@@ -178,7 +178,7 @@ public class BoardController {
     public ResultDto<List<GetBoardSearchRes>> getBoardSearchList(@Schema(example = "1") @RequestParam(name = "signed_user_id") String signedUserId
                                                                     , @Schema(example = "search_word") @RequestParam(required = false, name = "search_word") String searchWord) {
         int code = 2;
-        String msg = "검색한 board 불러오기 완료요~!~!";
+        String msg = "검색한 board 불러오기 완료";
         List<GetBoardSearchRes> result = null;
 
         try {
@@ -208,7 +208,7 @@ public class BoardController {
 
 
         int code = 2;
-        String msg = "todo 리스트 불러오기 완료요~!~!";
+        String msg = "todo 리스트 불러오기 완료";
         TodoListRes result = null;
 
         try {
@@ -235,19 +235,19 @@ public class BoardController {
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 수정된 보드의 id </p>"
     )
-    public ResultDto<Long> updateBoard(@RequestBody UpdateBoardReq p) {
+    public ResultDto<Long> updateBoard(@RequestPart(required = false) List<MultipartFile> files, @RequestPart UpdateBoardReq p) {
         int code = 2;
-        String msg = "보드 수정 완료~!~!";
+        String msg = "보드 수정 완료";
         long result = -1;
 
         try {
-            result = service.updateBoard(p);
+            result = service.updateBoard(files, p);
         } catch (Exception e) {
             code = 4;
             msg = e.getMessage();
         }
         if (result == 0) {
-            msg = "보드가 수정된게 없는데용?";
+            msg = "수정된 보드가 없습니다.";
         }
 
         return ResultDto.<Long>builder()
@@ -269,7 +269,7 @@ public class BoardController {
     )
     public ResultDto<Integer> updateBoardState(@RequestBody List<UpdateBoardStateReq> p) {
         int code = 2;
-        String msg = "보드 상태 업데이트 완료~!~!";
+        String msg = "보드 상태 업데이트 완료";
         Integer result = -1;
 
         try {
@@ -297,7 +297,7 @@ public class BoardController {
     )
     public ResultDto<Long> updateBoardDnD(@RequestBody UpdateBoardDnDReq p) {
         int code = 2;
-        String msg = "보드 DnD 업데이트 완료~!~!";
+        String msg = "보드 DnD 업데이트 완료";
         long result = -1;
 
         try {
@@ -326,7 +326,7 @@ public class BoardController {
     )
     public ResultDto<Integer> deleteBoard(@RequestBody List<DeleteBoardReq> p) {
         int code = 2;
-        String msg = "보드 삭제 완료~!~!";
+        String msg = "보드 삭제 완료";
         int result = -1;
 
         try {
@@ -357,7 +357,7 @@ public class BoardController {
     )
     public ResultDto<Integer> deleteFile(@RequestBody DeleteFileReq p) {
         int code = 2;
-        String msg = "파일 삭제 완료~!~!";
+        String msg = "파일 삭제 완료";
         int result = -1;
 
         try {
@@ -374,35 +374,35 @@ public class BoardController {
                 .build();
     }
 
-    @PostMapping("file")
-    @Operation(summary = "파일 생성", description = "<p>파일 생성하는 곳입니다요~!~!</p>" +
-            "<p>모든 항목에 올바른 값 넣으셔야 합니다.</p>")
-    @ApiResponse(responseCode = "200",description =
-            "<p>statusCode = 2 => 정상 </p>"+
-                    "<p>statusCode = 4 => 생성된 캘린더 없음 및 오류 </p>" +
-                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
-                    "<p>resultData = 파일 id와 이름 -> 성공, null -> 실패</p>"
-    )
-    public ResultDto<FileRes> createFile(@RequestPart MultipartFile file, @RequestPart CreateFileReq p) {
-        int code = 2;
-        String msg = "파일 생성 완료~!~!";
-        FileRes result = null;
-
-        try {
-            result = service.createFile(file, p);
-
-
-
-        } catch (Exception e) {
-            code = 4;
-            msg = e.getMessage();
-        }
-
-        return ResultDto.<FileRes>builder()
-                .statusCode(code)
-                .resultMsg(msg)
-                .resultData(result)
-                .build();
-    }
+//    @PostMapping("file")
+//    @Operation(summary = "파일 생성", description = "<p>파일 생성하는 곳입니다요~!~!</p>" +
+//            "<p>모든 항목에 올바른 값 넣으셔야 합니다.</p>")
+//    @ApiResponse(responseCode = "200",description =
+//            "<p>statusCode = 2 => 정상 </p>"+
+//                    "<p>statusCode = 4 => 생성된 캘린더 없음 및 오류 </p>" +
+//                    "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
+//                    "<p>resultData = 파일 id와 이름 -> 성공, null -> 실패</p>"
+//    )
+//    public ResultDto<FileRes> createFile(@RequestPart MultipartFile file, @RequestPart CreateFileReq p) {
+//        int code = 2;
+//        String msg = "파일 생성 완료~!~!";
+//        FileRes result = null;
+//
+//        try {
+//            result = service.createFile(file, p);
+//
+//
+//
+//        } catch (Exception e) {
+//            code = 4;
+//            msg = e.getMessage();
+//        }
+//
+//        return ResultDto.<FileRes>builder()
+//                .statusCode(code)
+//                .resultMsg(msg)
+//                .resultData(result)
+//                .build();
+//    }
 
 }

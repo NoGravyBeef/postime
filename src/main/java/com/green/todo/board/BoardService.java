@@ -45,11 +45,11 @@ public class BoardService {
         /*----------------------------파일, 태그 제외한 내용 검증 및 저장시작------------------------------*/
 
         if (CountLengthUtil.countLength(p.getTitle()) > 20 || 1 > CountLengthUtil.countLength(p.getTitle())) {
-            throw new RuntimeException("제목 길이 맞춰주세요~!~!(20자)");
+            throw new RuntimeException("제목 길이 맞춰주세요(20자)");
         }
 
         if (1 > CountLengthUtil.countLength(p.getContent()) || CountLengthUtil.countLength(p.getContent()) > 1000) {
-            throw new RuntimeException("본문 길이 맞춰주세요~!~!(1000자)");
+            throw new RuntimeException("본문 길이 맞춰주세요(1000자)");
         }
 
         LocalDateTime startDateTime;
@@ -65,16 +65,16 @@ public class BoardService {
             endDateTime = endDate.atTime(deadLine);
 
         } catch (Exception e) {
-            throw new RuntimeException("유효성 검사 통과 실패~!~!");
+            throw new RuntimeException("유효성 검사 통과 실패");
         }
 
         if (startDateTime.isAfter(endDateTime)) {
-            throw new RuntimeException("마감일은 시작일보다 빠를 수 없습니다~!~!");
+            throw new RuntimeException("마감일은 시작일보다 빠를 수 없습니다.");
         }
 
         long result = mapper.createBoard(p);
         if (result == 0) {
-            throw new RuntimeException("잘못된 결과값 입니다~!~!");
+            throw new RuntimeException("잘못된 결과값 입니다.");
         }
 
 
@@ -95,14 +95,14 @@ public class BoardService {
                 }
             } catch (Exception e) {
                 customFileUtils.cleanupFiles(uploadedFiles);
-                throw new RuntimeException("업로드 안된다고~!~!", e);
+                throw new RuntimeException("업로드 실패", e);
             }
 
             try {
                 mapper.createBoardFiles(dto);
             } catch (Exception e) {
                 customFileUtils.cleanupFiles(uploadedFiles);
-                throw new RuntimeException("파일이 db에 저장이 안된다고~!~!", e);
+                throw new RuntimeException("파일이 db에 저장되지 않았습니다.", e);
             }
         }
 
@@ -126,7 +126,7 @@ public class BoardService {
 
     public GetBoardRes getBoardInfo(String boardId) {
         if (boardId == null) {
-            throw new RuntimeException("보드id를 넣으셔야 합니다~!~!");
+            throw new RuntimeException("보드id를 입력해주세요.");
         }
 
         Long board_id = null;
@@ -146,7 +146,7 @@ public class BoardService {
             List<TagEntity> tags = tagMapper.getTagsByBoardId(board_id);
             boardInfo.setTags(tags);
         } catch (Exception e) {
-            throw new RuntimeException("board정보 불러오기 실패~!~!");
+            throw new RuntimeException("board정보 불러오기 실패");
         }
 
         return boardInfo;
@@ -172,7 +172,7 @@ public class BoardService {
         try {
             boardListByUserId = mapper.getBoardViewListByUserId(user_id);
         } catch (Exception e) {
-            throw new RuntimeException("board정보 불러오기 실패~!~!");
+            throw new RuntimeException("board정보 불러오기 실패");
         }
 
 //        List<IdDto> result1 = new ArrayList<>();
@@ -208,7 +208,7 @@ public class BoardService {
         try {
             doneBoardList = mapper.getBoardMiniByState(user_id, 2);
         } catch (Exception e) {
-            throw new RuntimeException("완료 보드 불러오기 쿼링 이슈~!~!");
+            throw new RuntimeException("완료 보드 불러오기 실패");
         }
 
         return doneBoardList;
@@ -234,7 +234,7 @@ public class BoardService {
         try {
             doneBoardList = mapper.getBoardMiniByState(user_id, 3);
         } catch (Exception e) {
-            throw new RuntimeException("삭제 보드 불러오기 쿼링 이슈~!~!");
+            throw new RuntimeException("삭제 보드 불러오기 실패");
         }
 
         return doneBoardList;
@@ -264,7 +264,7 @@ public class BoardService {
         try {
             searchBoardList = mapper.getBoardSearchList(searchWord, signed_user_id);
         } catch (Exception e) {
-            throw new RuntimeException("검색한 보드 불러오기 쿼링 이슈~!~!");
+            throw new RuntimeException("검색한 보드 불러오기 실패");
         }
 
         return searchBoardList;
@@ -309,13 +309,13 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public long updateBoard(UpdateBoardReq p) {
+    public long updateBoard(List<MultipartFile> files, UpdateBoardReq p) {
         if (p.getDDay() == null && p.getStartDay() == null && p.getTitle() == null
         && p.getContent() == null && p.getDeadLine() == null) {
             throw new RuntimeException("수정할 사안이 없습니다.");
         }
 
-        if (p.getBoardId() == null) {
+        if (p.getBoardId() == null && p.getCalendarId() == null) {
             throw new RuntimeException("보드id는 무조건 넣으셔야 합니다.");
         }
 
@@ -323,21 +323,21 @@ public class BoardService {
         try {
             boardEntity = mapper.getBoardByBoardId(p.getBoardId());
         } catch (Exception e) {
-            throw new RuntimeException("기존 보드 정보 가져오기 쿼링 이슈~!~!");
+            throw new RuntimeException("기존 보드 정보 가져오기 실패");
         }
         if (boardEntity == null) {
-            throw new RuntimeException("수정할 보드가 존재하지 않습니다~!~!");
+            throw new RuntimeException("수정할 보드가 존재하지 않습니다.");
         }
 
         if (p.getTitle() != null) {
             if (1 >= CountLengthUtil.countLength(p.getTitle()) || CountLengthUtil.countLength(p.getTitle()) >= 20) {
-                throw new RuntimeException("제목 20자 이내로 맞춰주세요~!");
+                throw new RuntimeException("제목 20자 이내로 맞춰주세요.");
             }
         }
 
         if (p.getContent() != null) {
             if (1 >= CountLengthUtil.countLength(p.getContent()) || CountLengthUtil.countLength(p.getContent()) >= 1000) {
-                throw new RuntimeException("제목 20자 이내로 맞춰주세요~!");
+                throw new RuntimeException("제목 20자 이내로 맞춰주세요.");
             }
         }
 
@@ -368,7 +368,7 @@ public class BoardService {
             startDateTime = startDate.atTime(0,0,0);
             endDateTime = endDate.atTime(deadLine);
         } catch (Exception e) {
-            throw new RuntimeException("날짜 및 시간 입력 양식 틀림~!~!");
+            throw new RuntimeException("날짜 및 시간 입력 양식이 올바르지 않습니다.");
         }
 
         if (startDateTime.isAfter(endDateTime)) {
@@ -376,14 +376,25 @@ public class BoardService {
         }
 
         //이거 김민지가 한거
-        int tagResult = tagService.tagDelete(p.getDeltagList(), p.getBoardId());
+        if (p.getDeltagList() != null && !p.getDeltagList().isEmpty()) {
+            int tagResult = tagService.tagDelete(p.getDeltagList(), p.getBoardId());
+        }
+        //---
 
         int result;
         try {
             result = mapper.updateBoard(p);
         } catch (Exception e) {
-            throw new RuntimeException("일정 업데이트 쿼링 이슈~!~!");
+            throw new RuntimeException("일정 업데이트 실패");
         }
+
+        CreateFileReq req = CreateFileReq.builder().boardId(p.getBoardId()).calendarId(p.getCalendarId()).build();
+        List<String> fileRes;
+
+        if (files != null && !files.isEmpty()){
+            fileRes = createFile(files, req);
+        }
+
 
         return p.getBoardId();
 
@@ -395,10 +406,10 @@ public class BoardService {
     public int updateBoardState(List<UpdateBoardStateReq> p) {
         for (UpdateBoardStateReq res : p) {
             if (res.getBoardId() == null || res.getState() == null) {
-                throw new RuntimeException("모든 항목 무조건 넣으셔야 합니다~!~!");
+                throw new RuntimeException("모든 항목 무조건 넣으셔야 합니다.");
             }
             if (res.getState() < 1 || res.getState() > 3) {
-                throw new RuntimeException("state값 제대로 넣으셔야해요~!~!");
+                throw new RuntimeException("state값이 올바르지 않습니다.");
             }
 
         }
@@ -408,7 +419,7 @@ public class BoardService {
                 mapper.updateBoardState(res);
             }
         } catch (Exception e) {
-            throw new RuntimeException("state 업데이트 쿼링 이슈~!~!");
+            throw new RuntimeException("state 업데이트 실패");
         }
 
         return 1;
@@ -419,7 +430,7 @@ public class BoardService {
 
     public long updateBoardDnD(UpdateBoardDnDReq p) {
         if (p.getBoardId() == null || p.getDDay() == null || p.getStartDay() == null) {
-            throw new RuntimeException("모든 항목을 반드시 채우셔야 합니다~!~!");
+            throw new RuntimeException("모든 항목을 반드시 채우셔야 합니다.");
         }
 
         LocalDateTime startDateTime;
@@ -431,18 +442,18 @@ public class BoardService {
             startDateTime = startDate.atTime(LocalTime.of(0, 0, 0));
             endDateTime = endDate.atTime(0,0,10);
         } catch (Exception e) {
-            throw new RuntimeException("날짜 형식 올바르게 입력해주세요~!~!");
+            throw new RuntimeException("날짜 형식 올바르게 입력해주세요.");
         }
 
         if (startDateTime.isAfter(endDateTime)) {
-            throw new RuntimeException("마감일은 시작일보다 빠를 수 없습니다~!~!");
+            throw new RuntimeException("마감일은 시작일보다 빠를 수 없습니다.");
         }
 
         int result = 0;
         try {
             result = mapper.updateBoardDnD(p);
         } catch (Exception e) {
-            throw new RuntimeException("DnD 업데이트 쿼링 이슈~!~!");
+            throw new RuntimeException("DnD 업데이트 실패");
         }
 
         return p.getBoardId();
@@ -454,17 +465,26 @@ public class BoardService {
     @Transactional
     public int deleteBoard(List<DeleteBoardReq> p){
 
+        for (DeleteBoardReq req : p) {
+            GetBoardRes res = mapper.getBoardInfoByBoardIdCalendarId(req.getBoardId(), req.getCalendarId());
+            if (res == null) {
+                throw new RuntimeException("보드와 캘린더 아이디 맞춰주세요.");
+            }
+        }
+
+        if (p == null) {
+            throw new RuntimeException("삭제할 보드의 리스트 넘겨주세요.");
+        }
+
         List<List<Long>> deltagList = new ArrayList<>();
         for (DeleteBoardReq req : p) {
                deltagList.add(tagMapper.getTagByBoardId(req.getBoardId()));
         }
 
-        if (p == null) {
-            throw new RuntimeException("삭제할 보드의 리스트 넘겨주세요~!~!");
-        }
+
         for (DeleteBoardReq deleteBoardReq : p) {
             if (deleteBoardReq.getBoardId() == null) {
-                throw new RuntimeException("삭제할 보드의 id가 없습니다~!~!");
+                throw new RuntimeException("삭제할 보드의 id가 없습니다.");
             }
         }
 
@@ -472,13 +492,13 @@ public class BoardService {
             try {
                 mapper.deleteBoard(req);
             } catch (Exception e) {
-                throw new RuntimeException("보드 삭제 쿼링 이슈~!~!");
+                throw new RuntimeException("보드 삭제 실패");
             }
 
             try {
                 customFileUtils.deleteFolder(String.format("%scalendar/%d/board/%d", customFileUtils.uploadPath, req.getCalendarId(), req.getBoardId()));
             } catch (Exception e) {
-                throw new RuntimeException("로컬에서 삭제 실패!!!!!!!!!");
+                throw new RuntimeException("로컬에서 삭제 실패");
             }
         }
 
@@ -504,14 +524,14 @@ public class BoardService {
         try {
             mapper.deleteFile(p);
         } catch (Exception e) {
-            throw new RuntimeException("파일 삭제 쿼리 이슈~!~!");
+            throw new RuntimeException("파일 삭제 실패");
         }
 
         try {
             File file = new File(String.format("%scalendar/%d/board/%d/%s", customFileUtils.uploadPath, p.getCalendarId(), p.getBoardId(), p.getFileName()));
             file.delete();
         } catch (Exception e) {
-            throw new RuntimeException("로컬에서 삭제 실패!!!!!!!!!");
+            throw new RuntimeException("로컬에서 삭제 실패");
         }
 
         return 1;
@@ -520,40 +540,37 @@ public class BoardService {
     ///////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////
 
-    public FileRes createFile(MultipartFile file, CreateFileReq p) {
+    public List<String> createFile(List<MultipartFile> files, CreateFileReq p) {
         String uploadedFile = "";
+        List<String> result = new ArrayList<>();
 
-        if (p.getBoardId() == null || p.getCalendarId() == null || file == null || file.isEmpty()) {
+        if (p.getBoardId() == null || p.getCalendarId() == null) {
             throw new RuntimeException("모든 항목을 채우셔야 합니다.");
         }
 
+        FileCreateDto dto = FileCreateDto.builder().boardId(p.getBoardId()).build();
         try {
             String path = String.format("calendar/%d/board/%d", p.getCalendarId(), p.getBoardId());
             customFileUtils.makeFolder(path);
 
-            String newName = customFileUtils.makeRandomFileName(file);
-            p.setFileName(newName);
-            String target = String.format("%s/%s", path, newName);
-            customFileUtils.transferTo(file, target);
-            uploadedFile = target; // 경로 저장 수정
+            for (MultipartFile file : files){
+                String newName = customFileUtils.makeRandomFileName(file);
 
+                dto.setNewName(newName);
+                mapper.createFile(dto);
+
+                result.add(newName);
+
+                String target = String.format("%s/%s", path, newName);
+                customFileUtils.transferTo(file, target);
+                uploadedFile = target; // 경로 저장 수정
+            }
         } catch (Exception e) {
             File uploadedfile = new File(uploadedFile);
             uploadedfile.delete();
-            throw new RuntimeException("업로드 안된다고~!~!", e);
+            throw new RuntimeException("파일 업로드 실패", e);
         }
 
-        try {
-            mapper.createFile(p);
-        } catch (Exception e) {
-            File uploadedfile = new File(uploadedFile);
-            uploadedfile.delete();
-            throw new RuntimeException("파일이 db에 저장이 안된다고~!~!", e);
-        }
-
-        return FileRes.builder()
-                .fileName(p.getFileName())
-                .fileId(p.getFileId())
-                .build();
+        return result;
     }
 }

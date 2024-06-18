@@ -54,7 +54,7 @@ public class TagService {
             throw new RuntimeException("태그 이름을 입력해주세요.");
         }
         if(!utils.isWithinByteLimit(tagTitle, 20)) {
-            throw new RuntimeException("태그의 이름이 너무 깁니다.");
+            throw new RuntimeException("태그의 이름이 너무 깁니다. (최대 20Byte)");
         }
         TagGetReq tagGet = new TagGetReq(tagTitle, calendarId);
         TagEntity tag = mapper.getTagForCheckTitle(tagGet);

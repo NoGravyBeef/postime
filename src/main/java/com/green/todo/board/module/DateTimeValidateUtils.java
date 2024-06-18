@@ -17,7 +17,7 @@ public class DateTimeValidateUtils {
         try {
             Date = LocalDate.parse(date, dateFormatter);
         } catch (DateTimeParseException e) {
-            throw new Exception("날짜 똑바로 입력해~");
+            throw new Exception("날짜 형식이 올바르지 않습니다.");
         }
 
         return Date;
@@ -30,7 +30,7 @@ public class DateTimeValidateUtils {
         try {
             Time = LocalTime.parse(time, timeFormatter);
         } catch (DateTimeParseException e) {
-            throw new Exception("시간 똑바로 입력해~");
+            throw new Exception("시간 형식이 올바르지 않습니다.");
         }
 
         return Time;

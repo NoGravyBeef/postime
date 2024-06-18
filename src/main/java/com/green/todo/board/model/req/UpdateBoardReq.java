@@ -10,6 +10,8 @@ import java.util.List;
 public class UpdateBoardReq {
     @Schema(example = "1", description = "보드 id")
     private Long boardId;
+    @Schema(example = "1", description = "캘린더 id")
+    private Long calendarId;
     @Schema(example = "title", description = "보드 제목")
     private String title;
     @Schema(example = "content", description = "보드 본문")

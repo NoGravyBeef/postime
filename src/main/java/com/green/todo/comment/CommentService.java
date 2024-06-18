@@ -26,7 +26,7 @@ public class CommentService {
             throw new RuntimeException("댓글을 입력해주세요.");
         }
         if(!utils.isWithinByteLimit(p.getContent(), 100)) {
-            throw new RuntimeException("댓글이 너무 깁니다.");
+            throw new RuntimeException("댓글이 너무 깁니다. (최대 100Byte)");
         }
         if(mapper.insComment(p) != 1) {
             throw new RuntimeException("댓글을 작성할 수 없습니다.");
@@ -60,7 +60,7 @@ public class CommentService {
             throw new RuntimeException("댓글을 입력해주세요.");
         }
         if(!utils.isWithinByteLimit(p.getContent(), 100)) {
-            throw new RuntimeException("댓글이 너무 깁니다.");
+            throw new RuntimeException("댓글이 너무 깁니다. (최대 100Byte)");
         }
         mapper.updateComment(p);
         return p.getContent();

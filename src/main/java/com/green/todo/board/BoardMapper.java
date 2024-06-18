@@ -11,6 +11,7 @@ public interface BoardMapper {
     int createBoard(CreateBoardReq p);
     void createBoardFiles(CreateBoardFileDto dto);
     GetBoardRes getBoardInfoByBoardId(Long boardId);
+    GetBoardRes getBoardInfoByBoardIdCalendarId(Long boardId, Long calendarId);
     List<GetViewCalendarRes> getBoardViewListByUserId(Long userId);
     List<FileRes> getBoardFiles(long boardId);
     BoardEntity getBoardByBoardId(Long boardId);
@@ -24,5 +25,5 @@ public interface BoardMapper {
     int updateBoardDnD(UpdateBoardDnDReq p);
     int deleteBoard(DeleteBoardReq p);
     int deleteFile(DeleteFileReq p);
-    int createFile(CreateFileReq p);
+    int createFile(FileCreateDto dto);
 }

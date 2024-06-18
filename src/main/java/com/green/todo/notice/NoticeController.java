@@ -36,18 +36,34 @@ public class NoticeController {
                     "<p>statusCode = 4 => 오류난거임~!~! </p>" +
                     "<p>resultMsg = 해당하는 코드의 자세한 정보 </p>" +
                     "<p>resultData = 가지고온 알림 목록~!~! </p>"
-    )
+    ) // 읽음 -> 삭제
     public ResultDto<List<NoticeGetRes>> noticeList(@Schema(example = "1") @RequestParam("signed_user_id") String signedUserId) {
         utils.init("알림 목록을 불러왔습니다.");
         List<NoticeGetRes> result = null;
         try {
             result = service.getNoticeList(signedUserId);
-            service.noticeRead(result, signedUserId);
+            if(result != null && !result.isEmpty()) {
+                service.deleteNotice(result, signedUserId);
+            }
         } catch (Exception e) {
             utils.noAcceptable(e);
         }
         return new ResultDto<>(utils.getCode(), utils.getMsg(), result);
     }
+
+
+    // 읽음 -> 업데이트
+//    public ResultDto<List<NoticeGetRes>> noticeList(@Schema(example = "1") @RequestParam("signed_user_id") String signedUserId) {
+//        utils.init("알림 목록을 불러왔습니다.");
+//        List<NoticeGetRes> result = null;
+//        try {
+//            result = service.getNoticeList(signedUserId);
+//            service.noticeRead(result, signedUserId);
+//        } catch (Exception e) {
+//            utils.noAcceptable(e);
+//        }
+//        return new ResultDto<>(utils.getCode(), utils.getMsg(), result);
+//    }
 
 
     // ===================================================

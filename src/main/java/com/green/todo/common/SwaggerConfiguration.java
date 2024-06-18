@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Configurable;
 @OpenAPIDefinition(
         info = @Info(
                 title = "Postime"
-                , description = "To do list"
-                , version = "v0.0.1"
+                , description = "Postime 1차 프로젝트"
+                , version = "응애버전"
         )
 )
 public class SwaggerConfiguration {

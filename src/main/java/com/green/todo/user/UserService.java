@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 @RequiredArgsConstructor
 public class UserService {
     private final UserMapper mapper;
-    private final String ID_PATTERN = "^[a-zA-Z0-9]{6,12}$";
+    private final String ID_PATTERN = "^(?=.*[a-zA-Z])(?=.*\\d)[a-zA-Z\\d]{6,12}$";
     private final String PASSWORD_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d|.*[!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?]).{8,20}$";
     private final Pattern idPattern = Pattern.compile(ID_PATTERN);
     private final Pattern passwordPattern = Pattern.compile(PASSWORD_PATTERN);
@@ -31,22 +31,22 @@ public class UserService {
     public int postSignUp(SignUpPostReq p) {
 
         if (!validateEmail(p.getEmail())) {
-            throw new IllegalArgumentException("이메일 형식에 맞게 작성하여 주십시오");
+            throw new IllegalArgumentException("이메일 형식에 맞게 작성하여 주십시오.");
         }
         if (!validateId(p.getId())) {
-            throw new IllegalArgumentException("아이디는 영문자와 숫자로만 구성되어야 하며, 길이는 6자 이상 12자 이하여야 합니다.");
+            throw new IllegalArgumentException("아이디는 영문 + 숫자로 구성되어야 하며, 길이는 6자 이상 12자 이하여야 합니다.");
         }
         if (!validatePassword(p.getPwd())) {
             throw new IllegalArgumentException("비밀번호는 대/소문자, 숫자, 특수문자를 포함하여 8자 이상 20자 이하여야 합니다.");
         }
         if (isDuplicatedId(p.getId())) {
-            throw new IllegalArgumentException("이미 사용중인 아이디입니다");
+            throw new IllegalArgumentException("이미 사용중인 아이디입니다.");
         }
         if (p.getName() == null) {
-            throw new IllegalArgumentException("이름칸지우지마라!!!!!!");
+            throw new IllegalArgumentException("이름 입력 형식을 지켜주세요.");
         }
         if (!validateName(p.getName())) {
-            throw new IllegalArgumentException("성명을 확인하세요");
+            throw new IllegalArgumentException("성명을 확인하세요.");
         }
 
         String hashedPw = BCrypt.hashpw(p.getPwd(), BCrypt.gensalt());
@@ -54,7 +54,7 @@ public class UserService {
 
         int result = mapper.postUser(p);
         if (result == 0) {
-            throw new RuntimeException("tqt");
+            throw new RuntimeException("회원가입 에러");
         }
         return result;
     }
@@ -72,7 +72,7 @@ public class UserService {
         }
 
         if (!BCrypt.checkpw(p.getPwd(), user.getPwd())){
-            throw new RuntimeException("현재 비밀번호를 확인해주세요");
+            throw new RuntimeException("현재 비밀번호를 확인해주세요.");
 
         }
         return  user.getEmail();
@@ -80,7 +80,7 @@ public class UserService {
 
     public boolean checkUser(CheckReq p) {
         if(p.getEmail() == null && p.getId() == null){
-            throw new RuntimeException("값이 정상적이지 않습니다.");
+            throw new RuntimeException("값이 입력되지 않았습니다.");
         }
         if(p.getEmail() != null && p.getId() != null){
             throw new RuntimeException("값이 정상적이지 않습니다.");
@@ -89,25 +89,25 @@ public class UserService {
             throw new IllegalArgumentException("아이디는 영문자와 숫자로만 구성되어야 하며, 길이는 6자 이상 12자 이하여야 합니다.");
         }
         if (p.getEmail() != null && !validateEmail(p.getEmail())) {
-            throw new IllegalArgumentException("이메일 형식에 맞게 작성하여 주십시오");
+            throw new IllegalArgumentException("이메일 형식에 맞게 작성하여 주십시오.");
         }
 
         Long result = mapper.checkUser(p);
         if (result != null) {
-            throw new RuntimeException("중복되었읍니다");
+            throw new RuntimeException("중복입니다.");
         }
         return true;
-        }
+    }
 
 
 
     public SignInRes postSignIn(SignInPostReq p) {
         User user = mapper.getUserById(p.getId());
         if (user == null) {
-            throw new RuntimeException("아이디를 확인해주세요");
+            throw new RuntimeException("아이디를 확인해주세요.");
         }
         if (!BCrypt.checkpw(p.getPwd(), user.getPwd())){
-            throw new RuntimeException("비밀번호를 확인해주세요");
+            throw new RuntimeException("비밀번호를 확인해주세요.");
         }
 
         return SignInRes.builder()
@@ -128,7 +128,7 @@ public class UserService {
 
         User user = mapper.getUserByUserId(signedUserId);
         if (user == null) {
-            throw new IllegalArgumentException("존재하지 않는 사용자입니다");
+            throw new IllegalArgumentException("존재하지 않는 사용자입니다.");
         }
         log.info("User의 유저 ID{}", user.getUserId());
         int result = mapper.delUser(signedUserId);
@@ -145,7 +145,7 @@ public class UserService {
         String hashPassWord = BCrypt.hashpw(p.getNewPw(), BCrypt.gensalt());
         p.setNewPw(hashPassWord);
 
-        int result = mapper.patchPassword(p.getUserId());
+        int result = mapper.patchPassword(p.getUserId(), p.getNewPw());
         return result;
 
     }
@@ -155,10 +155,10 @@ public class UserService {
         try {
             result = mapper.findId(p);
         } catch (Exception e) {
-            throw new RuntimeException("id 찾기 쿼리이슈");
+            throw new RuntimeException("id 찾기 에러");
         }
         if (result == null) {
-            throw new IllegalArgumentException("존재하지 않는 사용자이거나 이메일");
+            throw new IllegalArgumentException("존재하지 않는 사용자이거나 이메일입니다.");
         }
 
         return result;
@@ -167,10 +167,10 @@ public class UserService {
     public PwdAcRes reqPwd(PwdAcReq p) {
         PwdAcRes result = mapper.reqPwd(p);
         if (!validateEmail(p.getEmail())) {
-            throw new IllegalArgumentException("이메일은 지메일로~");
+            throw new IllegalArgumentException("이메일 형식이 올바르지 않습니다.");
         }
         if (result == null) {
-            throw new IllegalArgumentException("코드가 틀렸습니다");
+            throw new IllegalArgumentException("코드가 틀렸습니다.");
         }
         User user = mapper.getUserById(p.getId());
         if (!user.getEmail().equals(p.getEmail())) {
@@ -188,10 +188,10 @@ public class UserService {
     public long updUser(EditReq p) {
 
         if (p.getUserId() == null) {
-            throw new IllegalArgumentException("유저정보가 일치하지 않습니다");
+            throw new IllegalArgumentException("유저정보가 일치하지 않습니다.");
         }
         if (p.getEmail() != null && !validateEmail(p.getEmail())) {
-            throw new IllegalArgumentException("이메일이 틀렸습니다");
+            throw new IllegalArgumentException("이메일이 틀렸습니다.");
         }
         if (p.getPwd() == null) {
             throw new RuntimeException("기존 비밀번호는 필수로 넣어야 합니다.");
@@ -206,7 +206,7 @@ public class UserService {
         User user = mapper.getUserByUserId(p.getUserId());
 
         if (!BCrypt.checkpw(p.getPwd(), user.getPwd())) {
-            throw new RuntimeException("비밀번호를 확인해주세요");
+            throw new RuntimeException("비밀번호를 확인해주세요.");
         }
 
         if(p.getNewPw() != null) {

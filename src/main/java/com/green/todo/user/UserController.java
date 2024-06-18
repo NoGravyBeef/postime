@@ -114,7 +114,6 @@ public class UserController {
                     "<p>resultData = 인증 코드와 유저 PK~!~! </p>"
     )
     public ResultDto<PwdAcRes> rePwd(@ParameterObject PwdAcReq p) {
-
         int code = 2;
         String msg = "이메일 전송완료 ";
         PwdAcRes result = null;
@@ -167,7 +166,7 @@ public class UserController {
     )
     public ResultDto<String> findId(@ParameterObject @ModelAttribute FindIdReq p) {
         int code = 2;
-        String msg = "아이디 찾기완룡~!";
+        String msg = "아이디 찾기완료";
         String result = null;
         try {
             result = service.findId(p);
@@ -206,7 +205,6 @@ public class UserController {
                 .resultMsg(msg)
                 .resultData(result)
                 .build();
-
     }
 
     @GetMapping("checkuser")
@@ -232,8 +230,8 @@ public class UserController {
                 .resultMsg(msg)
                 .resultData(result)
                 .build();
-
     }
+
     @PostMapping("checkPwd")
     @Operation(summary = "비번 검증", description = "리턴 값은 참 또는 거짓")
     @ApiResponse(responseCode = "200", description =
@@ -256,6 +254,5 @@ public class UserController {
                 .resultMsg(msg)
                 .resultData(result)
                 .build();
-
     }
 }

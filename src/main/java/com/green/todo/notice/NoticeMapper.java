@@ -1,5 +1,6 @@
 package com.green.todo.notice;
 
+import com.green.todo.notice.model.req.NoticeDelReq;
 import com.green.todo.notice.model.req.NoticeListPostReq;
 import com.green.todo.notice.model.req.NoticePostReq;
 import com.green.todo.notice.model.req.NoticeUpdateReq;
@@ -22,4 +23,7 @@ public interface NoticeMapper {
     List<NoticeGetRes> getNoticeList (long signedUserId);
 
     void updateNotice(NoticeUpdateReq p);
+
+    void deleteNoticeList(long userId);
+    void deleteNoticePermanent(long noticeId);
 }

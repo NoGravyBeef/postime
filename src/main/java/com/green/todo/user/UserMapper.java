@@ -11,7 +11,7 @@ public interface UserMapper {
     User getUser(ChangePasswordPatchReq p);
     int delUser(long p);
     User getUserByUserId(long userId);
-    int patchPassword(long userId);
+    int patchPassword(long userId, String newPw);
     String findId(FindIdReq p);
     int updUser(EditReq p);
     PwdAcRes reqPwd(PwdAcReq p);

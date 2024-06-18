@@ -34,7 +34,7 @@ springdoc:
       disabled: true
 
 file:
-  dir: D:\youp\download\todo\
+  dir: /home/download/postime/
 
 ---
 
@@ -44,4 +44,4 @@ spring:
       on-profile: test
 
 logging:
-  directory: D:\youp\download\todo\
+  directory: /home/download/postime/
