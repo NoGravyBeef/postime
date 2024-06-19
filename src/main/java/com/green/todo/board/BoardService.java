@@ -21,6 +21,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -168,11 +169,25 @@ public class BoardService {
             throw new RuntimeException("파싱 에러");
         }
 
-        List<GetViewCalendarRes> boardListByUserId;
+        List<GetViewCalendarRes> boardListByUserId = new ArrayList<>();
         try {
             boardListByUserId = mapper.getBoardViewListByUserId(user_id);
         } catch (Exception e) {
             throw new RuntimeException("board정보 불러오기 실패");
+        }
+
+
+        //라이브러리 때문에 끝에 하루 추가해줌
+        if (!boardListByUserId.isEmpty()) {
+            try {
+                for (GetViewCalendarRes entity : boardListByUserId) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate date = LocalDate.parse(entity.getEnd(), formatter);
+                    entity.setEnd(date.plusDays(1).format(formatter));
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("날짜 하루 추가해주다가 박살남");
+            }
         }
 
 //        List<IdDto> result1 = new ArrayList<>();

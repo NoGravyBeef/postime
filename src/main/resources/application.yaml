@@ -34,7 +34,7 @@ springdoc:
     disabled: true
 
 file:
-  dir: /home/download/postime/
+  dir: D:\youp\download\todo\
 
 ---
 
@@ -47,4 +47,4 @@ spring:
     username: odd_first_3
     password: loctite
 file:
-  dir: /home/download/postime
+  dir: /home/download/postime/
