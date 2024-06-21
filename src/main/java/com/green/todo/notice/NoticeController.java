@@ -44,9 +44,9 @@ public class NoticeController {
         List<NoticeGetRes> result = null;
         try {
             result = service.getNoticeList(signedUserId);
-//            if(result != null && !result.isEmpty()) {
-//                service.deleteNotice(result, signedUserId);
-//            }
+            if(result != null && !result.isEmpty()) {
+                service.deleteNotice(result, signedUserId);
+            }
         } catch (Exception e) {
             utils.noAcceptable(e);
         }

@@ -9,6 +9,8 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+import static com.green.todo.common.model.GlobalConst.NOTICE_COMMENT_LENGTH;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -65,6 +67,10 @@ public class NoticeService {
     // NoticeReq = 캘린더PK, 댓글을 추가한 유저의 PK  + 보드 PK
     public void newCommentNotice(NoticeReq p, long boardId, String content) {
         contents.setBoardName(mapper.getBoardName(boardId));
+        if(content.length() > NOTICE_COMMENT_LENGTH) {
+            content = content.substring(0,NOTICE_COMMENT_LENGTH);
+            content += "...";
+        }
         contents.setContent(content);
 
         NoticePostReq insNotice = new NoticePostReq();
