@@ -1,0 +1,7 @@
+https://github.com/NoGravyBeef/postime.git
+
+
+테스트용 계정
+
+아이디 : 1234test
+비밀번호 : !@#$1234Test
